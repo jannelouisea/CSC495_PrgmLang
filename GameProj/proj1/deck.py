@@ -21,5 +21,5 @@ class Deck(Thing):
 
         # Create jokers
         if (jokers_included):
-            self.deck.append(Card('', '', 0, True))
-            self.deck.append(Card('', '', 0, True))
+            self.deck.append(Card('Z', 'Z', 0, True))
+            self.deck.append(Card('Z', 'Z', 0, True))

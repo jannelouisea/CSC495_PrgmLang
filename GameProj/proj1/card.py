@@ -15,3 +15,16 @@ class Card(Thing):
 
     def flip(self):
         self.face_up = not(self.face_up)
+
+    def equalsRank(self, card):
+        if isinstance(card, Card):
+            return card.rank == self.rank
+        else:
+            return False
+
+    def equalsSuit(self, card):
+        if isinstance(card, Card):
+            return card.suit == self.suit
+        else:
+            return False
+
