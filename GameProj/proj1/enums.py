@@ -11,3 +11,7 @@ class FaceCard(Enum):
     QUEEN = 'Q',
     JACK = 'J',
     ACE = 'A'
+
+class Color(Enum):
+    BLACK = 0,
+    RED = 1
