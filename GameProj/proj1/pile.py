@@ -15,7 +15,7 @@ class Pile(Thing):
         return self.cards.pop()
 
     # Adds a new card onto the stack of cards
-    def put(self, card, faceUp):
+    def put(self, card, faceUp=True):
         if isinstance(card, Card):
             if card.faceUp != faceUp:
                 card.flip()
