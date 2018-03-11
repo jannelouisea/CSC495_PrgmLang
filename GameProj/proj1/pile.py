@@ -11,11 +11,11 @@ class Pile(Thing):
         return self.cards[-1].getInfo()
 
     # Removes and then returns the top card
-    def removeTopCard(self):
+    def take(self):
         return self.cards.pop()
 
     # Adds a new card onto the stack of cards
-    def addCard(self, card, faceUp):
+    def put(self, card, faceUp):
         if isinstance(card, Card):
             if card.faceUp != faceUp:
                 card.flip()
