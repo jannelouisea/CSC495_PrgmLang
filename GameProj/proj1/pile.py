@@ -1,7 +1,8 @@
 from card import Card
+from thing import Thing
 
 # Pile class manages a stack of cards
-class Pile():
+class Pile(Thing):
     def __init__(self):
         self.cards = list()     # implemented as a stack
 
