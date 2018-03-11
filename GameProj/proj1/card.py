@@ -9,7 +9,7 @@ class Card(Thing):
         self.value = value          # point value of the card
         self.color = self.detColor()
         self.joker = joker          # boolean value
-        self.face_up = False        # boolean value
+        self.faceUp = False        # boolean value
 
     def detColor(self):
         if self.suit == Suit.CLUBS or self.suit == Suit.SPADES:
@@ -23,11 +23,8 @@ class Card(Thing):
     def isFaceCard(self):
         return self.rank in FaceCard.__members__
 
-    def isFaceUp(self):
-        return self.face_up
-
     def flip(self):
-        self.face_up = not(self.face_up)
+        self.faceUp = not(self.faceUp)
 
     def equalsRank(self, card):
         if isinstance(card, Card):

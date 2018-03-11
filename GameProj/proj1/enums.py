@@ -15,3 +15,7 @@ class FaceCard(Enum):
 class Color(Enum):
     BLACK = 0,
     RED = 1
+
+class Direction(Enum):
+    CLOCKWISE = 1,
+    CRCLOCKWISE = -1

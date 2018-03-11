@@ -17,8 +17,6 @@ class Pile(Thing):
     # Adds a new card onto the stack of cards
     def addCard(self, card, faceUp):
         if isinstance(card, Card):
-            if card.face_up == faceUp:
-                self.cards.append(card)
-            else:
+            if card.faceUp != faceUp:
                 card.flip()
-                self.cards.append(card)
+            self.cards.append(card)
