@@ -3,7 +3,8 @@ from enums import Direction
 import sys
 
 class Game(Thing):
-    def __init__(self):
+    def __init__(self, game):
+        self.game = game
         self.env = {
             'players': list(),                      # list of Players
             'currPlayer': 0,                        # index of current player
@@ -19,3 +20,5 @@ class Game(Thing):
     def setUp(self): pass
 
     def cancel(self, msg): sys.exit(msg)
+
+    def detWinner(self): pass

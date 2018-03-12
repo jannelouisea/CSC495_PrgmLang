@@ -1,14 +1,16 @@
 from thing import Thing
 from rule import Rule
 import random
+from enums import BartokRule
 
-class BartokRules():
+class BartokRules(Thing):
     def __init__(self):
-        self.rules = list()
+        # Place Rules below in order of priority
+        self.rules = [PlaceDraw2Rule(), Draw2Rule(), PlaceCardRule(), DrawCard()]
 
 class PlaceDraw2Rule(Rule):
     def __init__(self):
-        self.name = "Place Draw 2 Card"
+        self.name = BartokRule.PLACEDRAW2
 
     def canAct(self, player):
         centerCard = player.env['center'].checkTopCard()
@@ -30,18 +32,27 @@ class PlaceDraw2Rule(Rule):
 
 class Draw2Rule(Rule):
     def __init__(self):
-        self.name = "Draw 2"
+        self.name = BartokRule.DRAW2
 
     def canAct(self, player):
         centerCard = player.env['center'].checkTopCard()
         return centerCard.rank == '2'
 
     def act(self, player):
-        pass
+        # First check the number of cards left in the deck
+        if player.env['deck'].isEmpty():
+            # Take extra cards from center and add it to the deck
+            extraCardCount = player.env['center'].numOfCards() - 1
+            for i in range(0,extraCardCount):
+                player.env['deck'].put(player.end['center'].takeBottom(), False)
+
+        player.addToHand(player.env['deck'].takeTop())
+        player.addToHand(player.env['deck'].takeTop())
+        player.env['currPlayer'] = self.nextPlayer(player)
 
 class PlaceCardRule(Rule):
     def __init__(self):
-        self.name = "Place Card"
+        self.name = BartokRule.PLACECARD
 
     def canAct(self, player):
         centerCard = player.env['center'].checkTopCard()
@@ -65,7 +76,7 @@ class PlaceCardRule(Rule):
 
 class DrawCard(Rule):
     def __init__(self):
-        self.name = "Draw Card"
+        self.name = BartokRule.DRAWCARD
 
     def canAct(self, player):
         return True

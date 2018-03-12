@@ -1,6 +1,7 @@
 import sys
 from spoons import Spoons
 from bartok import Bartok
+from enums import Game
 # from deck import Deck
 
 # deck_no_jokers = Deck()       # Creates a standard 52 deck WITHOUT jokers
@@ -15,10 +16,10 @@ if __name__ == '__main__':
     game = None
     if gameChoice == 0:
         print ("You chose Bartok!")
-        game =  Bartok()
+        game =  Bartok(Game.BARTOK)
     elif gameChoice == 1:
         print ("You chose Spoons!")
-        game = Spoons()
+        game = Spoons(Game.SPOONS)
     else:
         sys.exit("Incorrect value submitted. Canceling game.")
 

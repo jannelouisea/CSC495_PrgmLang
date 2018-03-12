@@ -19,3 +19,13 @@ class Color(Enum):
 class Direction(Enum):
     CLOCKWISE = 1
     CRCLOCKWISE = -1
+
+class Game(Enum):
+    BARTOK = 0,
+    SPOONS = 1
+
+class BartokRule(Enum):
+    PLACEDRAW2 = 0
+    DRAW2 = 1
+    PLACECARD = 2
+    DRAWCARD = 3

@@ -4,8 +4,8 @@ from player import Player
 from pile import Pile
 
 class Bartok(Game):
-    def __init__(self):
-        super(Bartok, self).__init__()
+    def __init__(self, game):
+        super(Bartok, self).__init__(game)
         self.env['center'] = Pile()
 
     def setUp(self):
@@ -25,7 +25,7 @@ class Bartok(Game):
             self.cancel("Invalid number of starting cards. Canceling game.")
 
         for i in range(numOfPlayers):
-            player = Player(self.env)
+            player = Player(self.env, i, self.game)
             for i in range(numStartCards):
                 player.addToHand(self.env['deck'].take())
             self.env['players'].append(player)
@@ -35,3 +35,13 @@ class Bartok(Game):
 
     def play(self):
         print("Let's play Bartok!")
+        # while(self.env['winner'] < 0):
+        currPlayer = self.env['players'][self.env['currPlayer']]
+        currPlayer.weighOptions()
+        currPlayer.act()
+        # self.detWinner()
+
+    def detWinner(self):
+        for player in self.env['players']:
+            if player.sizeOfHand() == 0:
+                self.env['winner'] = player.index

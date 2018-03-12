@@ -7,8 +7,8 @@ from enums import Suit
 
 class Spoons(Game):
 
-    def __init__(self):
-        super(Spoons, self).__init__()
+    def __init__(self, game):
+        super(Spoons, self).__init__(game)
         self.initHandCount = 4
         self.env['trash'] = Pile()
 
@@ -28,8 +28,11 @@ class Spoons(Game):
             for i in range(self.initHandCount):
                 player.addToHand(self.env['deck'].take())
             self.env['players'].append(player)
+
+        # Init end player, player who only contributes to the trash pile
         self.env['endPlayer'] = numOfPlayers - 1
-        return self.env
+
+        # return self.env     # You don't need to return self.env it is a variable accessible to all objects
 
     def fourOfAKind(self, player):
         # canAct()
@@ -85,5 +88,5 @@ class Spoons(Game):
                     player.addToHand(temp.pop())
                     #gives card to next player
                     temp.append(player.removeFromHand())
-        print 'Player {} has won'.format(i)
+        print('Player {} has won'.format(i))
 

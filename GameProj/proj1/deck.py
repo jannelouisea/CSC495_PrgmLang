@@ -8,8 +8,6 @@ class Deck(Pile):
 
     def __init__(self, jokers_included=False):
         super(Deck, self).__init__()
-        # Declare list of cards
-        # self.deck = list()
 
         # Initialize list of cards
         for suit in Suit:
