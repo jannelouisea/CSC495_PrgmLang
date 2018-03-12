@@ -35,7 +35,16 @@ class Bartok(Game):
         self.env['center'].put(self.env['deck'].takeTop())
 
     def play(self):
-        print("Let's play Bartok!")
+        version = int(input("Which version would you like to do?\n0 - Simulation\n1 - Real Play\n> "))
+        if version == 0:
+            self.simulation()
+        elif version == 1:
+            self.realPlay()
+        else:
+            super(Bartok, self).cancel("Incorrect input. Canceling Game.")
+
+    def simulation(self):
+        print("Let's play Bartok! (Simulation)")
         while(self.env['winner'] < 0):
             topCard = self.env['center'].checkTopCard()
             print("Center Card: ({} {})".format(topCard.rank, topCard.suit))
@@ -44,6 +53,9 @@ class Bartok(Game):
             currPlayer.act()
             self.detWinner()
         print("Player {} has won the game!".format(self.env['winner']))
+
+    def realPlay(self):
+        print("Let's play Bartok! (Real Play)")
 
     def detWinner(self):
         for player in self.env['players']:
