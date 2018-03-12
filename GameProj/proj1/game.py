@@ -13,8 +13,6 @@ class Game(Thing):
             'winner': -1                            # index of player who won the game, -1 for no winner
         }
 
-    def deal(self, numOfCards): pass
-
     def play(self): pass
 
     def setUp(self): pass

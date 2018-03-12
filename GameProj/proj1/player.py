@@ -20,6 +20,9 @@ class Player(Thing):
             str = str + card.suit.value
         return str
 
+    def removeCardFromHand(self, idx):
+        return self.hand.pop(idx)
+
     def sortHand(self):
         pass
 
