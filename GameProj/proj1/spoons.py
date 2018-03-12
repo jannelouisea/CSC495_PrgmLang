@@ -1,7 +1,9 @@
+import re
 from game import Game
 from deck import Deck
 from player import Player
 from pile import Pile
+from enums import Suit
 
 class Spoons(Game):
 
@@ -22,11 +24,66 @@ class Spoons(Game):
 
         # Init each player's hand
         for i in range(numOfPlayers):
-            player = Player(self.env)
+            player = Player(self.env, i)
             for i in range(self.initHandCount):
                 player.addToHand(self.env['deck'].take())
             self.env['players'].append(player)
+        self.env['endPlayer'] = numOfPlayers - 1
+        return self.env
+
+    def fourOfAKind(self, player):
+        # canAct()
+        pattern = re.compile("(2|3|4|5|6|7|8|9|J|Q|K){4}SHDC")
+        if pattern.match(player.handToStr()):
+            self.env['winner'] = player.index
+            return True
+        return False
+
+    def suitCheck(self, suit):
+        if suit == "Spades":
+            return Suit.SPADES
+        elif suit == "Clubs":
+            return Suit.CLUBS
+        elif suit == "Diamonds":
+            return Suit.DIAMONDS
+        elif suit == "Hearts":
+            return Suit.HEARTS
+        else:
+            return "Invalid suit"
 
 
     def play(self):
         print("Let's play Spoons!")
+        numOfPlayers = len(self.env['players'])
+        temp = []  # should always have only one card
+        player = self.env['players'][0]
+        while Spoons.fourOfAKind(self, player) == False:
+            for i in range(numOfPlayers):
+                if Spoons.fourOfAKind(self, player) == True:
+                    break
+                player = self.env['players'][i]
+                if i == numOfPlayers - 1:
+                    #adds card that player gave
+                    player.addToHand(temp.pop())
+                    #adds card from hand to trash pile
+                    self.env['trash'].put(player.removeFromHand())
+                elif i == 0:
+                    #adds new card from deck
+                    if len(self.env['deck'].cards) == 0:
+                        #shuffle these???
+                        self.env['deck'] = self.env['trash']
+                    player.addToHand(self.env['deck'].take())
+                    print("Player 0 these are your cards: ")
+                    player.reflect()
+                    num = int(input("Please input the card number to discard (1-5) \n"))
+                    #gives card to next player
+                    
+                    #TODO: remove the specified card
+                    temp.append(player.removeFromHand(self, num))
+                else:
+                    #adds card that player gave
+                    player.addToHand(temp.pop())
+                    #gives card to next player
+                    temp.append(player.removeFromHand())
+        print 'Player {} has won'.format(i)
+
