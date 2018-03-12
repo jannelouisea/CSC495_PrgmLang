@@ -53,6 +53,7 @@ class Player(Thing):
         for rule in self.game.rules:        # Rules are sorted by highest priority
             if rule.canAct(self):           # As of right now, the strategy is to just
                 self.move = rule            # act on the first rule the player can do
+                print("Player", self.index, "weighed", rule.name, "as the best option")
                 break                       # If a player of a specific game needs more intricate
                                             # ways to weigh their options, a player subclass should
                                             # be made overwriting this method

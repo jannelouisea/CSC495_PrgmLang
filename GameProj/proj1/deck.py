@@ -29,3 +29,24 @@ class Deck(Pile):
     def shuffle(self):
         shuffle(self.cards)
 
+    def isEmpty(self):
+        return super(Deck, self).isEmpty()
+
+    def numOfCards(self):
+        return super(Deck, self).numOfCards()
+
+    # Returns a tuple of information about the top card
+    def checkTopCard(self):
+        return super(Deck, self).checkTopCard()
+
+    # Removes and then returns the top card
+    def takeTop(self):
+        return super(Deck, self).takeTop()
+
+    def takeBottom(self):
+        return super(Deck, self).takeBottom()
+
+    # Adds a new card onto the stack of cards
+    def put(self, card, faceUp=True):
+        super(Deck, self).put(card, faceUp)
+
