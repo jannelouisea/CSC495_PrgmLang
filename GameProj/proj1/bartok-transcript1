@@ -1,0 +1,900 @@
+/Users/Apeksha/PycharmProjects/h2/venv/bin/python /Users/Apeksha/PycharmProjects/CSC495_PrgmLang/GameProj/proj1/letsplay.py
+Let's Play! :D
+Which game would you like to play?
+0 - Bartok
+1 - Spoons
+> 0
+You chose Bartok!
+Setting up Bartok
+How many players? Number must be between 2 and 5.
+> 4
+How many cards should each player start with? Must be between 5 or 7 cards.
+> 5
+Let's play Bartok!
+
+Bartok Requirements:
+ A standard deck of cards (without Jokers)
+ 2 to 5 players
+ 5 to 7 card to start
+Game Play:
+ The first player to get rid of all cards from their hand wins.
+ Each player is initially dealt five to seven cards.
+ Players place cards in the center Pile.
+ After dealing cards to each player, the top card from the deck is placed
+ face up in the center.
+ Each player must place a card matching the suit or rank of the
+ top card of the center pile.
+ If a player cannot place a card, they must draw one card from the deck (This is done automatically).
+ If the top card is a Draw 2 card (i.e. card with rank 2) and the player cannot
+ add another Draw 2 card, they must draw n cards from the deck where n equals the number
+ of cumulative Draw 2 cards * 2 (This is also done automatically).
+
+=============================
+Center Card: (2 Suit.CLUBS)
+=============================
+Player 1 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (9, Suit.DIAMONDS)
+1 - (J, Suit.SPADES)
+2 - (Q, Suit.CLUBS) ** Can play this card **
+3 - (A, Suit.HEARTS)
+4 - (7, Suit.CLUBS) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 2
+Player 1 placed (Q, Suit.CLUBS) in Center
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
+=============================
+Center Card: (Q Suit.CLUBS)
+=============================
+Player 2 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (K, Suit.CLUBS) ** Can play this card **
+1 - (6, Suit.CLUBS) ** Can play this card **
+2 - (4, Suit.DIAMONDS)
+3 - (3, Suit.CLUBS) ** Can play this card **
+4 - (3, Suit.DIAMONDS)
+Enter the INDEX of the card you would like to place.
+> 0
+Player 2 placed (K, Suit.CLUBS) in Center
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
+=============================
+Center Card: (K Suit.CLUBS)
+=============================
+Player 3 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (5, Suit.SPADES)
+1 - (2, Suit.DIAMONDS) ** Can play this card **
+2 - (9, Suit.SPADES)
+3 - (A, Suit.SPADES)
+4 - (K, Suit.HEARTS) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 4
+Player 3 placed (K, Suit.HEARTS) in Center
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
+=============================
+Center Card: (K Suit.HEARTS)
+=============================
+Player 4 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (8, Suit.SPADES)
+1 - (2, Suit.SPADES) ** Can play this card **
+2 - (5, Suit.DIAMONDS)
+3 - (4, Suit.CLUBS)
+4 - (Q, Suit.SPADES)
+Enter the INDEX of the card you would like to place.
+> 2
+You cannot place that card
+Possible card indexes to play [1]
+Enter the INDEX of the card you would like to place.
+> 1
+Player 4 placed (2, Suit.SPADES) in Center
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
+=============================
+Center Card: (2 Suit.SPADES)
+=============================
+Player 1 turn
+-----------------------------
+Your only option is to draw 2 card(s).
+Automatically adding 2 card(s) to your hand.
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
+=============================
+Center Card: (2 Suit.SPADES)
+=============================
+Player 2 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
+=============================
+Center Card: (2 Suit.SPADES)
+=============================
+Player 3 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (5, Suit.SPADES) ** Can play this card **
+1 - (2, Suit.DIAMONDS) ** Can play this card **
+2 - (9, Suit.SPADES) ** Can play this card **
+3 - (A, Suit.SPADES) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 0
+Player 3 placed (5, Suit.SPADES) in Center
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
+=============================
+Center Card: (5 Suit.SPADES)
+=============================
+Player 4 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (8, Suit.SPADES) ** Can play this card **
+1 - (5, Suit.DIAMONDS) ** Can play this card **
+2 - (4, Suit.CLUBS)
+3 - (Q, Suit.SPADES) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 3
+Player 4 placed (Q, Suit.SPADES) in Center
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
+=============================
+Center Card: (Q Suit.SPADES)
+=============================
+Player 1 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (9, Suit.DIAMONDS)
+1 - (J, Suit.SPADES) ** Can play this card **
+2 - (A, Suit.HEARTS)
+3 - (7, Suit.CLUBS)
+4 - (6, Suit.DIAMONDS)
+5 - (6, Suit.HEARTS)
+Enter the INDEX of the card you would like to place.
+> 1
+Player 1 placed (J, Suit.SPADES) in Center
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
+=============================
+Center Card: (J Suit.SPADES)
+=============================
+Player 2 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
+=============================
+Center Card: (J Suit.SPADES)
+=============================
+Player 3 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (2, Suit.DIAMONDS) ** Can play this card **
+1 - (9, Suit.SPADES) ** Can play this card **
+2 - (A, Suit.SPADES) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 1
+Player 3 placed (9, Suit.SPADES) in Center
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
+=============================
+Center Card: (9 Suit.SPADES)
+=============================
+Player 4 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (8, Suit.SPADES) ** Can play this card **
+1 - (5, Suit.DIAMONDS)
+2 - (4, Suit.CLUBS)
+Enter the INDEX of the card you would like to place.
+> 0
+Player 4 placed (8, Suit.SPADES) in Center
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
+=============================
+Center Card: (8 Suit.SPADES)
+=============================
+Player 1 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
+=============================
+Center Card: (8 Suit.SPADES)
+=============================
+Player 2 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (6, Suit.CLUBS)
+1 - (4, Suit.DIAMONDS)
+2 - (3, Suit.CLUBS)
+3 - (3, Suit.DIAMONDS)
+4 - (5, Suit.HEARTS)
+5 - (8, Suit.DIAMONDS) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 5
+Player 2 placed (8, Suit.DIAMONDS) in Center
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
+=============================
+Center Card: (8 Suit.DIAMONDS)
+=============================
+Player 3 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (2, Suit.DIAMONDS) ** Can play this card **
+1 - (A, Suit.SPADES)
+Enter the INDEX of the card you would like to place.
+> 0
+Player 3 placed (2, Suit.DIAMONDS) in Center
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
+=============================
+Center Card: (2 Suit.DIAMONDS)
+=============================
+Player 4 turn
+-----------------------------
+Your only option is to draw 2 card(s).
+Automatically adding 2 card(s) to your hand.
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
+=============================
+Center Card: (2 Suit.DIAMONDS)
+=============================
+Player 1 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (9, Suit.DIAMONDS) ** Can play this card **
+1 - (A, Suit.HEARTS)
+2 - (7, Suit.CLUBS)
+3 - (6, Suit.DIAMONDS) ** Can play this card **
+4 - (6, Suit.HEARTS)
+5 - (Q, Suit.HEARTS)
+Enter the INDEX of the card you would like to place.
+> 0
+Player 1 placed (9, Suit.DIAMONDS) in Center
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
+=============================
+Center Card: (9 Suit.DIAMONDS)
+=============================
+Player 2 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (6, Suit.CLUBS)
+1 - (4, Suit.DIAMONDS) ** Can play this card **
+2 - (3, Suit.CLUBS)
+3 - (3, Suit.DIAMONDS) ** Can play this card **
+4 - (5, Suit.HEARTS)
+Enter the INDEX of the card you would like to place.
+> 1
+Player 2 placed (4, Suit.DIAMONDS) in Center
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
+=============================
+Center Card: (4 Suit.DIAMONDS)
+=============================
+Player 3 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
+=============================
+Center Card: (4 Suit.DIAMONDS)
+=============================
+Player 4 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (5, Suit.DIAMONDS) ** Can play this card **
+1 - (4, Suit.CLUBS) ** Can play this card **
+2 - (Q, Suit.DIAMONDS) ** Can play this card **
+3 - (2, Suit.HEARTS) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 0
+Player 4 placed (5, Suit.DIAMONDS) in Center
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
+=============================
+Center Card: (5 Suit.DIAMONDS)
+=============================
+Player 1 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (A, Suit.HEARTS)
+1 - (7, Suit.CLUBS)
+2 - (6, Suit.DIAMONDS) ** Can play this card **
+3 - (6, Suit.HEARTS)
+4 - (Q, Suit.HEARTS)
+Enter the INDEX of the card you would like to place.
+> 2
+Player 1 placed (6, Suit.DIAMONDS) in Center
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
+=============================
+Center Card: (6 Suit.DIAMONDS)
+=============================
+Player 2 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (6, Suit.CLUBS) ** Can play this card **
+1 - (3, Suit.CLUBS)
+2 - (3, Suit.DIAMONDS) ** Can play this card **
+3 - (5, Suit.HEARTS)
+Enter the INDEX of the card you would like to place.
+> 0
+Player 2 placed (6, Suit.CLUBS) in Center
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
+=============================
+Center Card: (6 Suit.CLUBS)
+=============================
+Player 3 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (A, Suit.SPADES)
+1 - (6, Suit.SPADES) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 1
+Player 3 placed (6, Suit.SPADES) in Center
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
+=============================
+Center Card: (6 Suit.SPADES)
+=============================
+Player 4 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (4, Suit.CLUBS)
+1 - (Q, Suit.DIAMONDS)
+2 - (2, Suit.HEARTS) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 2
+Player 4 placed (2, Suit.HEARTS) in Center
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
+=============================
+Center Card: (2 Suit.HEARTS)
+=============================
+Player 1 turn
+-----------------------------
+Your only option is to draw 2 card(s).
+Automatically adding 2 card(s) to your hand.
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
+=============================
+Center Card: (2 Suit.HEARTS)
+=============================
+Player 2 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (3, Suit.CLUBS)
+1 - (3, Suit.DIAMONDS)
+2 - (5, Suit.HEARTS) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 2
+Player 2 placed (5, Suit.HEARTS) in Center
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
+=============================
+Center Card: (5 Suit.HEARTS)
+=============================
+Player 3 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
+=============================
+Center Card: (5 Suit.HEARTS)
+=============================
+Player 4 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
+=============================
+Center Card: (5 Suit.HEARTS)
+=============================
+Player 1 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (A, Suit.HEARTS) ** Can play this card **
+1 - (7, Suit.CLUBS)
+2 - (6, Suit.HEARTS) ** Can play this card **
+3 - (Q, Suit.HEARTS) ** Can play this card **
+4 - (5, Suit.CLUBS) ** Can play this card **
+5 - (7, Suit.SPADES)
+Enter the INDEX of the card you would like to place.
+> 0
+Player 1 placed (A, Suit.HEARTS) in Center
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
+=============================
+Center Card: (A Suit.HEARTS)
+=============================
+Player 2 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
+=============================
+Center Card: (A Suit.HEARTS)
+=============================
+Player 3 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (A, Suit.SPADES) ** Can play this card **
+1 - (J, Suit.CLUBS)
+Enter the INDEX of the card you would like to place.
+> 0
+Player 3 placed (A, Suit.SPADES) in Center
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
+=============================
+Center Card: (A Suit.SPADES)
+=============================
+Player 4 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (4, Suit.CLUBS)
+1 - (Q, Suit.DIAMONDS)
+2 - (3, Suit.SPADES) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 2
+Player 4 placed (3, Suit.SPADES) in Center
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
+=============================
+Center Card: (3 Suit.SPADES)
+=============================
+Player 1 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (7, Suit.CLUBS)
+1 - (6, Suit.HEARTS)
+2 - (Q, Suit.HEARTS)
+3 - (5, Suit.CLUBS)
+4 - (7, Suit.SPADES) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 4
+Player 1 placed (7, Suit.SPADES) in Center
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
+=============================
+Center Card: (7 Suit.SPADES)
+=============================
+Player 2 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (3, Suit.CLUBS)
+1 - (3, Suit.DIAMONDS)
+2 - (4, Suit.SPADES) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 2
+Player 2 placed (4, Suit.SPADES) in Center
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
+=============================
+Center Card: (4 Suit.SPADES)
+=============================
+Player 3 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
+=============================
+Center Card: (4 Suit.SPADES)
+=============================
+Player 4 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (4, Suit.CLUBS) ** Can play this card **
+1 - (Q, Suit.DIAMONDS)
+Enter the INDEX of the card you would like to place.
+> 0
+Player 4 placed (4, Suit.CLUBS) in Center
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
+=============================
+Center Card: (4 Suit.CLUBS)
+=============================
+Player 1 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (7, Suit.CLUBS) ** Can play this card **
+1 - (6, Suit.HEARTS)
+2 - (Q, Suit.HEARTS)
+3 - (5, Suit.CLUBS) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 5
+You cannot place that card
+Possible card indexes to play [0, 3]
+Enter the INDEX of the card you would like to place.
+> 0
+Player 1 placed (7, Suit.CLUBS) in Center
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+5
+The next player should be Player 2. Please enter 2 to proceed.
+6
+The next player should be Player 2. Please enter 2 to proceed.
+7
+The next player should be Player 2. Please enter 2 to proceed.
+2
+=============================
+Center Card: (7 Suit.CLUBS)
+=============================
+Player 2 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (3, Suit.CLUBS) ** Can play this card **
+1 - (3, Suit.DIAMONDS)
+Enter the INDEX of the card you would like to place.
+> 0
+Player 2 placed (3, Suit.CLUBS) in Center
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
+=============================
+Center Card: (3 Suit.CLUBS)
+=============================
+Player 3 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (J, Suit.CLUBS) ** Can play this card **
+1 - (K, Suit.DIAMONDS)
+Enter the INDEX of the card you would like to place.
+> 0
+Player 3 placed (J, Suit.CLUBS) in Center
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
+=============================
+Center Card: (J Suit.CLUBS)
+=============================
+Player 4 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
+=============================
+Center Card: (J Suit.CLUBS)
+=============================
+Player 1 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (6, Suit.HEARTS)
+1 - (Q, Suit.HEARTS)
+2 - (5, Suit.CLUBS) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 2
+Player 1 placed (5, Suit.CLUBS) in Center
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
+=============================
+Center Card: (5 Suit.CLUBS)
+=============================
+Player 2 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
+=============================
+Center Card: (5 Suit.CLUBS)
+=============================
+Player 3 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
+=============================
+Center Card: (5 Suit.CLUBS)
+=============================
+Player 4 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (Q, Suit.DIAMONDS)
+1 - (8, Suit.CLUBS) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 1
+Player 4 placed (8, Suit.CLUBS) in Center
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
+=============================
+Center Card: (8 Suit.CLUBS)
+=============================
+Player 1 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
+=============================
+Center Card: (8 Suit.CLUBS)
+=============================
+Player 2 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (3, Suit.DIAMONDS)
+1 - (9, Suit.CLUBS) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 1
+Player 2 placed (9, Suit.CLUBS) in Center
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
+=============================
+Center Card: (9 Suit.CLUBS)
+=============================
+Player 3 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (K, Suit.DIAMONDS)
+1 - (9, Suit.HEARTS) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 1
+Player 3 placed (9, Suit.HEARTS) in Center
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
+=============================
+Center Card: (9 Suit.HEARTS)
+=============================
+Player 4 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
+=============================
+Center Card: (9 Suit.HEARTS)
+=============================
+Player 1 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (6, Suit.HEARTS) ** Can play this card **
+1 - (Q, Suit.HEARTS) ** Can play this card **
+2 - (7, Suit.HEARTS) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 1
+Player 1 placed (Q, Suit.HEARTS) in Center
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
+=============================
+Center Card: (Q Suit.HEARTS)
+=============================
+Player 2 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
+=============================
+Center Card: (Q Suit.HEARTS)
+=============================
+Player 3 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
+=============================
+Center Card: (Q Suit.HEARTS)
+=============================
+Player 4 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (Q, Suit.DIAMONDS) ** Can play this card **
+1 - (A, Suit.CLUBS)
+Enter the INDEX of the card you would like to place.
+> 0
+Player 4 placed (Q, Suit.DIAMONDS) in Center
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
+=============================
+Center Card: (Q Suit.DIAMONDS)
+=============================
+Player 1 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
+=============================
+Center Card: (Q Suit.DIAMONDS)
+=============================
+Player 2 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (3, Suit.DIAMONDS) ** Can play this card **
+1 - (8, Suit.HEARTS)
+Enter the INDEX of the card you would like to place.
+> 0
+Player 2 placed (3, Suit.DIAMONDS) in Center
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
+=============================
+Center Card: (3 Suit.DIAMONDS)
+=============================
+Player 3 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (K, Suit.DIAMONDS) ** Can play this card **
+1 - (4, Suit.HEARTS)
+Enter the INDEX of the card you would like to place.
+> 0
+Player 3 placed (K, Suit.DIAMONDS) in Center
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
+=============================
+Center Card: (K Suit.DIAMONDS)
+=============================
+Player 4 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
+=============================
+Center Card: (K Suit.DIAMONDS)
+=============================
+Player 1 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (6, Suit.HEARTS)
+1 - (7, Suit.HEARTS)
+2 - (J, Suit.DIAMONDS) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 2
+Player 1 placed (J, Suit.DIAMONDS) in Center
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
+=============================
+Center Card: (J Suit.DIAMONDS)
+=============================
+Player 2 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
+=============================
+Center Card: (J Suit.DIAMONDS)
+=============================
+Player 3 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
+=============================
+Center Card: (J Suit.DIAMONDS)
+=============================
+Player 4 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (A, Suit.CLUBS)
+1 - (J, Suit.HEARTS) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 1
+Player 4 placed (J, Suit.HEARTS) in Center
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
+=============================
+Center Card: (J Suit.HEARTS)
+=============================
+Player 1 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (6, Suit.HEARTS) ** Can play this card **
+1 - (7, Suit.HEARTS) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 0
+Player 1 placed (6, Suit.HEARTS) in Center
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
+=============================
+Center Card: (6 Suit.HEARTS)
+=============================
+Player 2 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (8, Suit.HEARTS) ** Can play this card **
+1 - (7, Suit.DIAMONDS)
+Enter the INDEX of the card you would like to place.
+> 0
+Player 2 placed (8, Suit.HEARTS) in Center
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+2
+The next player should be Player 3. Please enter 3 to proceed.
+3
+=============================
+Center Card: (8 Suit.HEARTS)
+=============================
+Player 3 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (4, Suit.HEARTS) ** Can play this card **
+1 - (3, Suit.HEARTS) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 0
+Player 3 placed (4, Suit.HEARTS) in Center
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
+=============================
+Center Card: (4 Suit.HEARTS)
+=============================
+Player 4 turn
+-----------------------------
+Your only option is to draw from the deck
+Automatically adding one card to your hand.
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
+=============================
+Center Card: (4 Suit.HEARTS)
+=============================
+Player 1 turn
+-----------------------------
+Your Hand
+INDEX - (CARD RANK, CARD SUIT)
+0 - (7, Suit.HEARTS) ** Can play this card **
+Enter the INDEX of the card you would like to place.
+> 0
+Player 1 placed (7, Suit.HEARTS) in Center
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
+Player 1 has won the game!
+
+Process finished with exit code 0
