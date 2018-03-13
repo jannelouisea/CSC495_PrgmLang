@@ -7,6 +7,8 @@ class Bartok(Game):
     def __init__(self, game):
         super(Bartok, self).__init__(game)
         self.env['center'] = Pile()
+        # this represents last player to draw 2
+        self.env['lptd2'] = -1
 
     def setUp(self):
         print("Setting up Bartok")

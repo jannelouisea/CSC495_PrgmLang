@@ -1,39 +1,14 @@
 from thing import Thing
 from rule import Rule
 import random
-from enums import BartokRule
+from enums import BartokRule, Direction
 
 class BartokRules(Thing):
     def __init__(self):
         # Place Rules below in order of priority
-        self.rules = [PlaceDraw2Rule(), Draw2Rule(), PlaceCardRule(), DrawCard()]
+        self.rules = [Draw2Rule(), PlaceCardRule(), DrawCard()]
 
-class PlaceDraw2Rule(Rule):
-    def __init__(self):
-        self.name = BartokRule.PLACEDRAW2
-
-    def canAct(self, player):
-        centerCard = player.env['center'].checkTopCard()
-        hasDraw2 = False
-        for card in player.hand:
-            if card.rank == '2':
-                hasDraw2 = True
-        return centerCard.rank == '2' and hasDraw2
-
-    def act(self, player):
-        draw2Idx = 0
-        for i in range(0, len(player.hand)):
-            if player.hand[i].rank == '2':
-                draw2Idx = i
-                break
-        player.env['center'].put(player.removeCardFromHand(draw2Idx))
-
-        centerCard = player.env['center'].checkTopCard()
-        print("Player {} placed ({} {}) in Center".format(player.index, centerCard.rank, centerCard.suit))
-        player.env['currPlayer'] = self.nextPlayer(player)
-
-    # Determines the next player
-    # TODO: Find a way to make this more abstract
+class BartokRuleNext(Rule):
     def nextPlayer(self, player):
         numOfPlayers = player.env['numOfPlayers']
         direction = player.env['direction'].value
@@ -45,13 +20,34 @@ class PlaceDraw2Rule(Rule):
             nextPlayer = numOfPlayers - 1
         return nextPlayer
 
-class Draw2Rule(Rule):
+class Draw2Rule(BartokRuleNext):
     def __init__(self):
         self.name = BartokRule.DRAW2
 
     def canAct(self, player):
+        canAct = False
         centerCard = player.env['center'].checkTopCard()
-        return centerCard.rank == '2'
+        if (centerCard.rank == '2'):
+
+            direction = player.env['direction']
+            lpdt2 = player.env['lpdt2']
+            currPlayer = player.env['currPlayer']
+            endPlayer = player.env['numOfPlayers'] - 1
+
+            if (lpdt2 == -1):
+                canAct = True
+            elif (direction == Direction.CLOCKWISE):
+                if(currPlayer == 0 and lpdt2 != endPlayer):
+                    canAct = True
+            elif (direction == Direction.CRCLOCKWISE):
+                if(currPlayer == endPlayer and lpdt2 != 0):
+                    canAct = True
+            else:
+                prevPlayer = currPlayer - (direction.value)
+                if(lpdt2 != prevPlayer):
+                    canAct = True
+        return canAct
+
 
     def act(self, player):
         self.checkDeck(player)
@@ -85,7 +81,7 @@ class Draw2Rule(Rule):
         print("Player {} placed ({} {}) in Center".format(player.index, centerCard.rank, centerCard.suit))
         # For simulation purposes
 
-        player.env['currPlayer'] = self.nextPlayer(player)
+        player.env['currPlayer'] = super(Draw2Rule, self).nextPlayer(player)
 
     def checkDeck(self, player):
         if player.env['deck'].isEmpty():
@@ -95,19 +91,7 @@ class Draw2Rule(Rule):
             for i in range(0,extraCardCount):
                 player.env['deck'].put(player.env['center'].takeBottom(), False)
 
-    # Determines the next player
-    def nextPlayer(self, player):
-        numOfPlayers = player.env['numOfPlayers']
-        direction = player.env['direction'].value
-        currPlayer = player.env['currPlayer']
-        nextPlayer = currPlayer + direction
-        if nextPlayer == numOfPlayers:
-            nextPlayer = 0
-        elif nextPlayer == -1:
-            nextPlayer = numOfPlayers - 1
-        return nextPlayer
-
-class PlaceCardRule(Rule):
+class PlaceCardRule(BartokRuleNext):
     def __init__(self):
         self.name = BartokRule.PLACECARD
 
@@ -126,27 +110,20 @@ class PlaceCardRule(Rule):
         for i in range(0, len(player.hand)):
             if player.hand[i].equalsRank(centerCard) or player.hand[i].equalsSuit(centerCard):
                 possibleCards.append(i)
-        chosenCard = possibleCards.pop(random.randint(0, len(possibleCards) - 1))
+       # chosenCard = possibleCards.pop(random.randint(0, len(possibleCards) - 1))
+        print("Your full hand: ", player.hand)
+        print("Your possible cards for this turn: ", possibleCards)
+        chosenCard = None
+        while (chosenCard not in possibleCards):
+            chosenCard = int(input("Which card would you like to play?"))
 
         player.env['center'].put(player.removeCardFromHand(chosenCard))
 
         centerCard = player.env['center'].checkTopCard()
         print("Player {} placed ({} {}) in Center".format(player.index, centerCard.rank, centerCard.suit))
-        player.env['currPlayer'] = self.nextPlayer(player)
+        player.env['currPlayer'] = super(PlaceCardRule, self).nextPlayer(player)
 
-    # Determines the next player
-    def nextPlayer(self, player):
-        numOfPlayers = player.env['numOfPlayers']
-        direction = player.env['direction'].value
-        currPlayer = player.env['currPlayer']
-        nextPlayer = currPlayer + direction
-        if nextPlayer == numOfPlayers:
-            nextPlayer = 0
-        elif nextPlayer == -1:
-            nextPlayer = numOfPlayers - 1
-        return nextPlayer
-
-class DrawCard(Rule):
+class DrawCard(BartokRuleNext):
     def __init__(self):
         self.name = BartokRule.DRAWCARD
 
@@ -158,7 +135,7 @@ class DrawCard(Rule):
 
         print("Player", player.index, "draws 1 Card from Deck")
         player.addToHand(player.env['deck'].takeTop())
-        player.env['currPlayer'] = self.nextPlayer(player)
+        player.env['currPlayer'] = super(DrawCard, self).nextPlayer(player)
 
     def checkDeck(self, player):
         if player.env['deck'].isEmpty():
@@ -167,15 +144,3 @@ class DrawCard(Rule):
             extraCardCount = player.env['center'].numOfCards() - 1
             for i in range(0,extraCardCount):
                 player.env['deck'].put(player.env['center'].takeBottom(), False)
-
-    # Determines the next player
-    def nextPlayer(self, player):
-        numOfPlayers = player.env['numOfPlayers']
-        direction = player.env['direction'].value
-        currPlayer = player.env['currPlayer']
-        nextPlayer = currPlayer + direction
-        if nextPlayer == numOfPlayers:
-            nextPlayer = 0
-        elif nextPlayer == -1:
-            nextPlayer = numOfPlayers - 1
-        return nextPlayer
