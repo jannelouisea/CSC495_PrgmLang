@@ -27,8 +27,23 @@ class PlaceDraw2Rule(Rule):
                 draw2Idx = i
                 break
         player.env['center'].put(player.removeCardFromHand(draw2Idx))
+
+        centerCard = player.env['center'].checkTopCard()
+        print("Player {} placed ({} {}) in Center".format(player.index, centerCard.rank, centerCard.suit))
         player.env['currPlayer'] = self.nextPlayer(player)
 
+    # Determines the next player
+    # TODO: Find a way to make this more abstract
+    def nextPlayer(self, player):
+        numOfPlayers = player.env['numOfPlayers']
+        direction = player.env['direction'].value
+        currPlayer = player.env['currPlayer']
+        nextPlayer = currPlayer + direction
+        if nextPlayer == numOfPlayers:
+            nextPlayer = 0
+        elif nextPlayer == -1:
+            nextPlayer = numOfPlayers - 1
+        return nextPlayer
 
 class Draw2Rule(Rule):
     def __init__(self):
@@ -39,16 +54,58 @@ class Draw2Rule(Rule):
         return centerCard.rank == '2'
 
     def act(self, player):
-        # First check the number of cards left in the deck
+        self.checkDeck(player)
+
+        # First check how many Draw 2 cards are in the center
+        drawCardCount = 0
+        center = player.env['center']
+        for i in range(center.numOfCards() - 1, -1, -1):
+            card = center.cards[i]
+            if card.rank == '2':
+                drawCardCount += 2
+            else:
+                break
+
+        print("Player", player.index, "draws", drawCardCount, "Card(s) from Deck")
+        for i in range(drawCardCount):
+            player.addToHand(player.env['deck'].takeTop())
+            self.checkDeck(player)
+
+        # For simulation purposes
+        centerCard = player.env['center'].checkTopCard()
+        possibleCards = list()
+        for i in range(0, len(player.hand)):
+            if player.hand[i].equalsRank(centerCard) or player.hand[i].equalsSuit(centerCard):
+                possibleCards.append(i)
+        chosenCard = possibleCards.pop(random.randint(0, len(possibleCards) - 1))
+
+        player.env['center'].put(player.removeCardFromHand(chosenCard))
+
+        centerCard = player.env['center'].checkTopCard()
+        print("Player {} placed ({} {}) in Center".format(player.index, centerCard.rank, centerCard.suit))
+        # For simulation purposes
+
+        player.env['currPlayer'] = self.nextPlayer(player)
+
+    def checkDeck(self, player):
         if player.env['deck'].isEmpty():
             # Take extra cards from center and add it to the deck
+            print("Deck is empty, adding extra cards from Center back to Deck")
             extraCardCount = player.env['center'].numOfCards() - 1
             for i in range(0,extraCardCount):
-                player.env['deck'].put(player.end['center'].takeBottom(), False)
+                player.env['deck'].put(player.env['center'].takeBottom(), False)
 
-        player.addToHand(player.env['deck'].takeTop())
-        player.addToHand(player.env['deck'].takeTop())
-        player.env['currPlayer'] = self.nextPlayer(player)
+    # Determines the next player
+    def nextPlayer(self, player):
+        numOfPlayers = player.env['numOfPlayers']
+        direction = player.env['direction'].value
+        currPlayer = player.env['currPlayer']
+        nextPlayer = currPlayer + direction
+        if nextPlayer == numOfPlayers:
+            nextPlayer = 0
+        elif nextPlayer == -1:
+            nextPlayer = numOfPlayers - 1
+        return nextPlayer
 
 class PlaceCardRule(Rule):
     def __init__(self):
@@ -72,7 +129,22 @@ class PlaceCardRule(Rule):
         chosenCard = possibleCards.pop(random.randint(0, len(possibleCards) - 1))
 
         player.env['center'].put(player.removeCardFromHand(chosenCard))
+
+        centerCard = player.env['center'].checkTopCard()
+        print("Player {} placed ({} {}) in Center".format(player.index, centerCard.rank, centerCard.suit))
         player.env['currPlayer'] = self.nextPlayer(player)
+
+    # Determines the next player
+    def nextPlayer(self, player):
+        numOfPlayers = player.env['numOfPlayers']
+        direction = player.env['direction'].value
+        currPlayer = player.env['currPlayer']
+        nextPlayer = currPlayer + direction
+        if nextPlayer == numOfPlayers:
+            nextPlayer = 0
+        elif nextPlayer == -1:
+            nextPlayer = numOfPlayers - 1
+        return nextPlayer
 
 class DrawCard(Rule):
     def __init__(self):
@@ -82,12 +154,28 @@ class DrawCard(Rule):
         return True
 
     def act(self, player):
-        # First check the number of cards left in the deck
-        if player.env['deck'].isEmpty():
-            # Take extra cards from center and add it to the deck
-            extraCardCount = player.env['center'].numOfCards() - 1
-            for i in range(0,extraCardCount):
-                player.env['deck'].put(player.end['center'].takeBottom(), False)
+        self.checkDeck(player)
 
+        print("Player", player.index, "draws 1 Card from Deck")
         player.addToHand(player.env['deck'].takeTop())
         player.env['currPlayer'] = self.nextPlayer(player)
+
+    def checkDeck(self, player):
+        if player.env['deck'].isEmpty():
+            # Take extra cards from center and add it to the deck
+            print("Deck is empty, adding extra cards from Center back to Deck")
+            extraCardCount = player.env['center'].numOfCards() - 1
+            for i in range(0,extraCardCount):
+                player.env['deck'].put(player.env['center'].takeBottom(), False)
+
+    # Determines the next player
+    def nextPlayer(self, player):
+        numOfPlayers = player.env['numOfPlayers']
+        direction = player.env['direction'].value
+        currPlayer = player.env['currPlayer']
+        nextPlayer = currPlayer + direction
+        if nextPlayer == numOfPlayers:
+            nextPlayer = 0
+        elif nextPlayer == -1:
+            nextPlayer = numOfPlayers - 1
+        return nextPlayer

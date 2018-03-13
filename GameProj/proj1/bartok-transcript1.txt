@@ -1,0 +1,269 @@
+Let's PLay! :D
+Which game would you like to play?
+0 - Bartok
+1 - Spoons
+> 0
+You chose Bartok!
+Setting up Bartok
+How many players? Number must be between 2 and 5.
+> 5
+How many cards should each player start with? Must be between 5 or 7 cards.
+> 7
+Which version would you like to do?
+0 - Simulation
+1 - Real Play
+> 0
+Let's play Bartok! (Simulation)
+Center Card: (4 Suit.CLUBS)
+Player 0 weighed BartokRule.PLACECARD as the best option
+Player 0 is playing BartokRule.PLACECARD
+Player 0 placed (8 Suit.CLUBS) in Center
+Center Card: (8 Suit.CLUBS)
+Player 1 weighed BartokRule.PLACECARD as the best option
+Player 1 is playing BartokRule.PLACECARD
+Player 1 placed (7 Suit.CLUBS) in Center
+Center Card: (7 Suit.CLUBS)
+Player 2 weighed BartokRule.PLACECARD as the best option
+Player 2 is playing BartokRule.PLACECARD
+Player 2 placed (A Suit.CLUBS) in Center
+Center Card: (A Suit.CLUBS)
+Player 3 weighed BartokRule.PLACECARD as the best option
+Player 3 is playing BartokRule.PLACECARD
+Player 3 placed (5 Suit.CLUBS) in Center
+Center Card: (5 Suit.CLUBS)
+Player 4 weighed BartokRule.PLACECARD as the best option
+Player 4 is playing BartokRule.PLACECARD
+Player 4 placed (Q Suit.CLUBS) in Center
+Center Card: (Q Suit.CLUBS)
+Player 0 weighed BartokRule.PLACECARD as the best option
+Player 0 is playing BartokRule.PLACECARD
+Player 0 placed (Q Suit.DIAMONDS) in Center
+Center Card: (Q Suit.DIAMONDS)
+Player 1 weighed BartokRule.PLACECARD as the best option
+Player 1 is playing BartokRule.PLACECARD
+Player 1 placed (J Suit.DIAMONDS) in Center
+Center Card: (J Suit.DIAMONDS)
+Player 2 weighed BartokRule.PLACECARD as the best option
+Player 2 is playing BartokRule.PLACECARD
+Player 2 placed (J Suit.CLUBS) in Center
+Center Card: (J Suit.CLUBS)
+Player 3 weighed BartokRule.PLACECARD as the best option
+Player 3 is playing BartokRule.PLACECARD
+Player 3 placed (J Suit.HEARTS) in Center
+Center Card: (J Suit.HEARTS)
+Player 4 weighed BartokRule.PLACECARD as the best option
+Player 4 is playing BartokRule.PLACECARD
+Player 4 placed (7 Suit.HEARTS) in Center
+Center Card: (7 Suit.HEARTS)
+Player 0 weighed BartokRule.PLACECARD as the best option
+Player 0 is playing BartokRule.PLACECARD
+Player 0 placed (5 Suit.HEARTS) in Center
+Center Card: (5 Suit.HEARTS)
+Player 1 weighed BartokRule.PLACECARD as the best option
+Player 1 is playing BartokRule.PLACECARD
+Player 1 placed (A Suit.HEARTS) in Center
+Center Card: (A Suit.HEARTS)
+Player 2 weighed BartokRule.PLACECARD as the best option
+Player 2 is playing BartokRule.PLACECARD
+Player 2 placed (9 Suit.HEARTS) in Center
+Center Card: (9 Suit.HEARTS)
+Player 3 weighed BartokRule.PLACECARD as the best option
+Player 3 is playing BartokRule.PLACECARD
+Player 3 placed (9 Suit.DIAMONDS) in Center
+Center Card: (9 Suit.DIAMONDS)
+Player 4 weighed BartokRule.PLACECARD as the best option
+Player 4 is playing BartokRule.PLACECARD
+Player 4 placed (5 Suit.DIAMONDS) in Center
+Center Card: (5 Suit.DIAMONDS)
+Player 0 weighed BartokRule.PLACECARD as the best option
+Player 0 is playing BartokRule.PLACECARD
+Player 0 placed (3 Suit.DIAMONDS) in Center
+Center Card: (3 Suit.DIAMONDS)
+Player 1 weighed BartokRule.PLACECARD as the best option
+Player 1 is playing BartokRule.PLACECARD
+Player 1 placed (K Suit.DIAMONDS) in Center
+Center Card: (K Suit.DIAMONDS)
+Player 2 weighed BartokRule.DRAWCARD as the best option
+Player 2 is playing BartokRule.DRAWCARD
+Player 2 draws 1 Card from Deck
+Center Card: (K Suit.DIAMONDS)
+Player 3 weighed BartokRule.PLACECARD as the best option
+Player 3 is playing BartokRule.PLACECARD
+Player 3 placed (K Suit.SPADES) in Center
+Center Card: (K Suit.SPADES)
+Player 4 weighed BartokRule.PLACECARD as the best option
+Player 4 is playing BartokRule.PLACECARD
+Player 4 placed (4 Suit.SPADES) in Center
+Center Card: (4 Suit.SPADES)
+Player 0 weighed BartokRule.PLACECARD as the best option
+Player 0 is playing BartokRule.PLACECARD
+Player 0 placed (6 Suit.SPADES) in Center
+Center Card: (6 Suit.SPADES)
+Player 1 weighed BartokRule.PLACECARD as the best option
+Player 1 is playing BartokRule.PLACECARD
+Player 1 placed (5 Suit.SPADES) in Center
+Center Card: (5 Suit.SPADES)
+Player 2 weighed BartokRule.PLACECARD as the best option
+Player 2 is playing BartokRule.PLACECARD
+Player 2 placed (9 Suit.SPADES) in Center
+Center Card: (9 Suit.SPADES)
+Player 3 weighed BartokRule.PLACECARD as the best option
+Player 3 is playing BartokRule.PLACECARD
+Player 3 placed (Q Suit.SPADES) in Center
+Center Card: (Q Suit.SPADES)
+Player 4 weighed BartokRule.PLACECARD as the best option
+Player 4 is playing BartokRule.PLACECARD
+Player 4 placed (3 Suit.SPADES) in Center
+Center Card: (3 Suit.SPADES)
+Player 0 weighed BartokRule.DRAWCARD as the best option
+Player 0 is playing BartokRule.DRAWCARD
+Player 0 draws 1 Card from Deck
+Center Card: (3 Suit.SPADES)
+Player 1 weighed BartokRule.PLACECARD as the best option
+Player 1 is playing BartokRule.PLACECARD
+Player 1 placed (3 Suit.CLUBS) in Center
+Center Card: (3 Suit.CLUBS)
+Player 2 weighed BartokRule.PLACECARD as the best option
+Player 2 is playing BartokRule.PLACECARD
+Player 2 placed (2 Suit.CLUBS) in Center
+Center Card: (2 Suit.CLUBS)
+Player 3 weighed BartokRule.PLACEDRAW2 as the best option
+Player 3 is playing BartokRule.PLACEDRAW2
+Player 3 placed (2 Suit.DIAMONDS) in Center
+Center Card: (2 Suit.DIAMONDS)
+Player 4 weighed BartokRule.DRAW2 as the best option
+Player 4 is playing BartokRule.DRAW2
+Player 4 draws 4 Card(s) from Deck
+Player 4 placed (4 Suit.DIAMONDS) in Center
+Center Card: (4 Suit.DIAMONDS)
+Player 0 weighed BartokRule.PLACECARD as the best option
+Player 0 is playing BartokRule.PLACECARD
+Player 0 placed (A Suit.DIAMONDS) in Center
+Center Card: (A Suit.DIAMONDS)
+Player 1 weighed BartokRule.DRAWCARD as the best option
+Player 1 is playing BartokRule.DRAWCARD
+Player 1 draws 1 Card from Deck
+Center Card: (A Suit.DIAMONDS)
+Player 2 weighed BartokRule.DRAWCARD as the best option
+Player 2 is playing BartokRule.DRAWCARD
+Player 2 draws 1 Card from Deck
+Center Card: (A Suit.DIAMONDS)
+Player 3 weighed BartokRule.DRAWCARD as the best option
+Player 3 is playing BartokRule.DRAWCARD
+Player 3 draws 1 Card from Deck
+Center Card: (A Suit.DIAMONDS)
+Player 4 weighed BartokRule.PLACECARD as the best option
+Player 4 is playing BartokRule.PLACECARD
+Player 4 placed (6 Suit.DIAMONDS) in Center
+Center Card: (6 Suit.DIAMONDS)
+Player 0 weighed BartokRule.DRAWCARD as the best option
+Player 0 is playing BartokRule.DRAWCARD
+Player 0 draws 1 Card from Deck
+Center Card: (6 Suit.DIAMONDS)
+Player 1 weighed BartokRule.PLACECARD as the best option
+Player 1 is playing BartokRule.PLACECARD
+Player 1 placed (7 Suit.DIAMONDS) in Center
+Center Card: (7 Suit.DIAMONDS)
+Player 2 weighed BartokRule.DRAWCARD as the best option
+Player 2 is playing BartokRule.DRAWCARD
+Player 2 draws 1 Card from Deck
+Center Card: (7 Suit.DIAMONDS)
+Player 3 weighed BartokRule.PLACECARD as the best option
+Player 3 is playing BartokRule.PLACECARD
+Player 3 placed (7 Suit.SPADES) in Center
+Center Card: (7 Suit.SPADES)
+Player 4 weighed BartokRule.DRAWCARD as the best option
+Player 4 is playing BartokRule.DRAWCARD
+Player 4 draws 1 Card from Deck
+Center Card: (7 Suit.SPADES)
+Player 0 weighed BartokRule.PLACECARD as the best option
+Player 0 is playing BartokRule.PLACECARD
+Player 0 placed (J Suit.SPADES) in Center
+Center Card: (J Suit.SPADES)
+Player 1 weighed BartokRule.DRAWCARD as the best option
+Player 1 is playing BartokRule.DRAWCARD
+Deck is empty, adding extra cards from Center back to Deck
+Player 1 draws 1 Card from Deck
+Center Card: (J Suit.SPADES)
+Player 2 weighed BartokRule.PLACECARD as the best option
+Player 2 is playing BartokRule.PLACECARD
+Player 2 placed (2 Suit.SPADES) in Center
+Center Card: (2 Suit.SPADES)
+Player 3 weighed BartokRule.DRAW2 as the best option
+Player 3 is playing BartokRule.DRAW2
+Player 3 draws 2 Card(s) from Deck
+Player 3 placed (A Suit.SPADES) in Center
+Center Card: (A Suit.SPADES)
+Player 4 weighed BartokRule.DRAWCARD as the best option
+Player 4 is playing BartokRule.DRAWCARD
+Player 4 draws 1 Card from Deck
+Center Card: (A Suit.SPADES)
+Player 0 weighed BartokRule.DRAWCARD as the best option
+Player 0 is playing BartokRule.DRAWCARD
+Player 0 draws 1 Card from Deck
+Center Card: (A Suit.SPADES)
+Player 1 weighed BartokRule.PLACECARD as the best option
+Player 1 is playing BartokRule.PLACECARD
+Player 1 placed (7 Suit.SPADES) in Center
+Center Card: (7 Suit.SPADES)
+Player 2 weighed BartokRule.PLACECARD as the best option
+Player 2 is playing BartokRule.PLACECARD
+Player 2 placed (8 Suit.SPADES) in Center
+Center Card: (8 Suit.SPADES)
+Player 3 weighed BartokRule.DRAWCARD as the best option
+Player 3 is playing BartokRule.DRAWCARD
+Player 3 draws 1 Card from Deck
+Center Card: (8 Suit.SPADES)
+Player 4 weighed BartokRule.PLACECARD as the best option
+Player 4 is playing BartokRule.PLACECARD
+Player 4 placed (8 Suit.DIAMONDS) in Center
+Center Card: (8 Suit.DIAMONDS)
+Player 0 weighed BartokRule.PLACECARD as the best option
+Player 0 is playing BartokRule.PLACECARD
+Player 0 placed (4 Suit.DIAMONDS) in Center
+Center Card: (4 Suit.DIAMONDS)
+Player 1 weighed BartokRule.DRAWCARD as the best option
+Player 1 is playing BartokRule.DRAWCARD
+Player 1 draws 1 Card from Deck
+Center Card: (4 Suit.DIAMONDS)
+Player 2 weighed BartokRule.PLACECARD as the best option
+Player 2 is playing BartokRule.PLACECARD
+Player 2 placed (4 Suit.HEARTS) in Center
+Center Card: (4 Suit.HEARTS)
+Player 3 weighed BartokRule.DRAWCARD as the best option
+Player 3 is playing BartokRule.DRAWCARD
+Player 3 draws 1 Card from Deck
+Center Card: (4 Suit.HEARTS)
+Player 4 weighed BartokRule.PLACECARD as the best option
+Player 4 is playing BartokRule.PLACECARD
+Player 4 placed (2 Suit.HEARTS) in Center
+Center Card: (2 Suit.HEARTS)
+Player 0 weighed BartokRule.DRAW2 as the best option
+Player 0 is playing BartokRule.DRAW2
+Player 0 draws 2 Card(s) from Deck
+Player 0 placed (K Suit.HEARTS) in Center
+Center Card: (K Suit.HEARTS)
+Player 1 weighed BartokRule.PLACECARD as the best option
+Player 1 is playing BartokRule.PLACECARD
+Player 1 placed (8 Suit.HEARTS) in Center
+Center Card: (8 Suit.HEARTS)
+Player 2 weighed BartokRule.PLACECARD as the best option
+Player 2 is playing BartokRule.PLACECARD
+Player 2 placed (3 Suit.HEARTS) in Center
+Center Card: (3 Suit.HEARTS)
+Player 3 weighed BartokRule.PLACECARD as the best option
+Player 3 is playing BartokRule.PLACECARD
+Player 3 placed (3 Suit.CLUBS) in Center
+Center Card: (3 Suit.CLUBS)
+Player 4 weighed BartokRule.PLACECARD as the best option
+Player 4 is playing BartokRule.PLACECARD
+Player 4 placed (6 Suit.CLUBS) in Center
+Center Card: (6 Suit.CLUBS)
+Player 0 weighed BartokRule.PLACECARD as the best option
+Player 0 is playing BartokRule.PLACECARD
+Player 0 placed (K Suit.CLUBS) in Center
+Center Card: (K Suit.CLUBS)
+Player 1 weighed BartokRule.PLACECARD as the best option
+Player 1 is playing BartokRule.PLACECARD
+Player 1 placed (2 Suit.CLUBS) in Center
+Player 1 has won the game!

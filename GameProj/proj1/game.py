@@ -7,6 +7,7 @@ class Game(Thing):
         self.game = game
         self.env = {
             'players': list(),                      # list of Players
+            'numOfPlayers': 0,
             'currPlayer': 0,                        # index of current player
             'startPlayer': 0,                       # index of player who starts the game
             'endPlayer' : 0,                        # index of player who ends the game
