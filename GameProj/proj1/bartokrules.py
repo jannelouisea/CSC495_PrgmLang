@@ -55,7 +55,9 @@ class Draw2Rule(BartokRule):
         print("Your only option is to draw", drawCount, "card(s).")
         print("Automatically adding", drawCount, "card(s) to your hand.")
         for i in range(drawCount):
-            player.addToHand(player.env['deck'].takeTop())
+            newCard = player.env['deck'].takeTop()
+            player.addToHand(newCard)
+            print("({}, {})".format(newCard.rank, newCard.suit))
             super(Draw2Rule, self).checkDeck(player)
 
         super(Draw2Rule, self).resetDraw2Effect(player)
@@ -165,5 +167,7 @@ class DrawCardRule(BartokRule):
 
         print("Your only option is to draw from the deck")
         print("Automatically adding one card to your hand.")
-        player.addToHand(player.env['deck'].takeTop())
+        newCard = player.env['deck'].takeTop()
+        player.addToHand(newCard)
+        print("({}, {})".format(newCard.rank, newCard.suit))
         player.env['currPlayer'] = super(DrawCardRule, self).nextPlayer(player)
