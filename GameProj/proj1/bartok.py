@@ -70,7 +70,11 @@ Game Play:
             print("-----------------------------")
             currPlayer.weighOptions()
             currPlayer.act()
-            self.detWinner()
+            winner = self.detWinner()
+            if winner >= 0:
+                print("Player {} has won the game!".format(winner + 1))
+                break
+
             if(numOfPlayer == 2 and currPlayer.index == 0):
                 nextNumber = int(input(
                     f"Player {currPlayer.index + 1} your turn is over."
@@ -106,9 +110,12 @@ Game Play:
                             f"The next player should be Player {currPlayer.index + 2}. Please enter "
                             f"{currPlayer.index + 2} to proceed.\n"))
 
-        print("Player {} has won the game!".format(self.env['winner'] + 1))
-
     def detWinner(self):
+        winner = -1
         for player in self.env['players']:
             if player.sizeOfHand() == 0:
-                self.env['winner'] = player.index
+                # self.env['winner'] = player.index
+                winner = player.index
+
+        return winner
+
