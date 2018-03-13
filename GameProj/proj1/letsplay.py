@@ -11,7 +11,7 @@ if __name__ == '__main__':
     # print(deck_no_jokers.__repr__())
     # print('===================')
     # print(deck_w_jokers.__repr__())
-    print("Let's PLay! :D")
+    print("Let's Play! :D")
     gameChoice = int(input("Which game would you like to play?\n0 - Bartok\n1 - Spoons\n> "))
     game = None
     if gameChoice == 0:
