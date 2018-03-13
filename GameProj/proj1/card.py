@@ -10,12 +10,23 @@ class Card(Thing):
         self.color = self.detColor()
         self.joker = joker          # boolean value
         self.faceUp = False        # boolean value
+        self.suitImg = self.detSuitImg()
 
     def detColor(self):
         if self.suit == Suit.CLUBS or self.suit == Suit.SPADES:
             return Color.BLACK
         else:
             return Color.RED
+
+    def detSuitImg(self):
+        if self.suit == Suit.SPADES:
+            return "\u2660"
+        elif self.suit == Suit.DIAMONDS:
+            return "\u2666"
+        elif self.suit == Suit.CLUBS:
+            return "\u2663"
+        elif self.suit == Suit.HEARTS:
+            return "\u2665"
 
     def getInfo(self):
         return self.rank, self.suit, self.value, self.joker, self.color

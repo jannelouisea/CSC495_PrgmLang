@@ -52,13 +52,15 @@ class Draw2Rule(BartokRule):
         super(Draw2Rule, self).checkDeck(player)
 
         drawCount = player.env['draw2Effect'] * 2
-        print("Your only option is to draw", drawCount, "card(s).")
-        print("Automatically adding", drawCount, "card(s) to your hand.")
+        print("Your only option is to draw", drawCount, "cards.")
+        print("Automatically adding", drawCount, "cards to your hand.")
+        print("Added to hand:", end="")
         for i in range(drawCount):
             newCard = player.env['deck'].takeTop()
             player.addToHand(newCard)
-            print("({}, {})".format(newCard.rank, newCard.suit))
+            print(" [{} {}]".format(newCard.rank, newCard.suitImg), end="")
             super(Draw2Rule, self).checkDeck(player)
+        print("")
 
         super(Draw2Rule, self).resetDraw2Effect(player)
         player.env['currPlayer'] = super(Draw2Rule, self).nextPlayer(player)
@@ -80,29 +82,35 @@ class PlaceCardRule(BartokRule):
     def act(self, player):
 
         def letUserPlaceCard(player, possibleCards):
-            print("Your Hand")
-            print("INDEX - (CARD RANK, CARD SUIT)")
+            print("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
+            print("Your Hand (index - card)")
             index = 0
             for card in player.hand:
                 if index in possibleCards:
-                    print("{} - ({}, {}) ** Can play this card **".format(index, card.rank, card.suit))
+                    print("{} - [{} {}] ** can play **".format(index, card.rank, card.suitImg))
                 else:
-                    print("{} - ({}, {})".format(index, card.rank, card.suit))
+                    print("{} - [{} {}]".format(index, card.rank, card.suitImg))
                 index += 1
+            print("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
 
             chosenCard = -1
-            while(not(chosenCard in possibleCards)):
-                try:
-                    chosenCard = int(input("Enter the INDEX of the card you would like to place.\n> "))
-                except(ValueError):
-                    print("Invalid input. Input must be an integer.")
-                    chosenCard = -1
-                if not(chosenCard in possibleCards):
-                    print(f"You cannot place that card \nPossible card indexes to play {possibleCards}")
+            if len(possibleCards) == 1: # there's only one card the player can put down
+                chosenCard = possibleCards.pop()
+                card = player.hand[chosenCard]
+                print("[{} {}] is the only card you can play. Playing it automatically.".format(card.rank, card.suitImg))
+            else:
+                while(not(chosenCard in possibleCards)):
+                    try:
+                        chosenCard = int(input("Enter the INDEX of the card you would like to place.\n> "))
+                    except(ValueError):
+                        print("Invalid input. Input must be an integer.")
+                        chosenCard = -1
+                    if not(chosenCard in possibleCards):
+                        print(f"You cannot place that card \nPossible card indexes to play {possibleCards}")
 
             player.env['center'].put(player.removeCardFromHand(chosenCard))
             centerCard = player.env['center'].checkTopCard()
-            print("Player {} placed ({}, {}) in Center".format(player.index + 1, centerCard.rank, centerCard.suit))
+            print("Player {} placed [{} {}] in Center".format(player.index + 1, centerCard.rank, centerCard.suitImg))
             return centerCard
 
 
@@ -169,5 +177,5 @@ class DrawCardRule(BartokRule):
         print("Automatically adding one card to your hand.")
         newCard = player.env['deck'].takeTop()
         player.addToHand(newCard)
-        print("({}, {})".format(newCard.rank, newCard.suit))
+        print("Added to hand: [{} {}]".format(newCard.rank, newCard.suitImg))
         player.env['currPlayer'] = super(DrawCardRule, self).nextPlayer(player)

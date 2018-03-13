@@ -63,10 +63,10 @@ Game Play:
         while (self.env['winner'] < 0):
             topCard = self.env['center'].checkTopCard()
             print("=============================")
-            print("Center Card: ({} {})".format(topCard.rank, topCard.suit))
+            print("Center Card: [{} {}]".format(topCard.rank, topCard.suitImg))
             print("=============================")
             currPlayer = self.env['players'][self.env['currPlayer']]
-            print(f"Player {currPlayer.index + 1} turn")
+            print(f"Player {currPlayer.index + 1} Turn")
             print("-----------------------------")
             currPlayer.weighOptions()
             currPlayer.act()
