@@ -53,6 +53,7 @@ class Spoons(Game):
         print(" Each person discards to the person on the left.")
         print(" If you are the last player, you discard to the trash pile.")
         print(" If the deck ever runs out, the trash pile is shuffled and replaces the deck. \n")
+        print(" If you have four matching cards in your hand, you must discard the fifth non-matching card to win the game.")
         numOfPlayers = len(self.env['players'])
         temp = []  # should always have only one card
         player = self.env['players'][0]
