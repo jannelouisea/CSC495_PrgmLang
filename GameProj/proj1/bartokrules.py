@@ -109,13 +109,18 @@ class PlaceCardRule(BartokRuleNext):
         possibleCards = list()
         for i in range(0, len(player.hand)):
             if player.hand[i].equalsRank(centerCard) or player.hand[i].equalsSuit(centerCard):
-                possibleCards.append(i)
+                possibleCards.append(player.hand[i])
        # chosenCard = possibleCards.pop(random.randint(0, len(possibleCards) - 1))
-        print("Your full hand: ", player.hand)
+        print("Your full hand: ")
+        player.reflect()
+        print()
         print("Your possible cards for this turn: ", possibleCards)
-        chosenCard = None
-        while (chosenCard not in possibleCards):
+
+
+        chosenCard = 10
+        while( chosenCard > len(possibleCards)):
             chosenCard = int(input("Which card would you like to play?"))
+        print()
 
         player.env['center'].put(player.removeCardFromHand(chosenCard))
 
