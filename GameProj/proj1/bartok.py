@@ -59,6 +59,15 @@ class Bartok(Game):
     def realPlay(self):
         print("Let's play Bartok! (Real Play)")
 
+        while (self.env['winner'] < 0):
+            topCard = self.env['center'].checkTopCard()
+            print("Center Card: ({} {})".format(topCard.rank, topCard.suit))
+            currPlayer = self.env['players'][self.env['currPlayer']]
+            currPlayer.weighOptions()
+            currPlayer.act()
+            self.detWinner()
+        print("Player {} has won the game!".format(self.env['winner']))
+
     def detWinner(self):
         for player in self.env['players']:
             if player.sizeOfHand() == 0:
