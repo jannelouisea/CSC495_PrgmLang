@@ -1,5 +1,6 @@
 from card import Card
 from thing import Thing
+from random import shuffle
 import copy
 
 # Pile class manages a stack of cards
@@ -31,3 +32,7 @@ class Pile(Thing):
             if card.faceUp != faceUp:
                 card.flip()
             self.cards.append(card)
+
+    # Shuffles deck of cards
+    def shuffle(self):
+        shuffle(self.cards)
