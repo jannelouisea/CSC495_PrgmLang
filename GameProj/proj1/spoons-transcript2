@@ -24,7 +24,7 @@ Game Play:
 
 
 A card has been drawn from the top of the deck and added to your hand.
-Player 0 these are your cards:
+Player 1 these are your cards:
 Card 1: K of Suit.DIAMONDS
 Card 2: A of Suit.HEARTS
 Card 3: 5 of Suit.SPADES
@@ -32,10 +32,10 @@ Card 4: 8 of Suit.SPADES
 Card 5: A of Suit.SPADES
 Please input the card number to discard (1-5)
 1
-Player 0 your turn is over. When Player 1 is ready for their turn enter their number.
-1
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
 
-Player 1 these are your cards:
+Player 2 these are your cards:
 Card 1: 2 of Suit.CLUBS
 Card 2: K of Suit.CLUBS
 Card 3: 5 of Suit.CLUBS
@@ -43,10 +43,10 @@ Card 4: Q of Suit.DIAMONDS
 Card 5: K of Suit.DIAMONDS
 Please input the card number to discard (1-5)
 1
-Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
-2
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
 
-Player 2 these are your cards:
+Player 3 these are your cards:
 Card 1: 5 of Suit.HEARTS
 Card 2: 5 of Suit.DIAMONDS
 Card 3: K of Suit.HEARTS
@@ -54,10 +54,10 @@ Card 4: 3 of Suit.SPADES
 Card 5: 2 of Suit.CLUBS
 Please input the card number to discard (1-5)
 5
-Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
-3
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
 
-Player 3 these are your cards:
+Player 4 these are your cards:
 Card 1: 9 of Suit.SPADES
 Card 2: 8 of Suit.DIAMONDS
 Card 3: Q of Suit.HEARTS
@@ -65,11 +65,11 @@ Card 4: K of Suit.SPADES
 Card 5: 2 of Suit.CLUBS
 Please input the card number to discard (1-5)
 5
-Player 3 your turn is over. When Player 0 is ready for their turn enter their number.
-0
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
 
 A card has been drawn from the top of the deck and added to your hand.
-Player 0 these are your cards:
+Player 1 these are your cards:
 Card 1: A of Suit.HEARTS
 Card 2: 5 of Suit.SPADES
 Card 3: 8 of Suit.SPADES
@@ -77,10 +77,10 @@ Card 4: A of Suit.SPADES
 Card 5: J of Suit.DIAMONDS
 Please input the card number to discard (1-5)
 2
-Player 0 your turn is over. When Player 1 is ready for their turn enter their number.
-1
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
 
-Player 1 these are your cards:
+Player 2 these are your cards:
 Card 1: K of Suit.CLUBS
 Card 2: 5 of Suit.CLUBS
 Card 3: Q of Suit.DIAMONDS
@@ -88,10 +88,10 @@ Card 4: K of Suit.DIAMONDS
 Card 5: 5 of Suit.SPADES
 Please input the card number to discard (1-5)
 1
-Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
-2
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
 
-Player 2 these are your cards:
+Player 3 these are your cards:
 Card 1: 5 of Suit.HEARTS
 Card 2: 5 of Suit.DIAMONDS
 Card 3: K of Suit.HEARTS
@@ -99,10 +99,10 @@ Card 4: 3 of Suit.SPADES
 Card 5: K of Suit.CLUBS
 Please input the card number to discard (1-5)
 5
-Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
-3
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
 
-Player 3 these are your cards:
+Player 4 these are your cards:
 Card 1: 9 of Suit.SPADES
 Card 2: 8 of Suit.DIAMONDS
 Card 3: Q of Suit.HEARTS
@@ -110,11 +110,11 @@ Card 4: K of Suit.SPADES
 Card 5: K of Suit.CLUBS
 Please input the card number to discard (1-5)
 1
-Player 3 your turn is over. When Player 0 is ready for their turn enter their number.
-0
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
 
 A card has been drawn from the top of the deck and added to your hand.
-Player 0 these are your cards:
+Player 1 these are your cards:
 Card 1: A of Suit.HEARTS
 Card 2: 8 of Suit.SPADES
 Card 3: A of Suit.SPADES
@@ -122,10 +122,10 @@ Card 4: J of Suit.DIAMONDS
 Card 5: 9 of Suit.HEARTS
 Please input the card number to discard (1-5)
 2
-Player 0 your turn is over. When Player 1 is ready for their turn enter their number.
-1
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
 
-Player 1 these are your cards:
+Player 2 these are your cards:
 Card 1: 5 of Suit.CLUBS
 Card 2: Q of Suit.DIAMONDS
 Card 3: K of Suit.DIAMONDS
@@ -133,10 +133,10 @@ Card 4: 5 of Suit.SPADES
 Card 5: 8 of Suit.SPADES
 Please input the card number to discard (1-5)
 3
-Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
-2
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
+3
 
-Player 2 these are your cards:
+Player 3 these are your cards:
 Card 1: 5 of Suit.HEARTS
 Card 2: 5 of Suit.DIAMONDS
 Card 3: K of Suit.HEARTS
@@ -144,10 +144,10 @@ Card 4: 3 of Suit.SPADES
 Card 5: K of Suit.DIAMONDS
 Please input the card number to discard (1-5)
 5
-Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
-3
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
 
-Player 3 these are your cards:
+Player 4 these are your cards:
 Card 1: 8 of Suit.DIAMONDS
 Card 2: Q of Suit.HEARTS
 Card 3: K of Suit.SPADES
@@ -155,11 +155,11 @@ Card 4: K of Suit.CLUBS
 Card 5: K of Suit.DIAMONDS
 Please input the card number to discard (1-5)
 2
-Player 3 your turn is over. When Player 0 is ready for their turn enter their number.
-0
+Player 4 your turn is over. When Player 1 is ready for their turn enter their number.
+1
 
 A card has been drawn from the top of the deck and added to your hand.
-Player 0 these are your cards:
+Player 1 these are your cards:
 Card 1: A of Suit.HEARTS
 Card 2: A of Suit.SPADES
 Card 3: J of Suit.DIAMONDS
@@ -167,10 +167,10 @@ Card 4: 9 of Suit.HEARTS
 Card 5: 2 of Suit.SPADES
 Please input the card number to discard (1-5)
 5
-Player 0 your turn is over. When Player 1 is ready for their turn enter their number.
-1
+Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+2
 
-Player 1 these are your cards:
+Player 2 these are your cards:
 Card 1: 5 of Suit.CLUBS
 Card 2: Q of Suit.DIAMONDS
 Card 3: 5 of Suit.SPADES
@@ -178,12 +178,12 @@ Card 4: 8 of Suit.SPADES
 Card 5: 2 of Suit.SPADES
 Please input the card number to discard (1-5)
 2
-Player 1 your turn is over. When Player 2 is ready for their turn enter their number.
+Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
 1
-The next player should be Player 2. Please enter 2 to proceed.
-2
+The next player should be Player 3. Please enter 3 to proceed.
+3
 
-Player 2 these are your cards:
+Player 3 these are your cards:
 Card 1: 5 of Suit.HEARTS
 Card 2: 5 of Suit.DIAMONDS
 Card 3: K of Suit.HEARTS
@@ -191,10 +191,10 @@ Card 4: 3 of Suit.SPADES
 Card 5: Q of Suit.DIAMONDS
 Please input the card number to discard (1-5)
 3
-Player 2 your turn is over. When Player 3 is ready for their turn enter their number.
-3
+Player 3 your turn is over. When Player 4 is ready for their turn enter their number.
+4
 
-Player 3 these are your cards:
+Player 4 these are your cards:
 Card 1: 8 of Suit.DIAMONDS
 Card 2: K of Suit.SPADES
 Card 3: K of Suit.CLUBS
@@ -202,9 +202,9 @@ Card 4: K of Suit.DIAMONDS
 Card 5: K of Suit.HEARTS
 Please input the card number to discard (1-5)
 1
-Player 3 these are your cards:
+Player 4 these are your cards:
 Card 1: K of Suit.SPADES
 Card 2: K of Suit.CLUBS
 Card 3: K of Suit.DIAMONDS
 Card 4: K of Suit.HEARTS
-Player 3 has won
+Player 4 has won

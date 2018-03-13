@@ -48,7 +48,7 @@ class Spoons(Game):
         print("Game Play: ")
         print(" The first person with four matching cards wins. ")
         print(" Each player is dealt four cards.")
-        print(" The dealer (Player 0) takes a card off the top of the deck to have five cards in their hand ")
+        print(" The dealer (Player 1) takes a card off the top of the deck to have five cards in their hand ")
         print(" They remove one card and pass it to the left.")
         print(" Each person discards to the person on the left.")
         print(" If you are the last player, you discard to the trash pile.")
@@ -63,7 +63,7 @@ class Spoons(Game):
                 if i == numOfPlayers - 1:
                     #adds card that player gave
                     player.addToHand(temp.pop())
-                    print("\nPlayer {} these are your cards: ".format(i))
+                    print("\nPlayer {} these are your cards: ".format(i + 1))
                     #adds card from hand to trash pile
                     player.reflect()
                     num = int(input("Please input the card number to discard (1-5) \n"))
@@ -72,16 +72,16 @@ class Spoons(Game):
                     self.env['trash'].put(player.hand.pop(num - 1))
                     if Spoons.fourOfAKind(self, player) == True:
                         break
-                    nextPlayer = int(input("Player {} your turn is over. When Player {} is ready for their turn enter their number. \n".format(i, 0)))
-                    if nextPlayer != 0:
-                        int(input("The next player should be Player {}. Please enter {} to proceed.\n".format(0, 0)))
+                    nextPlayer = int(input("Player {} your turn is over. When Player {} is ready for their turn enter their number. \n".format(i + 1, 1)))
+                    if nextPlayer != 1:
+                        int(input("The next player should be Player {}. Please enter {} to proceed.\n".format(1, 1)))
                 elif i == 0:
                     #adds new card from deck
                     if len(self.env['deck'].cards) == 0:
                         self.env['deck'] = self.env['trash'].shuffle()
                     player.addToHand(self.env['deck'].takeTop())
                     print("\nA card has been drawn from the top of the deck and added to your hand. ")
-                    print("Player 0 these are your cards: ")
+                    print("Player 1 these are your cards: ")
                     player.reflect()
                     num = int(input("Please input the card number to discard (1-5) \n"))
                     if num < 1 | num > 5:
@@ -92,13 +92,13 @@ class Spoons(Game):
                         break
                     nextPlayer = int(input(
                         "Player {} your turn is over. When Player {} is ready for their turn enter their number. \n".format(
-                            i, i + 1)))
-                    if nextPlayer != (i + 1):
-                        int(input("The next player should be Player {}. Please enter {} to proceed.\n".format(i + 1, i + 1)))
+                            i + 1, i + 2)))
+                    if nextPlayer != (i + 2):
+                        int(input("The next player should be Player {}. Please enter {} to proceed.\n".format(i + 2, i + 2)))
                 else:
                     #adds card that player gave
                     player.addToHand(temp.pop())
-                    print("\nPlayer {} these are your cards: ".format(i))
+                    print("\nPlayer {} these are your cards: ".format(i + 1))
                     #gives card to next player
                     player.reflect()
                     num = int(input("Please input the card number to discard (1-5) \n"))
@@ -109,11 +109,11 @@ class Spoons(Game):
                         break
                     nextPlayer = int(input(
                         "Player {} your turn is over. When Player {} is ready for their turn enter their number. \n".format(
-                            i, i + 1)))
+                            i + 1, i + 2)))
 
-                    if nextPlayer != (i + 1):
-                        int(input("The next player should be Player {}. Please enter {} to proceed.\n".format(i + 1, i + 1)))
-        print("Player {} these are your cards: ".format(i))
+                    if nextPlayer != (i + 2):
+                        int(input("The next player should be Player {}. Please enter {} to proceed.\n".format(i + 2, i + 2)))
+        print("Player {} these are your cards: ".format(i + 1))
         player.reflect()
-        print('Player {} has won'.format(i))
+        print('Player {} has won'.format(i + 1))
 
