@@ -37,32 +37,32 @@ class Bartok(Game):
         self.env['center'].put(self.env['deck'].takeTop())
 
     def play(self):
-        version = int(input("Which version would you like to do?\n0 - Simulation\n1 - Real Play\n> "))
-        if version == 0:
-            self.simulation()
-        elif version == 1:
-            self.realPlay()
-        else:
-            super(Bartok, self).cancel("Incorrect input. Canceling Game.")
+        print("Let's play Bartok!")
+        print('''
+Bartok Requirements:
+ A standard deck of cards (without Jokers)
+ 2 to 5 players
+ 5 to 7 card to start
+Game Play:
+ The first player to get rid of all cards from their hand wins.
+ Each player is initially dealt five to seven cards.
+ Players place cards in the center Pile.
+ After dealing cards to each player, the top card from the deck is placed
+ face up in the center.
+ Each player must place a card matching the suit or rank of the 
+ top card of the center pile.
+ If a player cannot place a card, they must draw one card from the deck (This is done automatically).
+ If the top card is a Draw 2 card (i.e. card with rank 2) and the player cannot
+ add another Draw 2 card, they must draw n cards from the deck where n equals the number
+ of cumulative Draw 2 cards * 2 (This is also done automatically).
+        ''')
 
-    def simulation(self):
-        print("Let's play Bartok! (Simulation)")
-        while(self.env['winner'] < 0):
-            topCard = self.env['center'].checkTopCard()
-            print("Center Card: ({} {})".format(topCard.rank, topCard.suit))
-            currPlayer = self.env['players'][self.env['currPlayer']]
-            currPlayer.weighOptions()
-            currPlayer.act()
-            self.detWinner()
-        print("Player {} has won the game!".format(self.env['winner']))
-
-    def realPlay(self):
-        print("Let's play Bartok! (Real Play)")
 
         while (self.env['winner'] < 0):
             topCard = self.env['center'].checkTopCard()
             print("Center Card: ({} {})".format(topCard.rank, topCard.suit))
             currPlayer = self.env['players'][self.env['currPlayer']]
+            print(f"Player {currPlayer.index + 1} turn")
             currPlayer.weighOptions()
             currPlayer.act()
             self.detWinner()
