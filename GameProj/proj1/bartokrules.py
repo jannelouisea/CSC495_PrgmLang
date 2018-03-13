@@ -126,6 +126,7 @@ class PlaceCardRule(BartokRule):
 
                     print(f"{drawCount} cards added to you hand")
                     super(PlaceCardRule, self).resetDraw2Effect(player)
+                    break
                 # Player chose Yes
                 elif(choice == 1):
                     possibleCards = list()
@@ -133,6 +134,7 @@ class PlaceCardRule(BartokRule):
                         if player.hand[i].rank == '2': possibleCards.append(i)
                     letUserPlaceCard(player, possibleCards)
                     player.env['draw2Effect'] += 1
+                    break
                 else:
                     print("Invalid input. Either input 0 for No or 1 for Yes")
         else:
