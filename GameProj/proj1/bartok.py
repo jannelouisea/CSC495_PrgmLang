@@ -7,8 +7,10 @@ class Bartok(Game):
     def __init__(self, game):
         super(Bartok, self).__init__(game)
         self.env['center'] = Pile()
-        # this represents last player to draw 2
-        self.env['lptd2'] = -1
+        # Determines if the current player mustDraw2
+        self.env['mustDraw2'] = False
+        # Keeps track of the number of players who cumulatively Draw 2
+        self.env['draw2Effect'] = 0
 
     def setUp(self):
         print("Setting up Bartok")

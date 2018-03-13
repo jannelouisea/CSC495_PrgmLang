@@ -1,14 +1,14 @@
 from thing import Thing
 from rule import Rule
 import random
-from enums import BartokRule, Direction
+from enums import BartokRuleEnum, Direction
 
 class BartokRules(Thing):
     def __init__(self):
         # Place Rules below in order of priority
-        self.rules = [Draw2Rule(), PlaceCardRule(), DrawCard()]
+        self.rules = [Draw2Rule(), PlaceCardRule(), DrawCardRule()]
 
-class BartokRuleNext(Rule):
+class BartokRule(Rule):
     def nextPlayer(self, player):
         numOfPlayers = player.env['numOfPlayers']
         direction = player.env['direction'].value
@@ -20,64 +20,9 @@ class BartokRuleNext(Rule):
             nextPlayer = numOfPlayers - 1
         return nextPlayer
 
-class Draw2Rule(BartokRuleNext):
-    def __init__(self):
-        self.name = BartokRule.DRAW2
-
-    def canAct(self, player):
-        canAct = False
-        centerCard = player.env['center'].checkTopCard()
-        if (centerCard.rank == '2'):
-            hasDraw2 = False
-            for card in player.hand:
-                if card.rank == '2':
-                    hasDraw2 = True
-            if (not hasDraw2):
-                direction = player.env['direction']
-                lptd2 = player.env['lptd2']
-                currPlayer = player.env['currPlayer']
-                endPlayer = player.env['numOfPlayers'] - 1
-
-                if (lptd2 == -1):
-                    canAct = True
-                elif (direction == Direction.CLOCKWISE):
-                    if(currPlayer == 0 and lptd2 != endPlayer):
-                        canAct = True
-                elif (direction == Direction.CRCLOCKWISE):
-                    if(currPlayer == endPlayer and lptd2 != 0):
-                        canAct = True
-                else:
-                    prevPlayer = currPlayer - (direction.value)
-                    if(lptd2 != prevPlayer):
-                        canAct = True
-        return canAct
-
-
-    def act(self, player):
-        self.checkDeck(player)
-
-        # First check how many Draw 2 cards are in the center
-        drawCardCount = 0
-        center = player.env['center']
-        numOfPlayers = player.env['numOfPlayers']
-        if numOfPlayers > 2:
-            for i in range(center.numOfCards() - 1, -1, -1):
-                card = center.cards[i]
-                if card.rank == '2':
-                    drawCardCount += 2
-                else:
-                    break
-        else:
-            drawCardCount = 2
-
-        print("Your only option is to draw", drawCardCount, "card(s).")
-        print("Automatically adding", drawCardCount, "card(s) to your hand.")
-        for i in range(drawCardCount):
-            player.addToHand(player.env['deck'].takeTop())
-            self.checkDeck(player)
-
-        player.env['lptd2'] = player.index
-        player.env['currPlayer'] = super(Draw2Rule, self).nextPlayer(player)
+    def resetDraw2Effect(self, player):
+        player.env['mustDraw2'] = False
+        player.env['draw2Effect'] = 0
 
     def checkDeck(self, player):
         if player.env['deck'].isEmpty():
@@ -87,9 +32,39 @@ class Draw2Rule(BartokRuleNext):
             for i in range(0,extraCardCount):
                 player.env['deck'].put(player.env['center'].takeBottom(), False)
 
-class PlaceCardRule(BartokRuleNext):
+
+class Draw2Rule(BartokRule):
     def __init__(self):
-        self.name = BartokRule.PLACECARD
+        self.name = BartokRuleEnum.DRAW2
+
+    def canAct(self, player):
+        canAct = False
+        hasDraw2 = False
+        for card in player.hand:
+            if card.rank == '2':
+                hasDraw2 = True
+        if player.env['mustDraw2'] and not(hasDraw2):       # mustDraw2 is only True when a player has started
+            canAct = True                                   # the Draw 2 effect or added to the effect
+        return canAct                                       # mustDraw2 is set back to false when a player has drawn the
+                                                            # the cards
+
+    def act(self, player):
+        super(Draw2Rule, self).checkDeck(player)
+
+        drawCount = player.env['draw2Effect'] * 2
+        print("Your only option is to draw", drawCount, "card(s).")
+        print("Automatically adding", drawCount, "card(s) to your hand.")
+        for i in range(drawCount):
+            player.addToHand(player.env['deck'].takeTop())
+            super(Draw2Rule, self).checkDeck(player)
+
+        super(Draw2Rule, self).resetDraw2Effect(player)
+        player.env['currPlayer'] = super(Draw2Rule, self).nextPlayer(player)
+
+
+class PlaceCardRule(BartokRule):
+    def __init__(self):
+        self.name = BartokRuleEnum.PLACECARD
 
     def canAct(self, player):
         centerCard = player.env['center'].checkTopCard()
@@ -101,57 +76,92 @@ class PlaceCardRule(BartokRuleNext):
         return canPlaceCard
 
     def act(self, player):
-        centerCard = player.env['center'].checkTopCard()
-        possibleCards = list()
-        for i in range(0, len(player.hand)):
-            if player.hand[i].equalsRank(centerCard) or player.hand[i].equalsSuit(centerCard) or player.hand[i].rank == '2':
-                possibleCards.append(i)
 
-        print("Your hand: ")
-        index = 0
-        for card in player.hand:
-            if index in possibleCards:
-                print("{} - ({} {}) ** Can play this card **".format(index, card.rank, card.suit))
+        def letUserPlaceCard(player, possibleCards):
+            print("Your Hand")
+            print("INDEX - (CARD RANK, CARD SUIT)")
+            index = 0
+            for card in player.hand:
+                if index in possibleCards:
+                    print("{} - ({}, {}) ** Can play this card **".format(index, card.rank, card.suit))
+                else:
+                    print("{} - ({}, {})".format(index, card.rank, card.suit))
+                index += 1
+
+            chosenCard = -1
+            while(not(chosenCard in possibleCards)):
+                try:
+                    chosenCard = int(input("Enter the INDEX of the card you would like to place.\n> "))
+                except(ValueError):
+                    print("Invalid input. Input must be an integer.")
+                    chosenCard = -1
+                if not(chosenCard in possibleCards):
+                    print(f"You cannot place that card \nPossible card indexes to play {possibleCards}")
+
+            player.env['center'].put(player.removeCardFromHand(chosenCard))
+            centerCard = player.env['center'].checkTopCard()
+            print("Player {} placed ({}, {}) in Center".format(player.index + 1, centerCard.rank, centerCard.suit))
+            return centerCard
+
+
+        # This is true only when another player has started the Draw 2 effect
+        # and the current player has the option to add to that effect
+        if (player.env['mustDraw2']):
+            choice = -1
+            while(choice != 0 or choice != 1):
+                try:
+                    choice = int(input("Draw 2 effect started. Add Draw 2 card to increase Draw 2 effect?\n0 - No\n1 - Yes\n> "))
+                except(ValueError):
+                    print("Invalid input. Input must be an integer.")
+                    choice = -1
+                # Player chose No
+                if (choice == 0):
+                    print("Wow, you're a pretty nice person. The next player should buy you a drink.")
+                    super(PlaceCardRule, self).checkDeck(player)
+
+                    drawCount = player.env['draw2Effect'] * 2
+                    for i in range(drawCount):
+                        player.addToHand(player.env['deck'].takeTop())
+                        super(PlaceCardRule, self).checkDeck(player)
+
+                    print(f"{drawCount} cards added to you hand")
+                    super(PlaceCardRule, self).resetDraw2Effect(player)
+                # Player chose Yes
+                elif(choice == 1):
+                    possibleCards = list()
+                    for i in range(0, len(player.hand)):
+                        if player.hand[i].rank == '2': possibleCards.append(i)
+                    letUserPlaceCard(player, possibleCards)
+                    player.env['draw2Effect'] += 1
+                else:
+                    print("Invalid input. Either input 0 for No or 1 for Yes")
+        else:
+            centerCard = player.env['center'].checkTopCard()
+            possibleCards = list()
+            for i in range(0, len(player.hand)):
+                if player.hand[i].equalsRank(centerCard) or player.hand[i].equalsSuit(centerCard) or player.hand[i].rank == '2':
+                    possibleCards.append(i)
+            centerCard = letUserPlaceCard(player, possibleCards)
+            if centerCard.rank == '2':
+                player.env['mustDraw2'] = True
+                player.env['draw2Effect'] += 1
             else:
-                print("{} - ({} {})".format(index, card.rank, card.suit))
-            index += 1
-
-        chosenCard = -1
-        while(not(chosenCard in possibleCards)):
-            chosenCard = int(input("Which card would you like to play?\n"))
-            if not(chosenCard in possibleCards):
-                print(f"You cannot play that card \nPossible card(s) to play {possibleCards}")
-
-        player.env['center'].put(player.removeCardFromHand(chosenCard))
-
-        centerCard = player.env['center'].checkTopCard()
-        print("Player {} placed ({} {}) in Center".format(player.index + 1, centerCard.rank, centerCard.suit))
-
-        numOfPlayers = player.env['numOfPlayers']
-        if numOfPlayers == 2 and centerCard.rank != '2':
-            player.env['lptd2'] = -1  # Resets the Draw 2 Logic
+                super(PlaceCardRule, self).resetDraw2Effect(player)
 
         player.env['currPlayer'] = super(PlaceCardRule, self).nextPlayer(player)
 
-class DrawCard(BartokRuleNext):
+
+class DrawCardRule(BartokRule):
     def __init__(self):
-        self.name = BartokRule.DRAWCARD
+        self.name = BartokRuleEnum.DRAWCARD
 
     def canAct(self, player):
         return True
 
     def act(self, player):
-        self.checkDeck(player)
+        super(DrawCardRule, self).checkDeck(player)
 
         print("Your only option is to draw from the deck")
         print("Automatically adding one card to your hand.")
         player.addToHand(player.env['deck'].takeTop())
-        player.env['currPlayer'] = super(DrawCard, self).nextPlayer(player)
-
-    def checkDeck(self, player):
-        if player.env['deck'].isEmpty():
-            # Take extra cards from center and add it to the deck
-            print("Deck is empty, adding extra cards from Center back to Deck")
-            extraCardCount = player.env['center'].numOfCards() - 1
-            for i in range(0,extraCardCount):
-                player.env['deck'].put(player.env['center'].takeBottom(), False)
+        player.env['currPlayer'] = super(DrawCardRule, self).nextPlayer(player)

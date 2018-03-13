@@ -24,7 +24,7 @@ class Game(Enum):
     BARTOK = 0,
     SPOONS = 1
 
-class BartokRule(Enum):
+class BartokRuleEnum(Enum):
     PLACEDRAW2 = 0
     DRAW2 = 1
     PLACECARD = 2
