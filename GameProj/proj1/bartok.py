@@ -59,7 +59,7 @@ Game Play:
  of cumulative Draw 2 cards * 2 (This is also done automatically).
         ''')
 
-
+        numOfPlayer = self.env['numOfPlayers']
         while (self.env['winner'] < 0):
             topCard = self.env['center'].checkTopCard()
             print("=============================")
@@ -71,7 +71,42 @@ Game Play:
             currPlayer.weighOptions()
             currPlayer.act()
             self.detWinner()
-        print("Player {} has won the game!".format(self.env['winner']))
+            if(numOfPlayer == 2 and currPlayer.index == 0):
+                nextNumber = int(input(
+                    f"Player {currPlayer.index + 1} your turn is over."
+                    f" When Player {currPlayer.index + 2} is ready for their turn enter their number. \n"))
+                while (nextNumber != (currPlayer.index + 2)):
+                    nextNumber = int(input(
+                        f"The next player should be Player {currPlayer.index + 2}. Please enter {currPlayer.index + 2} "
+                        f"to to proceed.\n"))
+            elif(numOfPlayer == 2 and currPlayer.index == 1):
+                nextNumber = int(input(
+                    f"Player {currPlayer.index + 1} your turn is over."
+                    f" When Player {currPlayer.index} is ready for their turn enter their number. \n"))
+                while (nextNumber != (currPlayer.index)):
+                    nextNumber = int(input(
+                        f"The next player should be Player {currPlayer.index}. Please enter {currPlayer.index} to "
+                        f"proceed.\n"))
+            else:
+                if(currPlayer.index == numOfPlayer - 1):
+                    nextNumber = int(input(
+                        f"Player {currPlayer.index + 1} your turn is over."
+                        f" When Player {numOfPlayer - currPlayer.index} is ready for their turn enter "
+                        f"their number. \n"))
+                    while (nextNumber != (numOfPlayer - currPlayer.index)):
+                        nextNumber = int(input(
+                            f"The next player should be Player {numOfPlayer - currPlayer.index}. Please enter "
+                            f"{numOfPlayer - currPlayer.index} to proceed.\n"))
+                else:
+                    nextNumber = int(input(
+                        f"Player {currPlayer.index + 1} your turn is over."
+                        f" When Player {currPlayer.index + 2} is ready for their turn enter their number. \n"))
+                    while (nextNumber != (currPlayer.index + 2)):
+                        nextNumber = int(input(
+                            f"The next player should be Player {currPlayer.index + 2}. Please enter "
+                            f"{currPlayer.index + 2} to proceed.\n"))
+
+        print("Player {} has won the game!".format(self.env['winner'] + 1))
 
     def detWinner(self):
         for player in self.env['players']:
