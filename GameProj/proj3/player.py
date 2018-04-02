@@ -1,10 +1,9 @@
-from thing import Thing
 from card import Card
 from bartokrules import BartokRules
 from enums import Game
 
 
-class Player():
+class Player:
     def __init__(self, env, pos, game):
         def deter_rules(player, game_inst):
             if game_inst == Game.BARTOK:
@@ -19,7 +18,10 @@ class Player():
         self.norm_pos = self.pos + 1
 
     def __str__(self):
-        return f"{self.pos} {self.hand_to_str()}"
+        self_str = f"{self.pos} -"
+        for card in self.hand:
+            self_str += f" {card}"
+        return self_str
 
     def hand_size(self):
         return len(self.hand)
@@ -41,7 +43,7 @@ class Player():
     def rmv_from_hand(self, idx):
         return self.hand.pop(idx)
 
-    def show_hand(self, info_funcs):
+    def show_hand(self, info_funcs=None):
         print("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
         print("Your Hand (index - card)")
         for index, card in enumerate(self.hand):
@@ -52,13 +54,10 @@ class Player():
             print()
         print("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
 
-    def cards_meet_criteria(self, criteria):
-        cards = list()
-        for index, card in enumerate(self.hand):
-            for cond in criteria:
-                if cond(card):
-                    cards.append(index)
-        return cards
+    def cards_meet_criteria(self, criteria=None):
+        if not criteria:
+            return [index for index, card in enumerate(self.hand)]
+        return [index for index, card in enumerate(self.hand) for cond in criteria if cond(card)]
 
     def reflect(self):
         i = 1

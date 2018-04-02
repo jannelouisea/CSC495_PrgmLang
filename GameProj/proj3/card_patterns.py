@@ -1,4 +1,5 @@
 from enums import Suit
+from deck import Deck
 
 # https://stackoverflow.com/questions/37179737/sorting-list-of-cards
 rank_order = ['2', '3', '4', '5', '6', '7', '8', '9', 'J', 'Q', 'K', 'A']
@@ -31,8 +32,4 @@ def four_of_a_kind(cards, kind):
 
 
 def any_four_of_a_kind(cards):
-    kinds = list()
-    for rank in rank_order:
-        if four_of_a_kind(cards, rank) == True:
-            kinds.append(rank)
-    return kinds
+    return [rank for rank in rank_order if four_of_a_kind(cards, rank)]

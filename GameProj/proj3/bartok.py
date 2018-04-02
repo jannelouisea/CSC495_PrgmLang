@@ -4,22 +4,32 @@ from pile import Pile
 from common import prompt_input
 
 BARTOK_SUMMARY = '''
-Bartok Requirements:
- A standard deck of cards (without Jokers)
- 2 to 5 players
- 5 to 7 card to start
-Game Play:
- The first player to get rid of all cards from their hand wins.
- Each player is initially dealt five to seven cards.
- Players place cards in the center Pile.
- After dealing cards to each player, the top card from the deck is placed
- face up in the center.
- Each player must place a card matching the suit or rank of the 
- top card of the center pile.
- If a player cannot place a card, they must draw one card from the deck (This is done automatically).
- If the top card is a Draw 2 card (i.e. card with rank 2) and the player cannot
- add another Draw 2 card, they must draw n cards from the deck where n equals the number
- of cumulative Draw 2 cards * 2 (This is also done automatically).
+======================================================
+                        Bartok
+------------------------------------------------------
+Bartok is a card game that uses a standard deck
+without Jokers. The number of players can range from
+2 to 5 players. The number of cards each player can
+start with range from 5 to 7 cards.
+
+The objective of the game is to be the first player
+to get rid of all their cards.
+
+You can only place cards from your hand to the Center
+pile if they match either the rank or suit of the top
+card in the Center pile or if they match a Draw2 Card
+(rank 2).
+
+When it is your turn, you have to chose which card
+to place in the Center pile. If only one card can be
+placed or if you can only draw card(s) from the deck,
+the program will automatically act for you.
+
+To transition between players, the next player has to
+enter their position before proceeding.
+
+Good Luck. Now let's play!
+======================================================
 '''
 
 
@@ -40,12 +50,12 @@ class Bartok(Game):
         return not(int(num_cards) < self.start_card_min or int(num_cards) > self.start_card_max)
 
     def player_trans_valid(self, player_pos):
-        print(f"player_pos: {player_pos}")
-        print(f"cur_player_pos: {self.env[BartokEnv.cur_player_pos]}")
         return int(player_pos) == self.env[BartokEnv.cur_player_pos]
 
     def set_up(self):
-        print("Setting up Bartok")
+        print("---------------------------------")
+        print("Set Up")
+        print("---------------------------------")
         self.set_norm_deck()
         num_players = self.ask_num_players(self.min_players, self.max_players)
 
@@ -59,21 +69,21 @@ class Bartok(Game):
 
     def show_center_top_card(self):
         top_card = self.env[BartokEnv.center].look_top()
-        print("=============================")
+        print("=================================")
         print(f"Center Card: {top_card}")
-        print("=============================")
+        print("=================================")
 
     def let_curr_player_play(self):
         cur_player = self.cur_player()
         print(f"Player {cur_player.pos} Turn")
-        print("-----------------------------")
+        print("---------------------------------")
         cur_player.weigh_actions()
         cur_player.act()
 
     def transition_to_next_player(self):
         rec = self.env[BartokEnv.rec_player_pos]
         cur = self.env[BartokEnv.cur_player_pos]
-        print("-----------------------------")
+        print("---------------------------------")
         player_trans_prompt = f"Player {rec} your turn is over.\n" \
                               f"When Player {cur} is ready, enter your number ({cur}).\n> "
         player_trans_err = f"ERROR: The next player should be Player {cur}. " \
@@ -81,7 +91,6 @@ class Bartok(Game):
         prompt_input(player_trans_prompt, self.player_trans_valid, None, player_trans_err, None)
 
     def play(self):
-        print("Let's play Bartok!")
         print(BARTOK_SUMMARY)
 
         while self.env[BartokEnv.winner_pos] < 0:
