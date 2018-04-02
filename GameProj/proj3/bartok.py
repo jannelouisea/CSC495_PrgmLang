@@ -73,7 +73,7 @@ class Bartok(Game):
         print(f"Center Card: {top_card}")
         print("=================================")
 
-    def let_curr_player_play(self):
+    def let_cur_player_play(self):
         cur_player = self.cur_player()
         print(f"Player {cur_player.pos} Turn")
         print("---------------------------------")
@@ -95,12 +95,11 @@ class Bartok(Game):
 
         while self.env[BartokEnv.winner_pos] < 0:
             self.show_center_top_card()
-            self.let_curr_player_play()
-
+            self.let_cur_player_play()
+            self.det_winner()
             if self.env[BartokEnv.winner_pos] >= 0:
                 print(f"Player {self.env[BartokEnv.winner_pos]} has won the game!")
                 break
-
             self.transition_to_next_player()
 
     def det_winner(self):
