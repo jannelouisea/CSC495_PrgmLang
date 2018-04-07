@@ -25,7 +25,7 @@ if __name__ == '__main__':
     print('---------------------------------')
 
     game_choice_err = "Invalid Input."
-    game_choice = int(prompt_input(game_choice_prompt(), game_choice_cond, None, game_choice_err, None))
+    game_choice = int(prompt_input(game_choice_prompt(), game_choice_cond, game_choice_err))
 
     game = games[game_choice]
     game.set_up()

@@ -35,7 +35,7 @@ class Rule(Thing):
     # ------------------------------------------------------------------------------------------------- #
     def next_player(self, jump_size, skips):
         curr_player_pos = self.env[Env.cur_player_pos]
-        direction = self.env[Env.direction].value
+        direction = self.env[Env.direction]
         num_players = self.env[Env.num_players]
         last_idx = num_players - 1
 
@@ -45,7 +45,6 @@ class Rule(Thing):
             next_player -= direction * num_players
 
         return next_player
-
 
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #

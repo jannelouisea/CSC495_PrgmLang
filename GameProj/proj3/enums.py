@@ -20,29 +20,15 @@ class Color(Enum):
     RED = 1
 
 
-class Direction(Enum):
-    CLOCKWISE = 1
-    CRCLOCKWISE = -1
-
-
 class Game(Enum):
-    BARTOK = 0,
-    SPOONS = 1
+    BARTOK = 'Bartok'
+    SPOONS = 'Spoons'
 
 
 class BartokRuleEnum(Enum):
-    PLACEDRAW2 = 0
-    DRAW2 = 1
-    PLACECARD = 2
-    DRAWCARD = 3
-
-
-# TODO: Take out?
-class PileActions(Enum):
-    TAKE = 0,
-    TAKETOP = 1,
-    TAKEBOTTOM = 2,
-    LOOK = 3,
-    LOOKTOP = 4,
-    LOOKBOTTOM = 5,
-    PUT = 6
+    PLACEDRAW2 = 'Play Draw 2 Card (rank 2)'
+    DRAW2 = 'Draw 2n Cards (n = draw2 effect)'
+    SKIP = 'Play Skip Card (rank 7)'
+    REVERSE = 'Play Reverse Card (rank 8)'
+    PLACEMATCHCARD = 'Play Card w/ Matching Suit or Rank'
+    DRAWCARD = 'Draw From Deck'

@@ -7,14 +7,13 @@ class Player:
     def __init__(self, env, pos, game):
         def deter_rules(player, game_inst):
             if game_inst == Game.BARTOK:
-                return BartokRules(player)
+                return BartokRules(player).rules_map
             # Other rules from different games would go here
 
         self.env = env
         self.hand = list()
         self.pos = pos
-        self.game_rules = deter_rules(self, game)
-        self.move = None
+        self.rules_map = deter_rules(self, game)
         self.norm_pos = self.pos + 1
 
     def __str__(self):
@@ -47,12 +46,18 @@ class Player:
         print("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
         print("Your Hand (index - card)")
         for index, card in enumerate(self.hand):
-            print(f"{index} - {card} ", end="")
-            for info_cond, info_msg in info_funcs:
-                if info_cond(card):
-                    print(f"{info_msg} ", end="")
-            print()
+            print(f"{index} - {card} ")
         print("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
+
+    def has_card_w_criteria(self, criteria):
+        card_found = False
+        for card in self.hand:
+            if (not card_found):
+                for cond in criteria:
+                    if cond(card):
+                        card_found = True
+                        break
+        return card_found
 
     def cards_meet_criteria(self, criteria=None):
         if not criteria:
@@ -65,11 +70,8 @@ class Player:
             print("Card {}: {} of {}".format(i, card.rank, card.suit))
             i += 1
 
-    def weigh_actions(self):
-        for rule in self.game_rules.rules:
-            if rule.can_act():
-                self.move = rule
-                break
+    def possible_actions(self):
+        return [(i, self.rules_map[i].name.value) for i in self.rules_map if self.rules_map[i].can_act()]
 
-    def act(self):
-        self.move.act()
+    def act(self, desired_action):
+        self.rules_map[desired_action].act()
