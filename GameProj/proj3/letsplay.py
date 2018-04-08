@@ -1,10 +1,11 @@
 import sys
 from spoons import Spoons
 from bartok import Bartok
+from sevens import Sevens
 from enums import Game
 from common import prompt_input
 
-games = [Bartok(Game.BARTOK), Spoons(Game.SPOONS)]
+games = [Bartok(Game.BARTOK), Spoons(Game.SPOONS), Sevens(Game.SEVENS)]
 
 
 def game_choice_prompt():

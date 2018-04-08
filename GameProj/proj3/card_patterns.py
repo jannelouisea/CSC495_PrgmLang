@@ -1,7 +1,7 @@
 from enums import Suit
-from deck import Deck
 
 # https://stackoverflow.com/questions/37179737/sorting-list-of-cards
+unavailable = 'X'
 rank_order = ['2', '3', '4', '5', '6', '7', '8', '9', 'J', 'Q', 'K', 'A']
 suit_order_asc = [Suit.CLUBS, Suit.DIAMONDS, Suit.HEARTS, Suit.SPADES]
 suit_map = {val: i for i, val in enumerate(suit_order_asc)}
@@ -13,6 +13,14 @@ def sort_cards(cards, desc=False):
 
 def group_cards(cards, desc=False):
     return sorted(cards, key=lambda card: card.value, reverse=desc)
+
+
+def adjacent_high(rank):
+    return unavailable if rank == 'A' else rank_order[rank_order.index(rank) + 1]
+
+
+def adjacent_low(rank):
+    return unavailable if rank == '2' else rank_order[rank_order.index(rank) - 1]
 
 
 def cards_to_str(cards):

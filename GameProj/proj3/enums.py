@@ -23,6 +23,7 @@ class Color(Enum):
 class Game(Enum):
     BARTOK = 'Bartok'
     SPOONS = 'Spoons'
+    SEVENS = 'Sevens'
 
 
 class BartokRuleEnum(Enum):
@@ -32,3 +33,10 @@ class BartokRuleEnum(Enum):
     REVERSE = 'Play Reverse Card (rank 8)'
     PLACEMATCHCARD = 'Play Card w/ Matching Suit or Rank'
     DRAWCARD = 'Draw From Deck'
+
+
+class SevensRuleEnum(Enum):
+    PLAYSTARTCARD = 'Play Start Card (7 Diamonds)'
+    PLAYSTARTLAYOUTCARD = 'Play Start Layout Card (rank 7)'
+    PLAYADJACENTCARD = 'Play Adjacent Card'
+    KNOCK = 'Knock (can\'t play any cards)'

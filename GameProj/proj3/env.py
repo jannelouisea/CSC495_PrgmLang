@@ -18,3 +18,10 @@ class BartokEnv(Env):
 class SpoonsEnv(Env):
     trash = 'trash'
     end_player = 'end_player'
+
+
+class SevensEnv(Env):
+    spades_layout = 'spades_layout'
+    diamonds_layout = 'diamonds_layout'
+    clubs_layout = 'clubs_layout'
+    hearts_layout = 'hearts_layout'

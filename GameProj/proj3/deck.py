@@ -11,13 +11,13 @@ class Deck(Pile):
         # Initialize list of cards
         for suit in Suit:
             # create number cards
-            for n in range(2, 10):
+            for n in range(2, 11):
                 self.cards.append(Card(str(n), suit, n))
             # create face cards
-            self.cards.append(Card(FaceCard.ACE.value, suit, 13))
-            self.cards.append(Card(FaceCard.KING.value, suit, 12))
-            self.cards.append(Card(FaceCard.QUEEN.value, suit, 11))
-            self.cards.append(Card(FaceCard.JACK.value, suit, 10))
+            self.cards.append(Card(FaceCard.ACE.value, suit, 14))
+            self.cards.append(Card(FaceCard.KING.value, suit, 13))
+            self.cards.append(Card(FaceCard.QUEEN.value, suit, 12))
+            self.cards.append(Card(FaceCard.JACK.value, suit, 11))
 
         # Create jokers
         if jokers_included:

@@ -3,6 +3,7 @@ from player import Player
 from deck import Deck
 from env import Env
 from common import prompt_input
+from card_patterns import sort_cards
 
 
 class Game(Thing):
@@ -52,7 +53,21 @@ class Game(Thing):
             player = Player(self.env, i, self.game)
             for j in range(num_cards):
                 player.add_to_hand(self.env[Env.deck].take_top())
+            player.sort_hand(sort_cards)
             self.env[Env.players].append(player)
+
+    def init_players_w_eq_cards(self, num_players):
+        players = self.env[Env.players]
+        for i in range(0, num_players):
+            players.append(Player(self.env, i, self.game))
+
+        deck = self.env[Env.deck]
+        num_cards = deck.num_cards()
+        for i in range(0, num_cards):
+            players[i % num_players].add_to_hand(deck.take_top())
+
+        for player in players:
+            player.sort_hand(sort_cards)
 
     def cur_player(self):
         return self.env[Env.players][self.env[Env.cur_player_pos]]
@@ -64,11 +79,10 @@ class Game(Thing):
         player.show_hand()
         possible_actions = player.possible_actions()
         if len(possible_actions) == 1:
-            print(f"Your only option is to {possible_actions[0][1]}")
             player.act(possible_actions[0][0])
         else:
             valid_actions = list()
-            act_prompt = "What would you like to do? (Enter the INDEX)\n"
+            act_prompt = "What would you like to do?\n"
             for i, action in possible_actions:
                 valid_actions.append(i)
                 act_prompt += f"{i} - {action}\n"

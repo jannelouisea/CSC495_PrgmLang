@@ -1,5 +1,6 @@
 from card import Card
 from bartokrules import BartokRules
+from sevensrules import SevensRules
 from enums import Game
 
 
@@ -8,6 +9,8 @@ class Player:
         def deter_rules(player, game_inst):
             if game_inst == Game.BARTOK:
                 return BartokRules(player).rules_map
+            if game_inst == Game.SEVENS:
+                return SevensRules(player).rules_map
             # Other rules from different games would go here
 
         self.env = env
@@ -41,6 +44,9 @@ class Player:
 
     def rmv_from_hand(self, idx):
         return self.hand.pop(idx)
+
+    def sort_hand(self, sort_func):
+        self.hand = sort_func(self.hand)
 
     def show_hand(self, info_funcs=None):
         print("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
