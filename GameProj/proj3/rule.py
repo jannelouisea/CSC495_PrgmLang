@@ -16,10 +16,12 @@ class Rule(Thing):
         self.env = player.env
 
     # ------------------------------------------------------------------------------------------------- #
-    # Changes the environment's recent player position and current player pos.                          #
+    # Changes the environment's recent and current player positions.                                    #
+    # The recent player position is changed to the current player's position.                           #
+    # The current player position is determined by the next player function.                            #
     #                                                                                                   #
-    # :param jump_size: Number of players to go to                                                      #
-    # :param skips: Number of players to skip:                                                          #
+    # :param jump_size: Number of players to go to.                                                     #
+    # :param skips: Number of players to skip.                                                          #
     # ------------------------------------------------------------------------------------------------- #
     def change_curr_player(self, jump_size, skips):
         self.env[Env.rec_player_pos] = self.env[Env.cur_player_pos]
@@ -32,13 +34,13 @@ class Rule(Thing):
     # next player = (current player position) +                                                         #
     #               (direction * (jump size * (skips + 1)) % number of players)                         #
     #                                                                                                   #
-    # if the next player is outside the valid range of player indices, number of players is added       #
-    # or subtracted based with respect to the direction                                                 #
+    # If the next player is outside the valid range of player positions [0 - (number of players - 1)],  #
+    # the number of players is added or subtracted based with respect to the direction.                 #
     #                                                                                                   #
-    # :param player: The current player                                                                 #
-    # :param jump_size: Number of players to go to                                                      #
-    # :param skips: Number of players to skip                                                           #
-    # :return: The index of the next player                                                             #
+    # :param player: The current player.                                                                #
+    # :param jump_size: Number of players to go to.                                                     #
+    # :param skips: Number of players to skip.                                                          #
+    # :return: The index of the next player.                                                            #
     # ------------------------------------------------------------------------------------------------- #
     def next_player(self, jump_size, skips):
         cur_player_pos = self.env[Env.cur_player_pos]
@@ -56,8 +58,8 @@ class Rule(Thing):
     # ------------------------------------------------------------------------------------------------- #
     # Prompts the user to choose a card from the valid list of cards.                                   #
     #                                                                                                   #
-    # :param valid_cards: A list of valid cards indices from the player's hand                          #
-    # :param card_type: The type of card each card associates with; used in the prompt                  #
+    # :param valid_cards: A list of valid cards indices from the player's hand.                         #
+    # :param card_type: The type of card each card associates with; used in the prompt.                 #
     # ------------------------------------------------------------------------------------------------- #
     def user_choose_card(self, valid_cards, card_type=''):
         def valid_card(idx):
