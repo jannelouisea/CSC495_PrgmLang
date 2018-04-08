@@ -1,7 +1,6 @@
 from game import Game
 from env import SevensEnv
 from pile import Pile
-from common import prompt_input
 from card import Card
 from enums import Suit
 
@@ -34,6 +33,10 @@ Good Luck. Now let's play!
 ======================================================
 '''
 
+
+# ------------------------------------------------------------------------------------------------- #
+#                                                                                                   #
+# ------------------------------------------------------------------------------------------------- #
 # https://www.wikihow.com/Play-the-Card-Game-Called-Sevens
 class Sevens(Game):
 
@@ -46,9 +49,16 @@ class Sevens(Game):
         self.env[SevensEnv.clubs_layout] = Pile()
         self.env[SevensEnv.hearts_layout] = Pile()
 
-    def winning_cond(self, player):
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
+    @staticmethod
+    def winning_cond(player):
         return player.hand_size() == 0
 
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
     def show_table(self):
         table = {
             'SPADES': self.env[SevensEnv.spades_layout].cards,
@@ -66,10 +76,13 @@ class Sevens(Game):
                 print("[]")
             else:
                 for card in layout:
-                    print (f"{card} ", end="")
+                    print(f"{card} ", end="")
                 print()
         print("=================================")
 
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
     def start(self):
         start_card = Card("7", Suit.DIAMONDS, 7)
 
@@ -77,10 +90,13 @@ class Sevens(Game):
             return card.matches_card(start_card)
 
         for index, player in enumerate(self.env[SevensEnv.players]):
-            if player.has_card_w_criteria([start_card_cond]):
+            if player.has_card_meet_cond(start_card_cond):
                 self.env[SevensEnv.cur_player_pos] = index
                 break
 
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
     def set_up(self):
         print("---------------------------------")
         print("Set Up")
@@ -89,6 +105,9 @@ class Sevens(Game):
         num_players = self.ask_num_players(self.min_players, self.max_players)
         self.init_players_w_eq_cards(num_players)
 
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
     def play(self):
         print(SEVENS_SUMMARY)
 

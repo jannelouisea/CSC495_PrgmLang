@@ -2,7 +2,6 @@ from rule import Rule
 from enums import BartokRuleEnum
 from gamerules import GameRules
 from env import BartokEnv
-from common import prompt_input
 
 
 # ------------------------------------------------------------------------------------------------- #
@@ -57,8 +56,6 @@ class BartokRule(Rule):
             for i in range(0, add_count):
                 deck.put(center.take_bottom(), False)
 
-    # TODO: Put into rule if other games need this functionality
-    # TODO: Abstract check_deck() ?
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
@@ -76,20 +73,6 @@ class BartokRule(Rule):
                 msg += f" {card}"
             print(msg)
         return added
-
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
-    def user_choose_card(self, valid_cards, card_type=''):
-        def valid_card(idx):
-            return int(idx) in valid_cards
-
-        choose_card_prompt = f"Enter the index of the {card_type} card would you like to play.\nIndex - Card\n"
-        for card in valid_cards:
-            choose_card_prompt += f"{card} - {self.player.hand[card]}\n"
-        choose_card_prompt += "> "
-        choose_card_err = "Invalid index."
-        return int(prompt_input(choose_card_prompt, valid_card, choose_card_err))
 
     def play_recap(self):
         top_card = self.env[BartokEnv.center].look_top()
@@ -154,13 +137,13 @@ class PlaceDraw2Rule(BartokRule):
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def can_act(self):
-        return self.player.has_card_w_criteria([self.draw2_card_cond])
+        return self.player.has_card_meet_cond(self.draw2_card_cond)
 
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def act(self):
-        draw2_cards = self.player.cards_meet_criteria([self.draw2_card_cond])
+        draw2_cards = self.player.cards_meet_cond(self.draw2_card_cond)
         draw2_card = draw2_cards[0] if len(draw2_cards) == 1 else self.user_choose_card(draw2_cards, "draw2")
         self.env[BartokEnv.center].put(self.player.rmv_from_hand(draw2_card))
         self.inc_draw2_effect()
@@ -181,13 +164,13 @@ class SkipRule(BartokRule):
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def can_act(self):
-        return (not self.draw2_rule.can_act()) and self.player.has_card_w_criteria([self.skip_card_cond])
+        return (not self.draw2_rule.can_act()) and self.player.has_card_meet_cond(self.skip_card_cond)
 
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def act(self):
-        skip_cards = self.player.cards_meet_criteria([self.skip_card_cond])
+        skip_cards = self.player.cards_meet_cond(self.skip_card_cond)
         skip_card = skip_cards[0] if len(skip_cards) == 1 else self.user_choose_card(skip_cards, "skip")
         self.env[BartokEnv.center].put(self.player.rmv_from_hand(skip_card))
         self.play_recap()
@@ -207,13 +190,13 @@ class ReverseRule(BartokRule):
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def can_act(self):
-        return (not self.draw2_rule.can_act()) and self.player.has_card_w_criteria([self.reverse_card_cond])
+        return (not self.draw2_rule.can_act()) and self.player.has_card_meet_cond(self.reverse_card_cond)
 
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def act(self):
-        reverse_cards = self.player.cards_meet_criteria([self.reverse_card_cond])
+        reverse_cards = self.player.cards_meet_cond(self.reverse_card_cond)
         reverse_card = reverse_cards[0] if len(reverse_cards) == 1 else self.user_choose_card(reverse_cards, "reverse")
         self.env[BartokEnv.center].put(self.player.rmv_from_hand(reverse_card))
         self.env[BartokEnv.direction] *= -1
@@ -244,13 +227,13 @@ class PlaceMatchRule(BartokRule):
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def can_act(self):
-        return (not self.draw2_rule.can_act()) and self.player.has_card_w_criteria([self.place_match_cond])
+        return (not self.draw2_rule.can_act()) and self.player.has_card_meet_cond(self.place_match_cond)
 
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def act(self):
-        matched_cards = self.player.cards_meet_criteria([self.place_match_cond])
+        matched_cards = self.player.cards_meet_cond(self.place_match_cond)
         matched_card = matched_cards[0] if len(matched_cards) == 1 else self.user_choose_card(matched_cards, "matched")
         self.env[BartokEnv.center].put(self.player.rmv_from_hand(matched_card))
         self.play_recap()

@@ -4,6 +4,9 @@ from sevensrules import SevensRules
 from enums import Game
 
 
+# ------------------------------------------------------------------------------------------------- #
+#                                                                                                   #
+# ------------------------------------------------------------------------------------------------- #
 class Player:
     def __init__(self, env, pos, game):
         def deter_rules(player, game_inst):
@@ -25,15 +28,24 @@ class Player:
             self_str += f" {card}"
         return self_str
 
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
     def hand_size(self):
         return len(self.hand)
 
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
     def add_to_hand(self, card, face_up=True):
         if isinstance(card, Card):
             if card.face_up != face_up:
                 card.flip()
             self.hand.append(card)
 
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
     def hand_to_str(self):
         hand = ""
         for card in self.hand:
@@ -42,12 +54,21 @@ class Player:
             hand += card.suit.value
         return hand
 
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
     def rmv_from_hand(self, idx):
         return self.hand.pop(idx)
 
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
     def sort_hand(self, sort_func):
         self.hand = sort_func(self.hand)
 
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
     def show_hand(self, info_funcs=None):
         print("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
         print("Your Hand (index - card)")
@@ -55,20 +76,20 @@ class Player:
             print(f"{index} - {card} ")
         print("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
 
-    def has_card_w_criteria(self, criteria):
-        card_found = False
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
+    def has_card_meet_cond(self, cond):
         for card in self.hand:
-            if (not card_found):
-                for cond in criteria:
-                    if cond(card):
-                        card_found = True
-                        break
-        return card_found
+            if cond(card):
+                return True
+        return False
 
-    def cards_meet_criteria(self, criteria=None):
-        if not criteria:
-            return [index for index, card in enumerate(self.hand)]
-        return [index for index, card in enumerate(self.hand) for cond in criteria if cond(card)]
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
+    def cards_meet_cond(self, cond):
+        return [index for index, card in enumerate(self.hand) if cond(card)]
 
     def reflect(self):
         i = 1
@@ -76,8 +97,14 @@ class Player:
             print("Card {}: {} of {}".format(i, card.rank, card.suit))
             i += 1
 
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
     def possible_actions(self):
         return [(i, self.rules_map[i].name.value) for i in self.rules_map if self.rules_map[i].can_act()]
 
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
     def act(self, desired_action):
         self.rules_map[desired_action].act()
