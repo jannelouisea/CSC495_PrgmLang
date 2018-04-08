@@ -8,23 +8,35 @@ SEVENS_SUMMARY = '''
 ======================================================
                        Sevens
 ------------------------------------------------------
-Bartok is a card game that uses a standard deck
-without Jokers. The number of players can range from
-2 to 5 players. The number of cards each player can
-start with range from 5 to 7 cards.
+Bartok is a card game that uses a standard deck of
+card without Jokers. The number of players can range
+from 3 to 8 players.
 
 The objective of the game is to be the first player
 to get rid of all their cards.
 
-You can only place cards from your hand to the Center
-pile if they match either the rank or suit of the top
-card in the Center pile or if they match a Draw2 Card
-(rank 2).
+Special Cards in the Game:
+Start Card         - 7 Diamonds
+Start Layout Card  - any card with rank 7 except Start Card
 
-When it is your turn, you have to chose which card
-to place in the Center pile. If only one card can be
-placed or if you can only draw card(s) from the deck,
-the program will automatically act for you.
+The player who has the 7 Diamonds goes first. Direction
+is clockwise.
+
+Each player can do one the following moves on their
+turn:
+1 - Play Start Layout Card
+    When a player plays a Start Layout Card, this
+    creates a new layout for that card's suit.
+
+2 - Play Adjacent Card
+    For one of the four layouts, the player can only
+    put the next highest or lowest card.
+
+3 - Knock (can't play anything)
+
+If player can only play either one start layout card or
+on adjacent card, then that card is automatically placed
+in the corresponding layout. 
 
 To transition between players, the next player has to
 enter their position before proceeding.
@@ -71,7 +83,9 @@ class Sevens(Game):
         print("              Table")
         print("---------------------------------")
         for suit, layout in table.items():
-            print(f"{suit}: ", end="")
+            print(f"{suit}: \t", end="")
+            if suit == 'CLUBS':
+                print('\t', end="")
             if len(layout) == 0:
                 print("[]")
             else:
@@ -83,7 +97,7 @@ class Sevens(Game):
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
-    def start(self):
+    def find_start_player(self):
         start_card = Card("7", Suit.DIAMONDS, 7)
 
         def start_card_cond(card):
@@ -111,7 +125,7 @@ class Sevens(Game):
     def play(self):
         print(SEVENS_SUMMARY)
 
-        self.start()
+        self.find_start_player()
         while self.env[SevensEnv.winner_pos] < 0:
             self.show_table()
             self.let_cur_player_play()

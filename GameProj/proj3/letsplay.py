@@ -1,4 +1,3 @@
-import sys
 from spoons import Spoons
 from bartok import Bartok
 from sevens import Sevens
@@ -17,7 +16,7 @@ def game_choice_prompt():
 
 
 def game_choice_cond(choice):
-    return int(choice) < len(games) and int(choice) >= 0
+    return len(games) > int(choice) >= 0
 
 
 if __name__ == '__main__':

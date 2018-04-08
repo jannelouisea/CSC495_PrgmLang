@@ -7,23 +7,46 @@ BARTOK_SUMMARY = '''
 ======================================================
                         Bartok
 ------------------------------------------------------
-Bartok is a card game that uses a standard deck
-without Jokers. The number of players can range from
-2 to 5 players. The number of cards each player can
-start with range from 5 to 7 cards.
+Bartok is a card game that uses a standard deck of
+card without Jokers. The number of players can range
+from 2 to 5 players and the number of cards each
+player can start with range from 5 to 7 cards.
 
 The objective of the game is to be the first player
 to get rid of all their cards.
 
-You can only place cards from your hand to the Center
-pile if they match either the rank or suit of the top
-card in the Center pile or if they match a Draw2 Card
-(rank 2).
+Special Cards in the Game:
+Draw 2 card     - any card with rank 2
+Skip Card       - any card with rank 7
+Reverse Card    - any card with rank 8
 
-When it is your turn, you have to chose which card
-to place in the Center pile. If only one card can be
-placed or if you can only draw card(s) from the deck,
-the program will automatically act for you.
+Each player can do one the following moves on their
+turn:
+0 - Draw 2n Cards (n = draw2 effect)
+    If the current player cannot add to the draw 2
+    effect, then they must draw 2n cards from the
+    deck, when n equals the number of previous players
+    that consecutively placed a draw 2 card. 
+    (This is done automatically)
+           
+1 - Play one Draw 2 Card (rank 2)
+
+2 - Play one Skip Card (rank 7)
+
+3 - Place one Reverse Card (rank 8)
+
+4 - Play one Card w/ Matching Suit or Rank
+    For this move, the player must play a card that
+    matches the suit or rank to the top card in the
+    center pile.
+    
+5 - Draw from Deck
+    If the player cannot play any card, the player
+    must draw one card from the deck.
+    (This is done automatically)
+
+If player can only play a single card of each type,
+that card is automatically placed in the center. 
 
 To transition between players, the next player has to
 enter their position before proceeding.

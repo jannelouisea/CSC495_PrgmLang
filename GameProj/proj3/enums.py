@@ -27,12 +27,12 @@ class Game(Enum):
 
 
 class BartokRuleEnum(Enum):
-    PLACEDRAW2 = 'Play Draw 2 Card (rank 2)'
+    PLAYDRAW2 = 'Play Draw 2 Card (rank 2)'
     DRAW2 = 'Draw 2n Cards (n = draw2 effect)'
-    SKIP = 'Play Skip Card (rank 7)'
-    REVERSE = 'Play Reverse Card (rank 8)'
-    PLACEMATCHCARD = 'Play Card w/ Matching Suit or Rank'
-    DRAWCARD = 'Draw From Deck'
+    PLAYSKIP = 'Play Skip Card (rank 7)'
+    PLAYREVERSE = 'Play Reverse Card (rank 8)'
+    PLAYMATCHCARD = 'Play Card w/ Matching Suit or Rank'
+    DRAWCARD = 'Draw from Deck'
 
 
 class SevensRuleEnum(Enum):

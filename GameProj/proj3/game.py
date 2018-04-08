@@ -1,4 +1,3 @@
-from thing import Thing
 from player import Player
 from deck import Deck
 from env import Env
@@ -9,7 +8,7 @@ from card_patterns import sort_cards
 # ------------------------------------------------------------------------------------------------- #
 #                                                                                                   #
 # ------------------------------------------------------------------------------------------------- #
-class Game(Thing):
+class Game:
     def __init__(self, game):
         self.game = game
         self.name = game.value
@@ -45,20 +44,21 @@ class Game(Thing):
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
-    def let_user_choose_deck(self):
+    @staticmethod
+    def let_user_choose_deck():
         def deck_cond(x):
             return x == 0 or x == 1
 
         deck_prompt = 'Choose deck type.\n0 - Without Jokers\n1 - With Jokers'
-        deck_err = 'Please enter 0 or 1.'
+        deck_err = 'ERROR: Invalid number.'
         prompt_input(deck_prompt, deck_cond, deck_err)
 
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def ask_num_players(self, min_num, max_num):
-        def num_player_cond(num_players):
-            return not(int(num_players) < min_num or int(num_players) > max_num)
+        def num_player_cond(x):
+            return not(int(x) < min_num or int(x) > max_num)
 
         num_player_prompt = f"How many players? Number must be between {min_num} and {max_num}.\n> "
         num_player_err = 'ERROR: Incorrect number of players.'
@@ -118,8 +118,10 @@ class Game(Thing):
                 act_prompt += f"{i} - {action}\n"
             act_prompt += "> "
             act_err = "ERROR: Invalid index."
+
             def valid_action(action):
                 return int(action) in valid_actions
+
             desired_action = int(prompt_input(act_prompt, valid_action, act_err))
             player.act(desired_action)
 
@@ -139,7 +141,8 @@ class Game(Thing):
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
-    def print_winner_msg(self, winner):
+    @staticmethod
+    def print_winner_msg(winner):
         print("=================================")
         print("*********************************")
         print(f"   Player {winner} has won the game!")

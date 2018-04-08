@@ -2,7 +2,7 @@ from enums import Suit
 
 # https://stackoverflow.com/questions/37179737/sorting-list-of-cards
 unavailable = 'X'
-rank_order = ['2', '3', '4', '5', '6', '7', '8', '9', 'J', 'Q', 'K', 'A']
+rank_order = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 suit_order_asc = [Suit.CLUBS, Suit.DIAMONDS, Suit.HEARTS, Suit.SPADES]
 suit_map = {val: i for i, val in enumerate(suit_order_asc)}
 

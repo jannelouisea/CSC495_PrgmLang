@@ -3,7 +3,7 @@ from enums import SevensRuleEnum, Suit
 from gamerules import GameRules
 from card import Card
 from env import SevensEnv
-from card_patterns import adjacent_high, adjacent_low, unavailable
+from card_patterns import adjacent_high, adjacent_low, sort_cards, unavailable
 
 
 # ------------------------------------------------------------------------------------------------- #
@@ -37,6 +37,7 @@ class SevensRule(Rule):
         print(f"Player {self.player.pos} placed {self.player.hand[card]} on the table.")
         layout = self.table[self.player.hand[card].suit]
         layout.put(self.player.rmv_from_hand(card))
+        layout.sort_cards(sort_cards)
 
 
 # ------------------------------------------------------------------------------------------------- #
@@ -65,6 +66,7 @@ class PlayStartCardRule(SevensRule):
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def act(self):
+        print(f"Player {self.player.pos} has starting card.")
         start_card = self.player.cards_meet_cond(self.start_card_cond)[0]
         self.put_card_on_table(start_card)
         self.change_curr_player(1, 0)
@@ -97,6 +99,7 @@ class PlayStartLayoutCardRule(SevensRule):
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def act(self):
+        print(f"Player {self.player.pos} has starting layout card.")
         start_layout_cards = self.player.cards_meet_cond(self.start_layout_card_cond)
         start_layout_card = start_layout_cards[0] if len(start_layout_cards) == 1 \
                             else self.user_choose_card(start_layout_cards, "start layout")
@@ -130,6 +133,7 @@ class PlayAdjacentCardRule(SevensRule):
                     adjacent_cards[suit].append('6')
                     adjacent_cards[suit].append('8')
                 else:
+                    layout.sort_cards(sort_cards)
                     top_card = layout.look_top()
                     adjacent_high_card = adjacent_high(top_card.rank)
                     bottom_card = layout.look_bottom()
@@ -161,6 +165,7 @@ class PlayAdjacentCardRule(SevensRule):
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def act(self):
+        print(f"Player {self.player.pos} has adjacent card.")
         adjacent_cards = self.player.cards_meet_cond(self.adjacent_card_cond)
         adjacent_card = adjacent_cards[0] if len(adjacent_cards) == 1 \
                         else self.user_choose_card(adjacent_cards, "adjacent")

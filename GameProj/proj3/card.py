@@ -1,22 +1,21 @@
 from enums import FaceCard, Suit, Color
-from thing import Thing
 
 
 # ------------------------------------------------------------------------------------------------- #
 #                                                                                                   #
 # ------------------------------------------------------------------------------------------------- #
-class Card(Thing):
+class Card():
 
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
-    def __init__(self, rank, suit, value, joker=False):     # constructor
-        self.rank = rank            # {2,3,...,King,Ace} Jokers are not included
-        self.suit = suit            # Must be an enum of Suit
-        self.value = value          # point value of the card
+    def __init__(self, rank, suit, value, face_up=True, joker=False):     # constructor
+        self.rank = rank                    # {2,3,...,King,Ace} Jokers are not included
+        self.suit = suit                    # Must be an enum of Suit
+        self.value = value                  # point value of the card
         self.color = self.det_color()
-        self.joker = joker          # boolean value
-        self.face_up = False        # boolean value
+        self.joker = joker                  # boolean value
+        self.face_up = face_up              # boolean value
         self.suitImg = self.det_suit_img()
 
     # ------------------------------------------------------------------------------------------------- #

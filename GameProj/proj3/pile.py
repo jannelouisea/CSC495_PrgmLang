@@ -1,11 +1,10 @@
 from card import Card
-from thing import Thing
 from random import shuffle
 import copy
 
 
 # Pile class manages a stack of cards
-class Pile(Thing):
+class Pile:
     def __init__(self):
         self.cards = list()     # implemented as a stack
 
@@ -47,3 +46,9 @@ class Pile(Thing):
     # Shuffles deck of cards
     def shuffle(self):
         shuffle(self.cards)
+
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
+    def sort_cards(self, sort_func):
+        self.cards = sort_func(self.cards)

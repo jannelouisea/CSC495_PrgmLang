@@ -1,15 +1,15 @@
-from thing import Thing
 from env import Env
 from common import prompt_input
 
 
 # ------------------------------------------------------------------------------------------------- #
 # Parent class for any rule in a game.                                                              #
+# The class contains common functions used for any rule in any game.                                #
 #                                                                                                   #
 # :attribute player: A player instance.                                                             #
 # :attribute env: The shared environment between all objects in a game.                             #
 # ------------------------------------------------------------------------------------------------- #
-class Rule(Thing):
+class Rule:
 
     def __init__(self, player):
         self.player = player
@@ -35,7 +35,8 @@ class Rule(Thing):
     #               (direction * (jump size * (skips + 1)) % number of players)                         #
     #                                                                                                   #
     # If the next player is outside the valid range of player positions [0 - (number of players - 1)],  #
-    # the number of players is added or subtracted based with respect to the direction.                 #
+    # the number of players is added or subtracted with respect to                                      #
+    # the direction (clockwise or counter-clockwise).                                                   #
     #                                                                                                   #
     # :param player: The current player.                                                                #
     # :param jump_size: Number of players to go to.                                                     #
@@ -69,7 +70,7 @@ class Rule(Thing):
         for card in valid_cards:
             choose_card_prompt += f"{card} - {self.player.hand[card]}\n"
         choose_card_prompt += "> "
-        choose_card_err = "Invalid index."
+        choose_card_err = "ERROR: Invalid index."
         return int(prompt_input(choose_card_prompt, valid_card, choose_card_err))
 
     # ------------------------------------------------------------------------------------------------- #

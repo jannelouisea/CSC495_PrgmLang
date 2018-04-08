@@ -73,8 +73,10 @@ class Player:
         print("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
         print("Your Hand (index - card)")
         for index, card in enumerate(self.hand):
-            print(f"{index} - {card} ")
-        print("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
+            print(f"{index} - {card}\t", end="")
+            if (index + 1) % 3 == 0:
+                print()
+        print("\n~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
 
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #

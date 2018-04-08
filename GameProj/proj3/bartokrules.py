@@ -5,47 +5,53 @@ from env import BartokEnv
 
 
 # ------------------------------------------------------------------------------------------------- #
+# The set of rules for Bartok.                                                                      #
 #                                                                                                   #
+# :attribute rules: A list of BartokRules.                                                          #
+# :attribute rules_map: A mapping on BartokRules where the key is the position of the rule in       #
+#                       rules, and the value is the rule.                                           #
 # ------------------------------------------------------------------------------------------------- #
 class BartokRules(GameRules):
     def __init__(self, player):
         super().__init__(player)
-        self.rules = [Draw2Rule(player), PlaceDraw2Rule(player),
-                      SkipRule(player), ReverseRule(player),
-                      PlaceMatchRule(player), DrawCardRule(player)]
+        self.rules = [Draw2Rule(player), PlayDraw2Rule(player),
+                      PlaySkipRule(player), PlayReverseRule(player),
+                      PlayMatchRule(player), DrawCardRule(player)]
         self.rules_map = {i: val for i, val in enumerate(self.rules)}
 
 
 # ------------------------------------------------------------------------------------------------- #
-#                                                                                                   #
+# The parent class for each rule in Bartok.                                                         #
+# The class contains Bartok related functions used in multiple rules.                               #
 # ------------------------------------------------------------------------------------------------- #
 class BartokRule(Rule):
     def __init__(self, player):
         super().__init__(player)
 
     # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
+    # Checks if the current card meets the skip card condition. (rank 7)                                #
     # ------------------------------------------------------------------------------------------------- #
     @staticmethod
     def skip_card_cond(card):
         return card.matches_rank('7')
 
     # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
+    # Checks if the current card meets the reverse card condition. (rank 8)                             #
     # ------------------------------------------------------------------------------------------------- #
     @staticmethod
     def reverse_card_cond(card):
         return card.matches_rank('8')
 
     # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
+    # Checks if the current card meets the skip card condition. (rank 2)                                #
     # ------------------------------------------------------------------------------------------------- #
     @staticmethod
     def draw2_card_cond(card):
         return card.matches_rank('2')
 
     # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
+    # Checks if the current deck is empty and refills the deck from the center pile if the deck is      #
+    # empty.                                                                                            #
     # ------------------------------------------------------------------------------------------------- #
     def check_deck(self):
         deck = self.env[BartokEnv.deck]
@@ -57,12 +63,16 @@ class BartokRule(Rule):
                 deck.put(center.take_bottom(), False)
 
     # ------------------------------------------------------------------------------------------------- #
+    # Given n a number of cards, n cards are taken from the deck and added to the player's hand.        #
     #                                                                                                   #
+    # :param num_cards: Number of cards, default value is 1.                                            #
+    # :param show: Boolean value to determine if the cards added are shown on the screen, default       #
+    #               value set to True.                                                                  #
     # ------------------------------------------------------------------------------------------------- #
-    def add_to_hand_from_deck(self, count=1, show=True):
+    def add_to_hand_from_deck(self, num_cards=1, show=True):
         added = list()
         self.check_deck()
-        for i in range(count):
+        for i in range(num_cards):
             added_card = self.env[BartokEnv.deck].take_top()
             self.player.add_to_hand(added_card)
             added.append(added_card)
@@ -74,6 +84,9 @@ class BartokRule(Rule):
             print(msg)
         return added
 
+    # ------------------------------------------------------------------------------------------------- #
+    # Shows what the player placed in the center pile.                                                  #
+    # ------------------------------------------------------------------------------------------------- #
     def play_recap(self):
         top_card = self.env[BartokEnv.center].look_top()
         player = self.env[BartokEnv.cur_player_pos]
@@ -81,7 +94,7 @@ class BartokRule(Rule):
 
 
 # ------------------------------------------------------------------------------------------------- #
-#                                                                                                   #
+# Bartok's Draw 2 Rule                                                                              #
 # ------------------------------------------------------------------------------------------------- #
 class Draw2Rule(BartokRule):
     def __init__(self, player):
@@ -112,19 +125,19 @@ class Draw2Rule(BartokRule):
     # ------------------------------------------------------------------------------------------------- #
     def act(self):
         draw_count = self.draw2_count()
-        print(f"Automatically adding {draw_count} cards to your hand.")
+        print(f"You cannot play any cards. Automatically adding {draw_count} cards to your hand.")
         self.add_to_hand_from_deck(draw_count)
         self.reset_draw2_effect()
         self.change_curr_player(1, 0)
 
 
 # ------------------------------------------------------------------------------------------------- #
-#                                                                                                   #
+# Bartok's Draw 2 Rule                                                                              #
 # ------------------------------------------------------------------------------------------------- #
-class PlaceDraw2Rule(BartokRule):
+class PlayDraw2Rule(BartokRule):
     def __init__(self, player):
         super().__init__(player)
-        self.name = BartokRuleEnum.PLACEDRAW2
+        self.name = BartokRuleEnum.PLAYDRAW2
 
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #
@@ -153,11 +166,12 @@ class PlaceDraw2Rule(BartokRule):
 
 # ------------------------------------------------------------------------------------------------- #
 #                                                                                                   #
+# Bartok's Draw 2 Rule                                                                              #
 # ------------------------------------------------------------------------------------------------- #
-class SkipRule(BartokRule):
+class PlaySkipRule(BartokRule):
     def __init__(self, player):
         super().__init__(player)
-        self.name = BartokRuleEnum.SKIP
+        self.name = BartokRuleEnum.PLAYSKIP
         self.draw2_rule = Draw2Rule(player)
 
     # ------------------------------------------------------------------------------------------------- #
@@ -178,12 +192,12 @@ class SkipRule(BartokRule):
 
 
 # ------------------------------------------------------------------------------------------------- #
-#                                                                                                   #
+# Bartok's Draw 2 Rule                                                                              #
 # ------------------------------------------------------------------------------------------------- #
-class ReverseRule(BartokRule):
+class PlayReverseRule(BartokRule):
     def __init__(self, player):
         super().__init__(player)
-        self.name = BartokRuleEnum.REVERSE
+        self.name = BartokRuleEnum.PLAYREVERSE
         self.draw2_rule = Draw2Rule(player)
 
     # ------------------------------------------------------------------------------------------------- #
@@ -205,12 +219,12 @@ class ReverseRule(BartokRule):
 
 
 # ------------------------------------------------------------------------------------------------- #
-#                                                                                                   #
+# Bartok's                                                                                          #
 # ------------------------------------------------------------------------------------------------- #
-class PlaceMatchRule(BartokRule):
+class PlayMatchRule(BartokRule):
     def __init__(self, player):
         super().__init__(player)
-        self.name = BartokRuleEnum.PLACEMATCHCARD
+        self.name = BartokRuleEnum.PLAYMATCHCARD
         self.draw2_rule = Draw2Rule(player)
 
     # ------------------------------------------------------------------------------------------------- #
@@ -241,17 +255,17 @@ class PlaceMatchRule(BartokRule):
 
 
 # ------------------------------------------------------------------------------------------------- #
-#                                                                                                   #
+# Bartok's Draw 2 Rule                                                                              #
 # ------------------------------------------------------------------------------------------------- #
 class DrawCardRule(BartokRule):
     def __init__(self, player):
         super().__init__(player)
         self.name = BartokRuleEnum.DRAWCARD
         self.draw2_rule = Draw2Rule(player)
-        self.place_draw2_rule = PlaceDraw2Rule(player)
-        self.skip_rule = SkipRule(player)
-        self.reverse_rule = ReverseRule(player)
-        self.place_match_rule = PlaceMatchRule(player)
+        self.place_draw2_rule = PlayDraw2Rule(player)
+        self.skip_rule = PlaySkipRule(player)
+        self.reverse_rule = PlayReverseRule(player)
+        self.place_match_rule = PlayMatchRule(player)
 
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #
@@ -267,6 +281,6 @@ class DrawCardRule(BartokRule):
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def act(self):
-        print("Automatically adding one card to your hand.")
+        print("You cannot play any cards. Automatically adding one card to your hand.")
         self.add_to_hand_from_deck()
         self.change_curr_player(1, 0)

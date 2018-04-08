@@ -1,0 +1,1043 @@
+=================================
+Let's Play! :D
+---------------------------------
+Which game would you like to play?
+0 - Bartok
+1 - Spoons
+2 - Sevens
+> 0
+---------------------------------
+Set Up
+---------------------------------
+How many players? Number must be between 2 and 5.
+> Something not an int
+ERROR: Invalid input type. Input must be an integer.
+How many players? Number must be between 2 and 5.
+> -1
+ERROR: Incorrect number of players.
+How many players? Number must be between 2 and 5.
+> 5
+How many cards should each player start with? Must be between 5 or 7 cards.
+> 5
+
+======================================================
+                        Bartok
+------------------------------------------------------
+Bartok is a card game that uses a standard deck of
+card without Jokers. The number of players can range
+from 2 to 5 players and the number of cards each
+player can start with range from 5 to 7 cards.
+
+The objective of the game is to be the first player
+to get rid of all their cards.
+
+Special Cards in the Game:
+Draw 2 card     - any card with rank 2
+Skip Card       - any card with rank 7
+Reverse Card    - any card with rank 8
+
+Each player can do one the following moves on their
+turn:
+0 - Draw 2n Cards (n = draw2 effect)
+    If the current player cannot add to the draw 2
+    effect, then they must draw 2n cards from the
+    deck, when n equals the number of previous players
+    that consecutively placed a draw 2 card.
+    (This is done automatically)
+
+1 - Play one Draw 2 Card (rank 2)
+
+2 - Play one Skip Card (rank 7)
+
+3 - Place one Reverse Card (rank 8)
+
+4 - Play one Card w/ Matching Suit or Rank
+    For this move, the player must play a card that
+    matches the suit or rank to the top card in the
+    center pile.
+
+5 - Draw from Deck
+    If the player cannot play any card, the player
+    must draw one card from the deck.
+    (This is done automatically)
+
+If player can only play a single card of each type,
+that card is automatically placed in the center.
+
+To transition between players, the next player has to
+enter their position before proceeding.
+
+Good Luck. Now let's play!
+======================================================
+
+=================================
+Center Card: [8 ♣]
+=================================
+Player 0 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [Q ♦]
+1 - [A ♦]
+2 - [3 ♥]
+3 - [A ♥]
+4 - [5 ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+You cannot play any cards. Automatically adding one card to your hand.
+Added to hand: [10 ♥]
+---------------------------------
+Player 0 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+=================================
+Center Card: [8 ♣]
+=================================
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [5 ♣]
+1 - [10 ♣]
+2 - [6 ♥]
+3 - [9 ♥]
+4 - [A ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the matched card would you like to play.
+Index - Card
+0 - [5 ♣]
+1 - [10 ♣]
+> 0
+Player 1 played [5 ♣].
+---------------------------------
+Player 1 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+=================================
+Center Card: [5 ♣]
+=================================
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [3 ♣]
+1 - [9 ♣]
+2 - [2 ♥]
+3 - [Q ♥]
+4 - [K ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+What would you like to do?
+1 - Play Draw 2 Card (rank 2)
+4 - Play Card w/ Matching Suit or Rank
+> 1
+Player 2 played [2 ♥].
+---------------------------------
+Player 2 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+=================================
+Center Card: [2 ♥]
+=================================
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [4 ♦]
+1 - [5 ♦]
+2 - [J ♥]
+3 - [J ♠]
+4 - [Q ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+You cannot play any cards. Automatically adding 2 cards to your hand.
+Added to hand: [7 ♥] [Q ♣]
+---------------------------------
+Player 3 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+=================================
+Center Card: [2 ♥]
+=================================
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [2 ♦]
+1 - [8 ♥]
+2 - [K ♥]
+3 - [3 ♠]
+4 - [10 ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+What would you like to do?
+1 - Play Draw 2 Card (rank 2)
+3 - Play Reverse Card (rank 8)
+4 - Play Card w/ Matching Suit or Rank
+> 3
+Player 4 played [8 ♥].
+---------------------------------
+Player 4 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+=================================
+Center Card: [8 ♥]
+=================================
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [4 ♦]
+1 - [5 ♦]
+2 - [J ♥]
+3 - [J ♠]
+4 - [Q ♠]
+5 - [7 ♥]
+6 - [Q ♣]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+What would you like to do?
+2 - Play Skip Card (rank 7)
+4 - Play Card w/ Matching Suit or Rank
+> 2
+Player 3 played [7 ♥].
+---------------------------------
+Player 3 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+=================================
+Center Card: [7 ♥]
+=================================
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [10 ♣]
+1 - [6 ♥]
+2 - [9 ♥]
+3 - [A ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the matched card would you like to play.
+Index - Card
+1 - [6 ♥]
+2 - [9 ♥]
+> 1
+Player 1 played [6 ♥].
+---------------------------------
+Player 1 your turn is over.
+When Player 0 is ready, enter your number (0).
+> 0
+=================================
+Center Card: [6 ♥]
+=================================
+Player 0 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [Q ♦]
+1 - [A ♦]
+2 - [3 ♥]
+3 - [A ♥]
+4 - [5 ♠]
+5 - [10 ♥]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the matched card would you like to play.
+Index - Card
+2 - [3 ♥]
+3 - [A ♥]
+5 - [10 ♥]
+> 5
+Player 0 played [10 ♥].
+---------------------------------
+Player 0 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+=================================
+Center Card: [10 ♥]
+=================================
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [2 ♦]
+1 - [K ♥]
+2 - [3 ♠]
+3 - [10 ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+What would you like to do?
+1 - Play Draw 2 Card (rank 2)
+4 - Play Card w/ Matching Suit or Rank
+> 1
+Player 4 played [2 ♦].
+---------------------------------
+Player 4 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+=================================
+Center Card: [2 ♦]
+=================================
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [4 ♦]
+1 - [5 ♦]
+2 - [J ♥]
+3 - [J ♠]
+4 - [Q ♠]
+5 - [Q ♣]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+You cannot play any cards. Automatically adding 2 cards to your hand.
+Added to hand: [7 ♠] [6 ♠]
+---------------------------------
+Player 3 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+=================================
+Center Card: [2 ♦]
+=================================
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [3 ♣]
+1 - [9 ♣]
+2 - [Q ♥]
+3 - [K ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+You cannot play any cards. Automatically adding one card to your hand.
+Added to hand: [4 ♠]
+---------------------------------
+Player 2 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+=================================
+Center Card: [2 ♦]
+=================================
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [10 ♣]
+1 - [9 ♥]
+2 - [A ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+You cannot play any cards. Automatically adding one card to your hand.
+Added to hand: [6 ♦]
+---------------------------------
+Player 1 your turn is over.
+When Player 0 is ready, enter your number (0).
+> 0
+=================================
+Center Card: [2 ♦]
+=================================
+Player 0 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [Q ♦]
+1 - [A ♦]
+2 - [3 ♥]
+3 - [A ♥]
+4 - [5 ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the matched card would you like to play.
+Index - Card
+0 - [Q ♦]
+1 - [A ♦]
+> 0
+Player 0 played [Q ♦].
+---------------------------------
+Player 0 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+=================================
+Center Card: [Q ♦]
+=================================
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [K ♥]
+1 - [3 ♠]
+2 - [10 ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+You cannot play any cards. Automatically adding one card to your hand.
+Added to hand: [10 ♦]
+---------------------------------
+Player 4 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+=================================
+Center Card: [Q ♦]
+=================================
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [4 ♦]
+1 - [5 ♦]
+2 - [J ♥]
+3 - [J ♠]
+4 - [Q ♠]
+5 - [Q ♣]
+6 - [7 ♠]
+7 - [6 ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+What would you like to do?
+2 - Play Skip Card (rank 7)
+4 - Play Card w/ Matching Suit or Rank
+> 4
+Enter the index of the matched card would you like to play.
+Index - Card
+0 - [4 ♦]
+1 - [5 ♦]
+4 - [Q ♠]
+5 - [Q ♣]
+> 5
+Player 3 played [Q ♣].
+---------------------------------
+Player 3 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+=================================
+Center Card: [Q ♣]
+=================================
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [3 ♣]
+1 - [9 ♣]
+2 - [Q ♥]
+3 - [K ♠]
+4 - [4 ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the matched card would you like to play.
+Index - Card
+0 - [3 ♣]
+1 - [9 ♣]
+2 - [Q ♥]
+> 0
+Player 2 played [3 ♣].
+---------------------------------
+Player 2 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+=================================
+Center Card: [3 ♣]
+=================================
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [10 ♣]
+1 - [9 ♥]
+2 - [A ♠]
+3 - [6 ♦]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Player 1 played [10 ♣].
+---------------------------------
+Player 1 your turn is over.
+When Player 0 is ready, enter your number (0).
+> 0
+=================================
+Center Card: [10 ♣]
+=================================
+Player 0 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [A ♦]
+1 - [3 ♥]
+2 - [A ♥]
+3 - [5 ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+You cannot play any cards. Automatically adding one card to your hand.
+Added to hand: [7 ♣]
+---------------------------------
+Player 0 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+=================================
+Center Card: [10 ♣]
+=================================
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [K ♥]
+1 - [3 ♠]
+2 - [10 ♠]
+3 - [10 ♦]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the matched card would you like to play.
+Index - Card
+2 - [10 ♠]
+3 - [10 ♦]
+> 3
+Player 4 played [10 ♦].
+---------------------------------
+Player 4 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+=================================
+Center Card: [10 ♦]
+=================================
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [4 ♦]
+1 - [5 ♦]
+2 - [J ♥]
+3 - [J ♠]
+4 - [Q ♠]
+5 - [7 ♠]
+6 - [6 ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+What would you like to do?
+2 - Play Skip Card (rank 7)
+4 - Play Card w/ Matching Suit or Rank
+> 4
+Enter the index of the matched card would you like to play.
+Index - Card
+0 - [4 ♦]
+1 - [5 ♦]
+> 1
+Player 3 played [5 ♦].
+---------------------------------
+Player 3 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+=================================
+Center Card: [5 ♦]
+=================================
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [9 ♣]
+1 - [Q ♥]
+2 - [K ♠]
+3 - [4 ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+You cannot play any cards. Automatically adding one card to your hand.
+Added to hand: [2 ♣]
+---------------------------------
+Player 2 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+=================================
+Center Card: [5 ♦]
+=================================
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [9 ♥]
+1 - [A ♠]
+2 - [6 ♦]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Player 1 played [6 ♦].
+---------------------------------
+Player 1 your turn is over.
+When Player 0 is ready, enter your number (0).
+> 0
+=================================
+Center Card: [6 ♦]
+=================================
+Player 0 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [A ♦]
+1 - [3 ♥]
+2 - [A ♥]
+3 - [5 ♠]
+4 - [7 ♣]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+What would you like to do?
+2 - Play Skip Card (rank 7)
+4 - Play Card w/ Matching Suit or Rank
+> 4
+Player 0 played [A ♦].
+---------------------------------
+Player 0 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+=================================
+Center Card: [A ♦]
+=================================
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [K ♥]
+1 - [3 ♠]
+2 - [10 ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+You cannot play any cards. Automatically adding one card to your hand.
+Added to hand: [3 ♦]
+---------------------------------
+Player 4 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+=================================
+Center Card: [A ♦]
+=================================
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [4 ♦]
+1 - [J ♥]
+2 - [J ♠]
+3 - [Q ♠]
+4 - [7 ♠]
+5 - [6 ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+What would you like to do?
+2 - Play Skip Card (rank 7)
+4 - Play Card w/ Matching Suit or Rank
+> 4
+Player 3 played [4 ♦].
+---------------------------------
+Player 3 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+=================================
+Center Card: [4 ♦]
+=================================
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [9 ♣]
+1 - [Q ♥]
+2 - [K ♠]
+3 - [4 ♠]
+4 - [2 ♣]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+What would you like to do?
+1 - Play Draw 2 Card (rank 2)
+4 - Play Card w/ Matching Suit or Rank
+> 4
+Player 2 played [4 ♠].
+---------------------------------
+Player 2 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+=================================
+Center Card: [4 ♠]
+=================================
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [9 ♥]
+1 - [A ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Player 1 played [A ♠].
+---------------------------------
+Player 1 your turn is over.
+When Player 0 is ready, enter your number (0).
+> 0
+=================================
+Center Card: [A ♠]
+=================================
+Player 0 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [3 ♥]
+1 - [A ♥]
+2 - [5 ♠]
+3 - [7 ♣]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+What would you like to do?
+2 - Play Skip Card (rank 7)
+4 - Play Card w/ Matching Suit or Rank
+> 4
+Enter the index of the matched card would you like to play.
+Index - Card
+1 - [A ♥]
+2 - [5 ♠]
+> 2
+Player 0 played [5 ♠].
+---------------------------------
+Player 0 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+=================================
+Center Card: [5 ♠]
+=================================
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [K ♥]
+1 - [3 ♠]
+2 - [10 ♠]
+3 - [3 ♦]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the matched card would you like to play.
+Index - Card
+1 - [3 ♠]
+2 - [10 ♠]
+> 1
+Player 4 played [3 ♠].
+---------------------------------
+Player 4 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+=================================
+Center Card: [3 ♠]
+=================================
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [J ♥]
+1 - [J ♠]
+2 - [Q ♠]
+3 - [7 ♠]
+4 - [6 ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+What would you like to do?
+2 - Play Skip Card (rank 7)
+4 - Play Card w/ Matching Suit or Rank
+> 4
+Enter the index of the matched card would you like to play.
+Index - Card
+1 - [J ♠]
+2 - [Q ♠]
+4 - [6 ♠]
+> 1
+Player 3 played [J ♠].
+---------------------------------
+Player 3 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+=================================
+Center Card: [J ♠]
+=================================
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [9 ♣]
+1 - [Q ♥]
+2 - [K ♠]
+3 - [2 ♣]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+What would you like to do?
+1 - Play Draw 2 Card (rank 2)
+4 - Play Card w/ Matching Suit or Rank
+> 4
+Player 2 played [K ♠].
+---------------------------------
+Player 2 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+=================================
+Center Card: [K ♠]
+=================================
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [9 ♥]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+You cannot play any cards. Automatically adding one card to your hand.
+Added to hand: [4 ♥]
+---------------------------------
+Player 1 your turn is over.
+When Player 0 is ready, enter your number (0).
+> 0
+=================================
+Center Card: [K ♠]
+=================================
+Player 0 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [3 ♥]
+1 - [A ♥]
+2 - [7 ♣]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Player 0 played [7 ♣].
+---------------------------------
+Player 0 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+=================================
+Center Card: [7 ♣]
+=================================
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [J ♥]
+1 - [Q ♠]
+2 - [7 ♠]
+3 - [6 ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Player 3 played [7 ♠].
+---------------------------------
+Player 3 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+=================================
+Center Card: [7 ♠]
+=================================
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [9 ♥]
+1 - [4 ♥]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+You cannot play any cards. Automatically adding one card to your hand.
+Added to hand: [5 ♥]
+---------------------------------
+Player 1 your turn is over.
+When Player 0 is ready, enter your number (0).
+> 0
+=================================
+Center Card: [7 ♠]
+=================================
+Player 0 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [3 ♥]
+1 - [A ♥]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+You cannot play any cards. Automatically adding one card to your hand.
+Added to hand: [K ♣]
+---------------------------------
+Player 0 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+=================================
+Center Card: [7 ♠]
+=================================
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [K ♥]
+1 - [10 ♠]
+2 - [3 ♦]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Player 4 played [10 ♠].
+---------------------------------
+Player 4 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+=================================
+Center Card: [10 ♠]
+=================================
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [J ♥]
+1 - [Q ♠]
+2 - [6 ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the matched card would you like to play.
+Index - Card
+1 - [Q ♠]
+2 - [6 ♠]
+> 1
+Player 3 played [Q ♠].
+---------------------------------
+Player 3 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+=================================
+Center Card: [Q ♠]
+=================================
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [9 ♣]
+1 - [Q ♥]
+2 - [2 ♣]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+What would you like to do?
+1 - Play Draw 2 Card (rank 2)
+4 - Play Card w/ Matching Suit or Rank
+> 4
+Player 2 played [Q ♥].
+---------------------------------
+Player 2 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+=================================
+Center Card: [Q ♥]
+=================================
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [9 ♥]
+1 - [4 ♥]
+2 - [5 ♥]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the matched card would you like to play.
+Index - Card
+0 - [9 ♥]
+1 - [4 ♥]
+2 - [5 ♥]
+> 0
+Player 1 played [9 ♥].
+---------------------------------
+Player 1 your turn is over.
+When Player 0 is ready, enter your number (0).
+> 0
+=================================
+Center Card: [9 ♥]
+=================================
+Player 0 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [3 ♥]
+1 - [A ♥]
+2 - [K ♣]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the matched card would you like to play.
+Index - Card
+0 - [3 ♥]
+1 - [A ♥]
+> 0
+Player 0 played [3 ♥].
+---------------------------------
+Player 0 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+=================================
+Center Card: [3 ♥]
+=================================
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [K ♥]
+1 - [3 ♦]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the matched card would you like to play.
+Index - Card
+0 - [K ♥]
+1 - [3 ♦]
+> 0
+Player 4 played [K ♥].
+---------------------------------
+Player 4 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+=================================
+Center Card: [K ♥]
+=================================
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [J ♥]
+1 - [6 ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Player 3 played [J ♥].
+---------------------------------
+Player 3 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+=================================
+Center Card: [J ♥]
+=================================
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [9 ♣]
+1 - [2 ♣]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Player 2 played [2 ♣].
+---------------------------------
+Player 2 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+=================================
+Center Card: [2 ♣]
+=================================
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [4 ♥]
+1 - [5 ♥]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+You cannot play any cards. Automatically adding 2 cards to your hand.
+Added to hand: [A ♣] [7 ♦]
+---------------------------------
+Player 1 your turn is over.
+When Player 0 is ready, enter your number (0).
+> 0
+=================================
+Center Card: [2 ♣]
+=================================
+Player 0 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [A ♥]
+1 - [K ♣]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Player 0 played [K ♣].
+---------------------------------
+Player 0 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+=================================
+Center Card: [K ♣]
+=================================
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [3 ♦]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+You cannot play any cards. Automatically adding one card to your hand.
+Added to hand: [9 ♦]
+---------------------------------
+Player 4 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+=================================
+Center Card: [K ♣]
+=================================
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [6 ♠]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+You cannot play any cards. Automatically adding one card to your hand.
+Added to hand: [4 ♣]
+---------------------------------
+Player 3 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+=================================
+Center Card: [K ♣]
+=================================
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [9 ♣]
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Player 2 played [9 ♣].
+=================================
+*********************************
+   Player 2 has won the game!
+*********************************
+=================================
