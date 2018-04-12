@@ -1,3 +1,13 @@
+from thing import Thing
+
+class Env(Thing):
+
+    __shared_state = {}
+
+    def __init__(self):
+        self.__dict__ = self.__shared_state
+
+'''
 class Env:
     deck = 'deck'
     players = 'players'
@@ -25,3 +35,4 @@ class SevensEnv(Env):
     diamonds_layout = 'diamonds_layout'
     clubs_layout = 'clubs_layout'
     hearts_layout = 'hearts_layout'
+'''
