@@ -1,11 +1,13 @@
 from thing import Thing
+from deck import Deck
 
 class Env(Thing):
 
     __shared_state = {}
 
-    def __init__(self):
+    def __init__(self, deck_size, deck_w_jokers):
         self.__dict__ = self.__shared_state
+        self.deck = Deck(deck_size, deck_w_jokers)
 
 '''
 class Env:
