@@ -1,3 +1,4 @@
+'''
 centerCard = player.env['center'].checkTopCard()
 possibleCards = list()	# Holds a list of card indexes not the actual cards
 for i in range(0, len(player.hand)):
@@ -21,4 +22,5 @@ while(not(chosenCard in possibleCards)):
 
 player.env['center'].put(player.removeCardFromHand(chosenCard))
 ... other stuff
+'''
 

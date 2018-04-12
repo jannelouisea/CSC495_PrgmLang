@@ -1,9 +1,11 @@
 from thing import Thing
 from deck import Deck
+from copy import deepcopy
 
 class Env(Thing):
 
     __shared_state = {}
+    __saved_state = {}
 
     def __init__(self, deck_size, deck_w_jokers, num_players, start_hand_size, direction):
         self.__dict__ = self.__shared_state
@@ -18,6 +20,16 @@ class Env(Thing):
     def init_players(self, num_players, start_hand_size):
         players = []
         return players
+
+    def save(self):
+        self.__saved_state = self.__shared_state
+
+    def revert(self):
+        self.__shared_state = self.__saved_state
+
+    def snapshot(self):
+        return deepcopy(self.__shared_state)
+
 
 '''
 class Env:
