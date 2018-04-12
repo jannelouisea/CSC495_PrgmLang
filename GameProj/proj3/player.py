@@ -1,6 +1,7 @@
 from card import Card
 from bartokrules import BartokRules
 from sevensrules import SevensRules
+from spoonsrules import SpoonsRules
 from enums import Game
 
 
@@ -15,6 +16,8 @@ class Player:
             if game_inst == Game.SEVENS:
                 return SevensRules(player).rules_map
             # Other rules from different games would go here
+            if game_inst == Game.SPOONS:
+                return SpoonsRules(player).rules_map
 
         self.env = env
         self.hand = list()

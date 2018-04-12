@@ -25,11 +25,17 @@ class Spoons(Game):
     def __init__(self, game):
         super(Spoons, self).__init__(game)
         self.name = 'Spoons'
-        self.min_players = 2
-        self.max_players = 5
+        self.min_players = 3
+        self.max_players = 13
         self.init_hand_size = 4
         self.env[SpoonsEnv.trash] = Pile()
         self.env[SpoonsEnv.end_player] = 0
+
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
+    def winning_cond(self, player):
+        return any_four_of_a_kind(self, player)
 
     @staticmethod
     def num_player_cond(num_players):
@@ -38,11 +44,15 @@ class Spoons(Game):
     def set_up(self):
         print("Setting up Spoons...")
         self.set_norm_deck()
-        self.ask_num_players(self.min_players, self.max_players)
+        self.env.num_players = self.ask_num_players(self.min_players, self.max_players)
         self.init_players(self.init_hand_size)
         self.env.end_player = self.env.num_players - 1
 
     def play(self):
+        print(SPOONS_SUMMARY)
+        while self.env[SpoonsEnv.winner_pos] < 0:
+            self.let_cur_player_play()
+            self.check_winner(self.winning_cond)
         '''
         num_players = self.env.num_players
         temp = []  # should always have only one card
