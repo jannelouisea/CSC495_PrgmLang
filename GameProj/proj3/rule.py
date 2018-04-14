@@ -73,6 +73,24 @@ class Rule:
         choose_card_err = "ERROR: Invalid index."
         return int(prompt_input(choose_card_prompt, valid_card, choose_card_err))
 
+        # ------------------------------------------------------------------------------------------------- #
+        # Prompts the user to choose a card from the valid list of cards.                                   #
+        #                                                                                                   #
+        # :param valid_cards: A list of valid cards indices from the player's hand.                         #
+        #                 #
+        # ------------------------------------------------------------------------------------------------- #
+
+    def spoons_choose(self, valid_cards):
+        def valid_card(idx):
+            return int(idx) in valid_cards
+
+        choose_card_prompt = f"Enter the index of the card you would like to pass. \nIndex - Card\n"
+        for card in valid_cards:
+            choose_card_prompt += f"{card} - {self.player.hand[card]}\n"
+        choose_card_prompt += "> "
+        choose_card_err = "ERROR: Invalid index."
+        return int(prompt_input(choose_card_prompt, valid_card, choose_card_err))
+
     # ------------------------------------------------------------------------------------------------- #
     # An interface for each rule's can_act function.                                                    #
     # The can_act function is used to determine if the player can act on the rule based on the player's #

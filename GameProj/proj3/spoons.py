@@ -1,5 +1,6 @@
 from game import Game
 from env import SpoonsEnv
+from env import Env
 from card_patterns import any_four_of_a_kind
 from pile import Pile
 
@@ -35,7 +36,7 @@ class Spoons(Game):
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def winning_cond(self, player):
-        return any_four_of_a_kind(self, player)
+        return any_four_of_a_kind(player)
 
     @staticmethod
     def num_player_cond(num_players):
@@ -44,9 +45,10 @@ class Spoons(Game):
     def set_up(self):
         print("Setting up Spoons...")
         self.set_norm_deck()
-        self.env.num_players = self.ask_num_players(self.min_players, self.max_players)
-        self.init_players(self.init_hand_size)
-        self.env.end_player = self.env.num_players - 1
+        self.env[SpoonsEnv.pass_pile] = Pile()
+        num_players = self.ask_num_players(self.min_players, self.max_players)
+        self.init_players(num_players, 4)
+        self.env[SpoonsEnv.end_player] = num_players - 1
 
     def play(self):
         print(SPOONS_SUMMARY)

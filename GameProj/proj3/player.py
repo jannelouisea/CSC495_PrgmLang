@@ -77,7 +77,7 @@ class Player:
         print("Your Hand (index - card)")
         for index, card in enumerate(self.hand):
             print(f"{index} - {card}\t", end="")
-            if (index + 1) % 3 == 0:
+            if (index + 1) % 2 == 0:
                 print()
         print("\n~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
 
@@ -95,6 +95,12 @@ class Player:
     # ------------------------------------------------------------------------------------------------- #
     def cards_meet_cond(self, cond):
         return [index for index, card in enumerate(self.hand) if cond(card)]
+
+    # ------------------------------------------------------------------------------------------------- #
+    #                                                                                                   #
+    # ------------------------------------------------------------------------------------------------- #
+    def cards_in_hand(self):
+        return [index for index, card in enumerate(self.hand)]
 
     def reflect(self):
         i = 1
