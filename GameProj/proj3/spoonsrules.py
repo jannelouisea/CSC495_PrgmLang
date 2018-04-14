@@ -67,7 +67,7 @@ class SpoonsRule(Rule):
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def add_to_hand_from_pass_pile(self, pass_pile):
-        self.player.add_to_hand(pass_pile.pop())
+        self.player.add_to_hand(pass_pile.take())
 
 # ------------------------------------------------------------------------------------------------- #
 # The dealer                                                                                        #
@@ -107,7 +107,7 @@ class PassRule(SpoonsRule):
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def can_act(self):
-        return (self.env[SpoonsEnv.cur_player_pos] != 0 or
+        return (self.env[SpoonsEnv.cur_player_pos] != 0 and
                 self.env[SpoonsEnv.cur_player_pos] != self.env[SpoonsEnv.end_player])
 
     # ------------------------------------------------------------------------------------------------- #
@@ -116,7 +116,8 @@ class PassRule(SpoonsRule):
     def act(self):
         self.add_to_hand_from_pass_pile(self.env[SpoonsEnv.pass_pile])
         #viewing cards
-        discard = self.spoons_choose(self.hand)
+        cards = self.player.cards_in_hand()
+        discard = self.spoons_choose(cards)
         # give card to next player
         self.env[SpoonsEnv.pass_pile].put(self.player.rmv_from_hand(discard))
         self.change_curr_player(1, 0)
@@ -141,7 +142,8 @@ class EndRule(SpoonsRule):
     def act(self):
         self.add_to_hand_from_pass_pile(self.env[SpoonsEnv.pass_pile])
         #viewing cards
-        discard = self.spoons_choose(self.hand)
+        cards = self.player.cards_in_hand()
+        discard = self.spoons_choose(cards)
         # give card to trash pile
         self.env[SpoonsEnv.trash].put(self.player.rmv_from_hand(discard))
         self.change_curr_player(1, 0)
