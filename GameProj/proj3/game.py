@@ -25,7 +25,7 @@ class Game:
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def transition_cond(self, player_pos):
-        return int(player_pos) == self.env[Env.cur_player_pos]
+        return int(player_pos) == self.env[Env.cur_player_pos] + 1
 
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #
@@ -104,7 +104,7 @@ class Game:
     # ------------------------------------------------------------------------------------------------- #
     def let_cur_player_play(self):
         player = self.cur_player()
-        print(f"Player {player.pos} Turn")
+        print(f"Player {player.pos + 1} Turn")
         print("---------------------------------")
         player.show_hand()
         possible_actions = player.possible_actions()
@@ -132,10 +132,10 @@ class Game:
         rec = self.env[Env.rec_player_pos]
         cur = self.env[Env.cur_player_pos]
         print("---------------------------------")
-        transition_prompt = f"Player {rec} your turn is over.\n" \
-                              f"When Player {cur} is ready, enter your number ({cur}).\n> "
-        transition_err = f"ERROR: The next player should be Player {cur}. " \
-                           f"Please enter {cur} to proceed."
+        transition_prompt = f"Player {rec + 1} your turn is over.\n" \
+                              f"When Player {cur + 1} is ready, enter your number ({cur + 1}).\n> "
+        transition_err = f"ERROR: The next player should be Player {cur + 1}. " \
+                           f"Please enter {cur + 1} to proceed."
         prompt_input(transition_prompt, self.transition_cond, transition_err)
 
     # ------------------------------------------------------------------------------------------------- #
@@ -145,7 +145,7 @@ class Game:
     def print_winner_msg(winner):
         print("=================================")
         print("*********************************")
-        print(f"   Player {winner} has won the game!")
+        print(f"   Player {winner + 1} has won the game!")
         print("*********************************")
         print("=================================")
 
