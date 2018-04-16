@@ -54,18 +54,3 @@ class Env(Thing):
 
     def snapshot(self):
         return deepcopy(self.__shared_state)
-
-
-'''
-class SpoonsEnv(Env):
-    trash = 'trash'
-    end_player = 'end_player'
-    pass_pile = 'pass_pile'
-
-
-class SevensEnv(Env):
-    spades_layout = 'spades_layout'
-    diamonds_layout = 'diamonds_layout'
-    clubs_layout = 'clubs_layout'
-    hearts_layout = 'hearts_layout'
-'''

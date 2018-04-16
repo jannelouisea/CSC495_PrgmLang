@@ -1,7 +1,7 @@
 from thing import Thing
 from common import *
 from env import Env
-from sys import exit
+from sys import exit, stderr
 
 
 # Example card game configuration
@@ -24,10 +24,12 @@ class CardGame(Thing):
         num_players = game_params.get(NUM_PLAYERS, 1)
         start_hand_size = game_params.get(START_HAND_SIZE, 0)
         direction = game_params.get(DIRECTION, 1)
+        if not self.valid_env_params(deck_size, deck_w_jokers, num_players, start_hand_size, direction):
+            self.warn_invalid_params('ERROR: Env params are invalid.')
         self.env = game_params.get(ENV, Env)(deck_size, deck_w_jokers, num_players, start_hand_size, direction)
 
         # Setting the rules
-        game_rules = {i: rule(self.env) for i, rule in enumerate(game_params.get(GAME_RULES, []))}
+        game_rules = {i: rule(self.env) for i, rule in enumerate(game_params.get(GAME_RULES, None))}
         self.establish_rules(game_rules)
 
         # setting the game play
@@ -39,6 +41,24 @@ class CardGame(Thing):
     @staticmethod
     def do_nothing(env):
         pass
+
+    def warn_invalid_params(self, msg):
+        print(msg, file=stderr)
+        exit()
+
+    @staticmethod
+    def valid_env_params(deck_size, deck_w_jokers, num_players, start_hand_size, direction):
+        if not type(deck_size) == int or deck_size < 1:
+            return False
+        if not type(deck_w_jokers) == bool:
+            return False
+        if not type(num_players) == int or num_players < 1:
+            return False
+        if not start_hand_size == EQUAL_NUM_CARDS and (not type(start_hand_size) == int or start_hand_size < 1):
+            return False
+        if not (direction == CLOCKWISE or direction == COUNTER_CLOCKWISE):
+            return False
+        return True
 
     def establish_rules(self, game_rules):
         for player in self.env.players:

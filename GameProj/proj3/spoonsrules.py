@@ -1,21 +1,5 @@
 from rule import Rule
 from enums import SpoonsRuleEnum
-from gamerules import GameRules
-from env import SpoonsEnv
-from env import Env
-
-# ------------------------------------------------------------------------------------------------- #
-# The set of rules for Spoons.                                                                      #
-#                                                                                                   #
-# :attribute rules: A list of SpoonsRules.                                                          #
-# :attribute rules_map: A mapping on SpoonsRules where the key is the position of the rule in       #
-#                       rules, and the value is the rule.                                           #
-# ------------------------------------------------------------------------------------------------- #
-class SpoonsRules(GameRules):
-    def __init__(self, player):
-        super().__init__(player)
-        self.rules = [DealerRule(player), PassRule(player), EndRule(player)]
-        self.rules_map = {i: val for i, val in enumerate(self.rules)}
 
 
 # ------------------------------------------------------------------------------------------------- #
@@ -23,17 +7,16 @@ class SpoonsRules(GameRules):
 # The class contains Spoons related functions used in the rule.                              #
 # ------------------------------------------------------------------------------------------------- #
 class SpoonsRule(Rule):
-    def __init__(self, player):
-        super().__init__(player)
-
+    def __init__(self, env):
+        super().__init__(env)
 
     # ------------------------------------------------------------------------------------------------- #
     # Checks if the current deck is empty and refills the deck from the trash pile if the deck is      #
     # empty.                                                                                            #
     # ------------------------------------------------------------------------------------------------- #
     def check_deck(self):
-        deck = self.env[SpoonsEnv.deck]
-        trash = self.env[SpoonsEnv.trash]
+        deck = self.env.deck
+        trash = self.env.trash
 
         if deck.is_empty():
             add_count = trash.num_cards() - 1
@@ -47,12 +30,12 @@ class SpoonsRule(Rule):
     # :param show: Boolean value to determine if the cards added are shown on the screen, default       #
     #               value set to True.                                                                  #
     # ------------------------------------------------------------------------------------------------- #
-    def add_to_hand_from_deck(self, num_cards=1, show=True):
+    def add_to_hand_from_deck(self, player, num_cards=1, show=True):
         added = list()
         self.check_deck()
         for i in range(num_cards):
-            added_card = self.env[SpoonsEnv.deck].take_top()
-            self.player.add_to_hand(added_card)
+            added_card = self.env.deck.take_top()
+            player.add_to_hand(added_card)
             added.append(added_card)
             self.check_deck()
         if show:
@@ -62,89 +45,84 @@ class SpoonsRule(Rule):
             print(msg)
         return added
 
+    @staticmethod
+    def add_to_hand_from_pass_pile(player, pass_pile):
+        player.add_to_hand(pass_pile.take())
 
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
-    def add_to_hand_from_pass_pile(self, pass_pile):
-        self.player.add_to_hand(pass_pile.take())
 
 # ------------------------------------------------------------------------------------------------- #
 # The dealer                                                                                        #
 # ------------------------------------------------------------------------------------------------- #
 class DealerRule(SpoonsRule):
-    def __init__(self, player):
-        super().__init__(player)
+    def __init__(self, env):
+        super().__init__(env)
         self.name = SpoonsRuleEnum.DEALER
 
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
-    def can_act(self):
-        return (self.env[SpoonsEnv.cur_player_pos] == 0)
+    def can_act(self, player):
+        return self.env.cur_player_pos == 0
 
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
-    def act(self):
-        self.add_to_hand_from_deck()
+    def act(self, player):
+        self.add_to_hand_from_deck(player)
         # viewing cards
-        cards = self.player.cards_in_hand()
-        discard = self.spoons_choose(cards)
+        cards = player.cards_meet_cond()
+        discard = self.user_choose_card(player, cards)
         # give card to next player
-        self.env[SpoonsEnv.pass_pile].put(self.player.rmv_from_hand(discard))
-        self.change_curr_player(1, 0)
+        self.env.pass_pile.put(player.rmv_from_hand(discard))
+        self.change_cur_player(1, 0)
+
 
 # ------------------------------------------------------------------------------------------------- #
 # Any person between dealer and last player                                                         #
 # ------------------------------------------------------------------------------------------------- #
 class PassRule(SpoonsRule):
-    def __init__(self, player):
-        super().__init__(player)
+    def __init__(self, env):
+        super().__init__(env)
         self.name = SpoonsRuleEnum.PASS
 
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
-    def can_act(self):
-        return (self.env[SpoonsEnv.cur_player_pos] != 0 and
-                self.env[SpoonsEnv.cur_player_pos] != self.env[SpoonsEnv.end_player])
+    def can_act(self, player):
+        return self.env.cur_player_pos != 0 and self.env.cur_player_pos != self.env.end_player
 
     # ------------------------------------------------------------------------------------------------- #
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
-    def act(self):
-        self.add_to_hand_from_pass_pile(self.env[SpoonsEnv.pass_pile])
-        #viewing cards
-        cards = self.player.cards_in_hand()
-        discard = self.spoons_choose(cards)
+    def act(self, player):
+        self.add_to_hand_from_pass_pile(player, self.env.pass_pile)
+        # viewing cards
+        cards = player.cards_meet_cond()
+        discard = self.user_choose_card(player, cards)
         # give card to next player
-        self.env[SpoonsEnv.pass_pile].put(self.player.rmv_from_hand(discard))
-        self.change_curr_player(1, 0)
+        self.env.pass_pile.put(player.rmv_from_hand(discard))
+        self.change_cur_player(1, 0)
+
 
 # ------------------------------------------------------------------------------------------------- #
 # The last player                                                                                   #
 # ------------------------------------------------------------------------------------------------- #
 class EndRule(SpoonsRule):
-    def __init__(self, player):
-        super().__init__(player)
+    def __init__(self, env):
+        super().__init__(env)
         self.name = SpoonsRuleEnum.END
 
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
-    def can_act(self):
-        return (self.env[SpoonsEnv.cur_player_pos] == self.env[SpoonsEnv.end_player])
+    def can_act(self, player):
+        return self.env.cur_player_pos == self.env.end_player
 
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
-    def act(self):
-        self.add_to_hand_from_pass_pile(self.env[SpoonsEnv.pass_pile])
-        #viewing cards
-        cards = self.player.cards_in_hand()
-        discard = self.spoons_choose(cards)
+    def act(self, player):
+        self.add_to_hand_from_pass_pile(player, self.env.pass_pile)
+        # viewing cards
+        cards = player.cards_meet_cond()
+        discard = self.user_choose_card(player, cards)
         # give card to trash pile
-        self.env[SpoonsEnv.trash].put(self.player.rmv_from_hand(discard))
-        self.change_curr_player(1, 0)
+        self.env.trash.put(player.rmv_from_hand(discard))
+        self.change_cur_player(1, 0)
 
+
+SPOONS_RULES = [DealerRule, PassRule, EndRule]
