@@ -20,7 +20,7 @@ COUNTER_CLOCKWISE = -1
 
 
 # Win Conditions
-# Note so far the only win condition, is having an empty hand. When more
+# Note so far the only win condition is having an empty hand. When more
 # win conditions arise then a new file can be made to separate them
 def empty_hand_win_cond(env):
     for player in env.players:

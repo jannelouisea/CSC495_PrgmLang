@@ -1,7 +1,16 @@
 from common import *
-from bartokenv import BartokEnv
 from bartokrules import BARTOK_RULES
 from cardgame import CardGame
+from env import Env
+from pile import Pile
+
+
+class BartokEnv(Env):
+    def __init__(self, deck_size, deck_w_jokers, num_players, start_hand_size, direction):
+        super(BartokEnv, self).__init__(deck_size, deck_w_jokers, num_players, start_hand_size, direction)
+        self.center = Pile()
+        self.draw2 = False
+        self.draw2_effect = 0
 
 
 def bartok_setup(env):
@@ -19,7 +28,7 @@ BARTOK = {
     ENV: BartokEnv,
     DECK_SIZE: 1,
     DECK_W_JOKERS: False,
-    NUM_PLAYERS: 3,
+    NUM_PLAYERS: 4,
     START_HAND_SIZE: 5,
     DIRECTION: CLOCKWISE,
     GAME_RULES: BARTOK_RULES,
