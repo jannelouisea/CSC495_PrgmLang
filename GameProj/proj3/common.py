@@ -1,8 +1,25 @@
+# Environment Fields for Card Game Configuration
+ENV = 'env'
+DECK_SIZE = 'deck_size'
+DECK_W_JOKERS = 'deck_w_jokers'
+NUM_PLAYERS = 'num_players'
+START_HAND_SIZE = 'start_hand_size'
+DIRECTION = 'direction'
+GAME_RULES = 'game_rules'
+SETUP = 'setup'
+PRE_PLAYER_TURN = 'pre_player_turn'
+POST_PLAYER_TURN = 'post_player_turn'
+WINNING_COND = 'winning_cond'
+
+# Field to notify to split cards equally between players
+EQUAL_NUM_CARDS = 'equal_num_cards'
+
+# Direction fields
+CLOCKWISE = 1
+COUNTER_CLOCKWISE = -1
 
 
-# ------------------------------------------------------------------------------------------------- #
-#                                                                                                   #
-# ------------------------------------------------------------------------------------------------- #
+# Common function used to ask user for input
 def prompt_input(prompt, input_cond, error_msg, success_msg=None, error_func=None):
     error_color = '\033[91m'
     end_color = '\033[0m'

@@ -1,28 +1,13 @@
 from card import Card
-from bartokrules import BartokRules
-from sevensrules import SevensRules
-from spoonsrules import SpoonsRules
-from enums import Game
+from thing import Thing
 
 
-# ------------------------------------------------------------------------------------------------- #
-#                                                                                                   #
-# ------------------------------------------------------------------------------------------------- #
-class Player:
-    def __init__(self, env, pos, game):
-        def deter_rules(player, game_inst):
-            if game_inst == Game.BARTOK:
-                return BartokRules(player).rules_map
-            if game_inst == Game.SEVENS:
-                return SevensRules(player).rules_map
-            # Other rules from different games would go here
-            if game_inst == Game.SPOONS:
-                return SpoonsRules(player).rules_map
-
+class Player(Thing):
+    def __init__(self, pos, env, game_rules):
         self.env = env
         self.hand = list()
         self.pos = pos
-        self.rules_map = deter_rules(self, game)
+        self.game_rules = game_rules
         self.norm_pos = self.pos + 1
 
     def __str__(self):
@@ -31,24 +16,15 @@ class Player:
             self_str += f" {card}"
         return self_str
 
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
     def hand_size(self):
         return len(self.hand)
 
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
     def add_to_hand(self, card, face_up=True):
         if isinstance(card, Card):
             if card.face_up != face_up:
                 card.flip()
             self.hand.append(card)
 
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
     def hand_to_str(self):
         hand = ""
         for card in self.hand:
@@ -57,59 +33,32 @@ class Player:
             hand += card.suit.value
         return hand
 
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
     def rmv_from_hand(self, idx):
         return self.hand.pop(idx)
 
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
     def sort_hand(self, sort_func):
         self.hand = sort_func(self.hand)
 
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
     def show_hand(self, info_funcs=None):
         print("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
         print("Your Hand (index - card)")
         for index, card in enumerate(self.hand):
             print(f"{index} - {card}\t", end="")
-            if (index + 1) % 3 == 0:
+            if (index + 1) % 3 == 0 and not index == self.hand_size() - 1:
                 print()
         print("\n~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
 
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
     def has_card_meet_cond(self, cond):
         for card in self.hand:
-            if cond(card):
+            if cond(card, self.env):
                 return True
         return False
 
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
     def cards_meet_cond(self, cond):
-        return [index for index, card in enumerate(self.hand) if cond(card)]
+        return [index for index, card in enumerate(self.hand) if cond(card, self.env)]
 
-    def reflect(self):
-        i = 1
-        for card in self.hand:
-            print("Card {}: {} of {}".format(i, card.rank, card.suit))
-            i += 1
-
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
     def possible_actions(self):
-        return [(i, self.rules_map[i].name.value) for i in self.rules_map if self.rules_map[i].can_act()]
+        return [(i, self.game_rules[i].name.value) for i in self.game_rules if self.game_rules[i].can_act(self, self.env)]
 
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
     def act(self, desired_action):
-        self.rules_map[desired_action].act()
+        self.game_rules[desired_action].act(self, self.env)

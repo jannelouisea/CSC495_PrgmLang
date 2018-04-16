@@ -1,6 +1,6 @@
 from game import Game
 from env import SpoonsEnv
-from card_patterns import any_four_of_a_kind
+from cardpatterns import any_four_of_a_kind
 from pile import Pile
 
 SPOONS_SUMMARY = '''

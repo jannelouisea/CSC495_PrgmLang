@@ -1,9 +1,7 @@
 from rule import Rule
 from enums import SevensRuleEnum, Suit
-from gamerules import GameRules
 from card import Card
-from env import SevensEnv
-from card_patterns import adjacent_high, adjacent_low, sort_cards, unavailable
+from cardpatterns import adjacent_high, adjacent_low, sort_cards, unavailable
 
 
 # ------------------------------------------------------------------------------------------------- #

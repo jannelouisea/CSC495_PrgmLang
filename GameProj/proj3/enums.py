@@ -27,7 +27,7 @@ class Game(Enum):
 
 
 class BartokRuleEnum(Enum):
-    PLAYDRAW2 = 'Play Draw 2 Card (rank 2)'
+    PLAYDRAW2 = 'Play Draw2 Card (rank 2)'
     DRAW2 = 'Draw 2n Cards (n = draw2 effect)'
     PLAYSKIP = 'Play Skip Card (rank 7)'
     PLAYREVERSE = 'Play Reverse Card (rank 8)'
