@@ -25,31 +25,15 @@ class Rule(Thing):
         return next_player
 
     @staticmethod
-    def user_choose_card(player, valid_cards, card_type=''):
+    def user_choose_card(player, valid_cards, card_type=None):
         def valid_card(idx):
             return int(idx) in valid_cards
 
-        choose_card_prompt = f"Enter the index of the {card_type} card would you like to play.\nIndex - Card\n"
+        choose_card_prompt = f"Enter the index of the {card_type} card would you like to play.\nIndex - Card\n" \
+                             if card_type \
+                             else "Enter the index of the card would you like to play.\nIndex - Card\n"
         for card in valid_cards:
             choose_card_prompt += f"{card} - {player.hand[card]}\n"
-        choose_card_prompt += "> "
-        choose_card_err = "ERROR: Invalid index."
-        return int(prompt_input(choose_card_prompt, valid_card, choose_card_err))
-
-        # ------------------------------------------------------------------------------------------------- #
-        # Prompts the user to choose a card from the valid list of cards.                                   #
-        #                                                                                                   #
-        # :param valid_cards: A list of valid cards indices from the player's hand.                         #
-        #                 #
-        # ------------------------------------------------------------------------------------------------- #
-
-    def spoons_choose(self, valid_cards):
-        def valid_card(idx):
-            return int(idx) in valid_cards
-
-        choose_card_prompt = f"Enter the index of the card you would like to pass. \nIndex - Card\n"
-        for card in valid_cards:
-            choose_card_prompt += f"{card} - {self.player.hand[card]}\n"
         choose_card_prompt += "> "
         choose_card_err = "ERROR: Invalid index."
         return int(prompt_input(choose_card_prompt, valid_card, choose_card_err))

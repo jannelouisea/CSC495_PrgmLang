@@ -41,11 +41,12 @@ class Player(Thing):
         self.hand = sort_func(self.hand)
 
     def show_hand(self, info_funcs=None):
+        num_cols = 4
         print("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
         print("Your Hand (index - card)")
         for index, card in enumerate(self.hand):
             print(f"{index} - {card}\t", end="")
-            if (index + 1) % 3 == 0 and not index == self.hand_size() - 1:
+            if (index + 1) % num_cols == 0 and not index == self.hand_size() - 1:
                 print()
         print("\n~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~")
 
@@ -55,7 +56,12 @@ class Player(Thing):
                 return True
         return False
 
-    def cards_meet_cond(self, cond):
+    def default_cond(self, card):
+        return True
+
+    def cards_meet_cond(self, cond=None):
+        if not cond:
+            cond = lambda x: x == x # Always evaluates to true
         return [index for index, card in enumerate(self.hand) if cond(card)]
 
     def possible_actions(self):
