@@ -60,6 +60,7 @@ class Env(Thing):
 class SpoonsEnv(Env):
     trash = 'trash'
     end_player = 'end_player'
+    pass_pile = 'pass_pile'
 
 
 class SevensEnv(Env):

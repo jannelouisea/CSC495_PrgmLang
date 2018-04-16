@@ -40,3 +40,8 @@ class SevensRuleEnum(Enum):
     PLAYSTARTLAYOUTCARD = 'Play Start Layout Card (rank 7)'
     PLAYADJACENTCARD = 'Play Adjacent Card'
     KNOCK = 'Knock (can\'t play any cards)'
+
+class SpoonsRuleEnum(Enum):
+    DEALER = 'Draw card from deck'
+    PASS = 'Discard card to next player'
+    END = 'Discard card to trash pile'
