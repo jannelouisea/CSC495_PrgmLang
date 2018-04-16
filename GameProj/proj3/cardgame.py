@@ -54,7 +54,7 @@ class CardGame(Thing):
             return False
         if not type(num_players) == int or num_players < 1:
             return False
-        if not type(start_hand_size) == int or start_hand_size < 1:
+        if not start_hand_size == EQUAL_NUM_CARDS and (not type(start_hand_size) == int or start_hand_size < 1):
             return False
         if not (direction == CLOCKWISE or direction == COUNTER_CLOCKWISE):
             return False

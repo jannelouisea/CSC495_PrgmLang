@@ -41,6 +41,7 @@ class SevensRuleEnum(Enum):
     PLAYADJACENTCARD = 'Play Adjacent Card'
     KNOCK = 'Knock (can\'t play any cards)'
 
+
 class SpoonsRuleEnum(Enum):
     DEALER = 'Draw card from deck'
     PASS = 'Discard card to next player'

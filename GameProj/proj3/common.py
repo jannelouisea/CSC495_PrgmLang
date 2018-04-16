@@ -12,7 +12,7 @@ POST_PLAYER_TURN = 'post_player_turn'
 WINNING_COND = 'winning_cond'
 
 # Field to notify to split cards equally between players
-EQUAL_NUM_CARDS = 'equal_num_cards'
+EQUAL_NUM_CARDS = -100
 
 # Direction fields
 CLOCKWISE = 1
@@ -21,7 +21,7 @@ COUNTER_CLOCKWISE = -1
 
 # Win Conditions
 # Note so far the only win condition is having an empty hand. When more
-# win conditions arise then a new file can be made to separate them
+# win conditions arise then a new file can be made to hold common win conditions
 def empty_hand_win_cond(env):
     for player in env.players:
         if player.hand_size() == 0:
