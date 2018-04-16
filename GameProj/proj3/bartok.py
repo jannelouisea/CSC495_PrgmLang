@@ -15,13 +15,6 @@ def bartok_pre_player_turn(env):
     print("=================================")
 
 
-def bartok_winning_cond(env):
-    for player in env.players:
-        if player.hand_size() == 0:
-            return True
-    return False
-
-
 BARTOK = {
     ENV: BartokEnv,
     DECK_SIZE: 1,
@@ -32,7 +25,7 @@ BARTOK = {
     GAME_RULES: BARTOK_RULES,
     SETUP: bartok_setup,
     PRE_PLAYER_TURN: bartok_pre_player_turn,
-    WINNING_COND: bartok_winning_cond
+    WINNING_COND: empty_hand_win_cond
 }
 
 CardGame(BARTOK).play()

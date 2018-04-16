@@ -19,6 +19,16 @@ CLOCKWISE = 1
 COUNTER_CLOCKWISE = -1
 
 
+# Win Conditions
+# Note so far the only win condition, is having an empty hand. When more
+# win conditions arise then a new file can be made to separate them
+def empty_hand_win_cond(env):
+    for player in env.players:
+        if player.hand_size() == 0:
+            return True
+    return False
+
+
 # Common function used to ask user for input
 def prompt_input(prompt, input_cond, error_msg, success_msg=None, error_func=None):
     error_color = '\033[91m'

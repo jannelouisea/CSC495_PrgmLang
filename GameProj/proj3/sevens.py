@@ -49,13 +49,6 @@ def sevens_pre_player_turn(env):
     print("=================================")
 
 
-def sevens_winning_cond(env):
-    for player in env.players:
-        if player.hand_size() == 0:
-            return True
-    return False
-
-
 SEVENS = {
     ENV: SevensEnv,
     DECK_SIZE: 1,
@@ -66,7 +59,7 @@ SEVENS = {
     GAME_RULES: SEVENS_RULES,
     SETUP: sevens_set_up,
     PRE_PLAYER_TURN: sevens_pre_player_turn,
-    WINNING_COND: sevens_winning_cond
+    WINNING_COND: empty_hand_win_cond
 }
 
 CardGame(SEVENS).play()
