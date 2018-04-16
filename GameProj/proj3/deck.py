@@ -5,7 +5,7 @@ from pile import Pile
 
 class Deck(Pile):
 
-    def __init__(self, jokers_included=False):
+    def __init__(self, deck_size=1, deck_w_jokers=False):
         super(Deck, self).__init__()
 
         # Initialize list of cards
@@ -20,6 +20,9 @@ class Deck(Pile):
             self.cards.append(Card(FaceCard.JACK.value, suit, 11))
 
         # Create jokers
-        if jokers_included:
+        if deck_w_jokers:
             self.cards.append(Card('!', '!', 0, True))
             self.cards.append(Card('!', '!', 0, True))
+
+        for i in range(deck_size - 1):
+            self.cards.insert(self.cards)
