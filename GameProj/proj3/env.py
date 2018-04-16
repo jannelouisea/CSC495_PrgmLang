@@ -5,24 +5,25 @@ from common import EQUAL_NUM_CARDS
 from cardpatterns import sort_cards
 from player import Player
 
+
 class Env(Thing):
 
     __shared_state = {}
     __saved_state = {}
 
-    def __init__(self, deck_size, deck_w_jokers, num_players, start_hand_size, game_rules, direction):
+    def __init__(self, deck_size, deck_w_jokers, num_players, start_hand_size, direction):
         self.__dict__ = self.__shared_state
         self.deck = Deck(deck_size, deck_w_jokers)
         self.deck.shuffle()
         self.num_players = num_players
-        self.players = self.init_players(num_players, start_hand_size, game_rules)
+        self.players = self.init_players(num_players, start_hand_size)
         self.cur_player_pos = 0
         self.rec_player_pos = 0
         self.direction = direction
         self.winner_pos = -1
 
-    def init_players(self, num_players, start_hand_size, game_rules):
-        players = [Player(i, self, game_rules) for i in range(num_players)]
+    def init_players(self, num_players, start_hand_size):
+        players = [Player(i, self) for i in range(num_players)]
 
         num_cards = start_hand_size * num_players
         if start_hand_size == EQUAL_NUM_CARDS:

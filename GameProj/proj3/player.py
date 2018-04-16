@@ -3,11 +3,12 @@ from thing import Thing
 
 
 class Player(Thing):
-    def __init__(self, pos, env, game_rules):
+    def __init__(self, pos, env):
         self.env = env
         self.hand = list()
         self.pos = pos
-        self.game_rules = game_rules
+        # self.game_rules = {i: rule(env) for i, rule in enumerate(game_rules)}
+        self.game_rules = {}
         self.norm_pos = self.pos + 1
 
     def __str__(self):
@@ -50,15 +51,15 @@ class Player(Thing):
 
     def has_card_meet_cond(self, cond):
         for card in self.hand:
-            if cond(card, self.env):
+            if cond(card):
                 return True
         return False
 
     def cards_meet_cond(self, cond):
-        return [index for index, card in enumerate(self.hand) if cond(card, self.env)]
+        return [index for index, card in enumerate(self.hand) if cond(card)]
 
     def possible_actions(self):
-        return [(i, self.game_rules[i].name.value) for i in self.game_rules if self.game_rules[i].can_act(self, self.env)]
+        return [(i, self.game_rules[i].name.value) for i in self.game_rules if self.game_rules[i].can_act(self)]
 
     def act(self, desired_action):
-        self.game_rules[desired_action].act(self, self.env)
+        self.game_rules[desired_action].act(self)

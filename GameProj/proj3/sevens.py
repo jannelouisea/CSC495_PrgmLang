@@ -1,132 +1,72 @@
-from game import Game
-from env import SevensEnv
+from common import *
+from sevensrules import SEVENS_RULES
+from cardgame import CardGame
 from pile import Pile
-from card import Card
+from env import Env
 from enums import Suit
 
-SEVENS_SUMMARY = '''
-======================================================
-                       Sevens
-------------------------------------------------------
-Bartok is a card game that uses a standard deck of
-card without Jokers. The number of players can range
-from 3 to 8 players.
 
-The objective of the game is to be the first player
-to get rid of all their cards.
-
-Special Cards in the Game:
-Start Card         - 7 Diamonds
-Start Layout Card  - any card with rank 7 except Start Card
-
-The player who has the 7 Diamonds goes first. Direction
-is clockwise.
-
-Each player can do one the following moves on their
-turn:
-1 - Play Start Layout Card
-    When a player plays a Start Layout Card, this
-    creates a new layout for that card's suit.
-
-2 - Play Adjacent Card
-    For one of the four layouts, the player can only
-    put the next highest or lowest card.
-
-3 - Knock (can't play anything)
-
-If player can only play either one start layout card or
-on adjacent card, then that card is automatically placed
-in the corresponding layout. 
-
-To transition between players, the next player has to
-enter their position before proceeding.
-
-Good Luck. Now let's play!
-======================================================
-'''
+class SevensEnv(Env):
+    def __init__(self, deck_size, deck_w_jokers, num_players, start_hand_size, direction):
+        super(SevensEnv, self).__init__(deck_size, deck_w_jokers, num_players, start_hand_size, direction)
+        self.spades_layout = Pile()
+        self.diamonds_layout = Pile()
+        self.clubs_layout = Pile()
+        self.hearts_layout = Pile()
 
 
-# ------------------------------------------------------------------------------------------------- #
-#                                                                                                   #
-# ------------------------------------------------------------------------------------------------- #
-# https://www.wikihow.com/Play-the-Card-Game-Called-Sevens
-class Sevens(Game):
+def sevens_set_up(env):
+    def start_card_cond(card):
+        return card.matches_rank('7') and card.matches_suit(Suit.DIAMONDS)
 
-    def __init__(self, game):
-        super(Sevens, self).__init__(game)
-        self.min_players = 3
-        self.max_players = 8
-        self.env[SevensEnv.spades_layout] = Pile()
-        self.env[SevensEnv.diamonds_layout] = Pile()
-        self.env[SevensEnv.clubs_layout] = Pile()
-        self.env[SevensEnv.hearts_layout] = Pile()
+    for index, player in enumerate(env.players):
+        if player.has_card_meet_cond(start_card_cond):
+            env.cur_player_pos = index
+            break
 
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
-    @staticmethod
-    def winning_cond(player):
-        return player.hand_size() == 0
 
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
-    def show_table(self):
-        table = {
-            'SPADES': self.env[SevensEnv.spades_layout].cards,
-            'DIAMONDS': self.env[SevensEnv.diamonds_layout].cards,
-            'CLUBS': self.env[SevensEnv.clubs_layout].cards,
-            'HEARTS': self.env[SevensEnv.hearts_layout].cards
-        }
+def sevens_pre_player_turn(env):
+    table = {
+        'SPADES': env.spades_layout.cards,
+        'DIAMONDS': env.diamonds_layout.cards,
+        'CLUBS': env.clubs_layout.cards,
+        'HEARTS': env.hearts_layout.cards
+    }
 
-        print("=================================")
-        print("              Table")
-        print("---------------------------------")
-        for suit, layout in table.items():
-            print(f"{suit}: \t", end="")
-            if suit == 'CLUBS':
-                print('\t', end="")
-            if len(layout) == 0:
-                print("[]")
-            else:
-                for card in layout:
-                    print(f"{card} ", end="")
-                print()
-        print("=================================")
+    print("=================================")
+    print("              Table")
+    print("---------------------------------")
+    for suit, layout in table.items():
+        print(f"{suit}: \t", end="")
+        if suit == 'CLUBS':
+            print('\t', end="")
+        if len(layout) == 0:
+            print("[]")
+        else:
+            for card in layout:
+                print(f"{card} ", end="")
+            print()
+    print("=================================")
 
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
-    def find_start_player(self):
-        start_card = Card("7", Suit.DIAMONDS, 7)
 
-        def start_card_cond(card):
-            return card.matches_card(start_card)
+def sevens_winning_cond(env):
+    for player in env.players:
+        if player.hand_size() == 0:
+            return True
+    return False
 
-        for index, player in enumerate(self.env[SevensEnv.players]):
-            if player.has_card_meet_cond(start_card_cond):
-                self.env[SevensEnv.cur_player_pos] = index
-                break
 
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
-    def set_up(self):
-        print("---------------------------------")
-        print("Set Up")
-        print("---------------------------------")
-        self.set_norm_deck()
-        num_players = self.ask_num_players(self.min_players, self.max_players)
-        self.init_players_w_eq_cards(num_players)
+SEVENS = {
+    ENV: SevensEnv,
+    DECK_SIZE: 1,
+    DECK_W_JOKERS: False,
+    NUM_PLAYERS: 3,
+    START_HAND_SIZE: EQUAL_NUM_CARDS,
+    DIRECTION: CLOCKWISE,
+    GAME_RULES: SEVENS_RULES,
+    SETUP: sevens_set_up,
+    PRE_PLAYER_TURN: sevens_pre_player_turn,
+    WINNING_COND: sevens_winning_cond
+}
 
-    # ------------------------------------------------------------------------------------------------- #
-    #                                                                                                   #
-    # ------------------------------------------------------------------------------------------------- #
-    def play(self):
-        print(SEVENS_SUMMARY)
-
-        self.find_start_player()
-        while self.env[SevensEnv.winner_pos] < 0:
-            self.show_table()
-            self.let_cur_player_play()
-            self.check_winner(self.winning_cond)
+CardGame(SEVENS).play()

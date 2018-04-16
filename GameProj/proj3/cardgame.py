@@ -18,14 +18,17 @@ from sys import exit
 class CardGame(Thing):
 
     def __init__(self, game_params):
-        # setting up the environment
+        # Setting up the environment
         deck_size = game_params.get(DECK_SIZE, 1)
         deck_w_jokers = game_params.get(DECK_W_JOKERS, False)
         num_players = game_params.get(NUM_PLAYERS, 1)
         start_hand_size = game_params.get(START_HAND_SIZE, 0)
         direction = game_params.get(DIRECTION, 1)
-        game_rules = {i: rule() for i, rule in enumerate(game_params.get(GAME_RULES, []))}
-        self.env = game_params.get(ENV, Env)(deck_size, deck_w_jokers, num_players, start_hand_size, game_rules, direction)
+        self.env = game_params.get(ENV, Env)(deck_size, deck_w_jokers, num_players, start_hand_size, direction)
+
+        # Setting the rules
+        game_rules = {i: rule(self.env) for i, rule in enumerate(game_params.get(GAME_RULES, []))}
+        self.establish_rules(game_rules)
 
         # setting the game play
         self.setup = game_params.get(SETUP, self.do_nothing)
@@ -36,6 +39,10 @@ class CardGame(Thing):
     @staticmethod
     def do_nothing(env):
         pass
+
+    def establish_rules(self, game_rules):
+        for player in self.env.players:
+            player.game_rules = game_rules
 
     def play(self):
         self.setup(self.env)

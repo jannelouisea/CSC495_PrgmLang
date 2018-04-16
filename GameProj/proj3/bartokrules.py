@@ -64,7 +64,7 @@ class Draw2Rule(BartokRule):
         print(f"You cannot play any cards. Automatically adding {draw_count} cards to your hand.")
         self.add_to_hand_from_deck(player, env, draw_count)
         self.reset_draw2_effect(env)
-        self.change_curr_player(env, 1, 0)
+        self.change_cur_player(env, 1, 0)
 
 
 class PlayDraw2Rule(BartokRule):
@@ -85,7 +85,7 @@ class PlayDraw2Rule(BartokRule):
         env.center.put(player.rmv_from_hand(draw2_card))
         self.inc_draw2_effect(env)
         print(f"Player {env.get_cur_player().pos} played {env.center.look_top()}. (Draw2 Card)")
-        self.change_curr_player(env, 1, 0)
+        self.change_cur_player(env, 1, 0)
 
 
 class PlaySkipRule(BartokRule):
@@ -101,7 +101,7 @@ class PlaySkipRule(BartokRule):
         skip_card = skip_cards[0] if len(skip_cards) == 1 else self.user_choose_card(player, skip_cards, "skip")
         env.center.put(player.rmv_from_hand(skip_card))
         print(f"Player {env.get_cur_player().pos} played {env.center.look_top()}. (Skip Card)")
-        self.change_curr_player(env, 1, 1)
+        self.change_cur_player(env, 1, 1)
 
 
 class PlayReverseRule(BartokRule):
@@ -118,7 +118,7 @@ class PlayReverseRule(BartokRule):
         env.center.put(player.rmv_from_hand(reverse_card))
         env.direction *= -1
         print(f"Player {env.get_cur_player().pos} played {env.center.look_top()}. (Reverse Card)")
-        self.change_curr_player(env, 1, 0)
+        self.change_cur_player(env, 1, 0)
 
 
 class PlayMatchRule(BartokRule):
@@ -142,7 +142,7 @@ class PlayMatchRule(BartokRule):
         matched_card = matched_cards[0] if len(matched_cards) == 1 else self.user_choose_card(player, matched_cards, "matched")
         env.center.put(player.rmv_from_hand(matched_card))
         self.recap(env)
-        self.change_curr_player(env, 1, 0)
+        self.change_cur_player(env, 1, 0)
 
 
 class DrawCardRule(BartokRule):
@@ -164,7 +164,7 @@ class DrawCardRule(BartokRule):
     def act(self, player, env):
         print("You cannot play any cards. Automatically adding one card to your hand.")
         self.add_to_hand_from_deck(player, env)
-        self.change_curr_player(env, 1, 0)
+        self.change_cur_player(env, 1, 0)
 
 
 BARTOK_RULES = [Draw2Rule, PlayDraw2Rule,

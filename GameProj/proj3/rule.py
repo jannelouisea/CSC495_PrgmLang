@@ -4,15 +4,17 @@ from thing import Thing
 
 class Rule(Thing):
 
-    def change_curr_player(self, env, jump_size, skips):
-        env.rec_player_pos = env.cur_player_pos
-        env.cur_player_pos = self.next_player(env, jump_size, skips)
+    def __init__(self, env):
+        self.env = env
 
-    @staticmethod
-    def next_player(env, jump_size, skips):
-        cur_player_pos = env.cur_player_pos
-        direction = env.direction
-        num_players = env.num_players
+    def change_cur_player(self, jump_size, skips):
+        self.env.rec_player_pos = self.env.cur_player_pos
+        self.env.cur_player_pos = self.next_player(jump_size, skips)
+
+    def next_player(self, jump_size, skips):
+        cur_player_pos = self.env.cur_player_pos
+        direction = self.env.direction
+        num_players = self.env.num_players
         last_idx = num_players - 1
 
         next_player = cur_player_pos + (direction * ((jump_size * (skips + 1)) % num_players))
@@ -34,8 +36,8 @@ class Rule(Thing):
         choose_card_err = "ERROR: Invalid index."
         return int(prompt_input(choose_card_prompt, valid_card, choose_card_err))
 
-    def can_act(self, player, env):
+    def can_act(self, player):
         pass
 
-    def act(self, player, env):
+    def act(self, player):
         pass
