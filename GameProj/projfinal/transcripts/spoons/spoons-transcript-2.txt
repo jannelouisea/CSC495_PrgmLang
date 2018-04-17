@@ -1,0 +1,823 @@
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [4 ♣]	1 - [8 ♣]
+2 - [4 ♥]	3 - [6 ♠]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Added to hand: [5 ♦]
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [4 ♣]
+1 - [8 ♣]
+2 - [4 ♥]
+3 - [6 ♠]
+4 - [5 ♦]
+> 0
+---------------------------------
+Player 1 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [J ♣]	1 - [8 ♥]
+2 - [2 ♠]	3 - [9 ♠]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [J ♣]
+1 - [8 ♥]
+2 - [2 ♠]
+3 - [9 ♠]
+4 - [4 ♣]
+> -1
+ERROR: Invalid index.
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [J ♣]
+1 - [8 ♥]
+2 - [2 ♠]
+3 - [9 ♠]
+4 - [4 ♣]
+> 5
+ERROR: Invalid index.
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [J ♣]
+1 - [8 ♥]
+2 - [2 ♠]
+3 - [9 ♠]
+4 - [4 ♣]
+> 0
+---------------------------------
+Player 2 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [K ♦]	1 - [7 ♥]
+2 - [9 ♥]	3 - [K ♥]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [K ♦]
+1 - [7 ♥]
+2 - [9 ♥]
+3 - [K ♥]
+4 - [J ♣]
+> 4
+---------------------------------
+Player 3 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [6 ♣]	1 - [8 ♦]
+2 - [5 ♠]	3 - [7 ♠]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [6 ♣]
+1 - [8 ♦]
+2 - [5 ♠]
+3 - [7 ♠]
+4 - [J ♣]
+> 4
+---------------------------------
+Player 4 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [8 ♣]	1 - [4 ♥]
+2 - [6 ♠]	3 - [5 ♦]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Added to hand: [2 ♦]
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [8 ♣]
+1 - [4 ♥]
+2 - [6 ♠]
+3 - [5 ♦]
+4 - [2 ♦]
+> 1
+---------------------------------
+Player 1 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [8 ♥]	1 - [2 ♠]
+2 - [9 ♠]	3 - [4 ♣]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [8 ♥]
+1 - [2 ♠]
+2 - [9 ♠]
+3 - [4 ♣]
+4 - [4 ♥]
+> 2
+---------------------------------
+Player 2 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [K ♦]	1 - [7 ♥]
+2 - [9 ♥]	3 - [K ♥]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [K ♦]
+1 - [7 ♥]
+2 - [9 ♥]
+3 - [K ♥]
+4 - [9 ♠]
+> 1
+---------------------------------
+Player 3 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [6 ♣]	1 - [8 ♦]
+2 - [5 ♠]	3 - [7 ♠]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [6 ♣]
+1 - [8 ♦]
+2 - [5 ♠]
+3 - [7 ♠]
+4 - [7 ♥]
+> 2
+---------------------------------
+Player 4 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [8 ♣]	1 - [6 ♠]
+2 - [5 ♦]	3 - [2 ♦]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Added to hand: [6 ♦]
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [8 ♣]
+1 - [6 ♠]
+2 - [5 ♦]
+3 - [2 ♦]
+4 - [6 ♦]
+> 1
+---------------------------------
+Player 1 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [8 ♥]	1 - [2 ♠]
+2 - [4 ♣]	3 - [4 ♥]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [8 ♥]
+1 - [2 ♠]
+2 - [4 ♣]
+3 - [4 ♥]
+4 - [6 ♠]
+> 4
+---------------------------------
+Player 2 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [K ♦]	1 - [9 ♥]
+2 - [K ♥]	3 - [9 ♠]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [K ♦]
+1 - [9 ♥]
+2 - [K ♥]
+3 - [9 ♠]
+4 - [6 ♠]
+> 4
+---------------------------------
+Player 3 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [6 ♣]	1 - [8 ♦]
+2 - [7 ♠]	3 - [7 ♥]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [6 ♣]
+1 - [8 ♦]
+2 - [7 ♠]
+3 - [7 ♥]
+4 - [6 ♠]
+> 1
+---------------------------------
+Player 4 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [8 ♣]	1 - [5 ♦]
+2 - [2 ♦]	3 - [6 ♦]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Added to hand: [J ♦]
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [8 ♣]
+1 - [5 ♦]
+2 - [2 ♦]
+3 - [6 ♦]
+4 - [J ♦]
+> 3
+---------------------------------
+Player 1 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [8 ♥]	1 - [2 ♠]
+2 - [4 ♣]	3 - [4 ♥]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [8 ♥]
+1 - [2 ♠]
+2 - [4 ♣]
+3 - [4 ♥]
+4 - [6 ♦]
+> 4
+---------------------------------
+Player 2 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [K ♦]	1 - [9 ♥]
+2 - [K ♥]	3 - [9 ♠]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [K ♦]
+1 - [9 ♥]
+2 - [K ♥]
+3 - [9 ♠]
+4 - [6 ♦]
+> 4
+---------------------------------
+Player 3 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [6 ♣]	1 - [7 ♠]
+2 - [7 ♥]	3 - [6 ♠]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [6 ♣]
+1 - [7 ♠]
+2 - [7 ♥]
+3 - [6 ♠]
+4 - [6 ♦]
+> 2
+---------------------------------
+Player 4 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [8 ♣]	1 - [5 ♦]
+2 - [2 ♦]	3 - [J ♦]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Added to hand: [9 ♣]
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [8 ♣]
+1 - [5 ♦]
+2 - [2 ♦]
+3 - [J ♦]
+4 - [9 ♣]
+> 0
+---------------------------------
+Player 1 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [8 ♥]	1 - [2 ♠]
+2 - [4 ♣]	3 - [4 ♥]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [8 ♥]
+1 - [2 ♠]
+2 - [4 ♣]
+3 - [4 ♥]
+4 - [8 ♣]
+> 1
+---------------------------------
+Player 2 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [K ♦]	1 - [9 ♥]
+2 - [K ♥]	3 - [9 ♠]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [K ♦]
+1 - [9 ♥]
+2 - [K ♥]
+3 - [9 ♠]
+4 - [2 ♠]
+> 4
+---------------------------------
+Player 3 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 0
+ERROR: The next player should be Player 4. Please enter 4 to proceed.
+Player 3 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 1
+ERROR: The next player should be Player 4. Please enter 4 to proceed.
+Player 3 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 6
+ERROR: The next player should be Player 4. Please enter 4 to proceed.
+Player 3 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [6 ♣]	1 - [7 ♠]
+2 - [6 ♠]	3 - [6 ♦]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [6 ♣]
+1 - [7 ♠]
+2 - [6 ♠]
+3 - [6 ♦]
+4 - [2 ♠]
+> 4
+---------------------------------
+Player 4 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [5 ♦]	1 - [2 ♦]
+2 - [J ♦]	3 - [9 ♣]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Added to hand: [2 ♣]
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [5 ♦]
+1 - [2 ♦]
+2 - [J ♦]
+3 - [9 ♣]
+4 - [2 ♣]
+> 3
+---------------------------------
+Player 1 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [8 ♥]	1 - [4 ♣]
+2 - [4 ♥]	3 - [8 ♣]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [8 ♥]
+1 - [4 ♣]
+2 - [4 ♥]
+3 - [8 ♣]
+4 - [9 ♣]
+> 4
+---------------------------------
+Player 2 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [K ♦]	1 - [9 ♥]
+2 - [K ♥]	3 - [9 ♠]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [K ♦]
+1 - [9 ♥]
+2 - [K ♥]
+3 - [9 ♠]
+4 - [9 ♣]
+> 0
+---------------------------------
+Player 3 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [6 ♣]	1 - [7 ♠]
+2 - [6 ♠]	3 - [6 ♦]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [6 ♣]
+1 - [7 ♠]
+2 - [6 ♠]
+3 - [6 ♦]
+4 - [K ♦]
+> 4
+---------------------------------
+Player 4 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [5 ♦]	1 - [2 ♦]
+2 - [J ♦]	3 - [2 ♣]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Added to hand: [Q ♣]
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [5 ♦]
+1 - [2 ♦]
+2 - [J ♦]
+3 - [2 ♣]
+4 - [Q ♣]
+> 4
+---------------------------------
+Player 1 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [8 ♥]	1 - [4 ♣]
+2 - [4 ♥]	3 - [8 ♣]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [8 ♥]
+1 - [4 ♣]
+2 - [4 ♥]
+3 - [8 ♣]
+4 - [Q ♣]
+> 4
+---------------------------------
+Player 2 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [9 ♥]	1 - [K ♥]
+2 - [9 ♠]	3 - [9 ♣]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [9 ♥]
+1 - [K ♥]
+2 - [9 ♠]
+3 - [9 ♣]
+4 - [Q ♣]
+> 4
+---------------------------------
+Player 3 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [6 ♣]	1 - [7 ♠]
+2 - [6 ♠]	3 - [6 ♦]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [6 ♣]
+1 - [7 ♠]
+2 - [6 ♠]
+3 - [6 ♦]
+4 - [Q ♣]
+> 4
+---------------------------------
+Player 4 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [5 ♦]	1 - [2 ♦]
+2 - [J ♦]	3 - [2 ♣]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Added to hand: [A ♣]
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [5 ♦]
+1 - [2 ♦]
+2 - [J ♦]
+3 - [2 ♣]
+4 - [A ♣]
+> 4
+---------------------------------
+Player 1 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [8 ♥]	1 - [4 ♣]
+2 - [4 ♥]	3 - [8 ♣]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [8 ♥]
+1 - [4 ♣]
+2 - [4 ♥]
+3 - [8 ♣]
+4 - [A ♣]
+> 4
+---------------------------------
+Player 2 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [9 ♥]	1 - [K ♥]
+2 - [9 ♠]	3 - [9 ♣]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [9 ♥]
+1 - [K ♥]
+2 - [9 ♠]
+3 - [9 ♣]
+4 - [A ♣]
+> 4
+---------------------------------
+Player 3 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [6 ♣]	1 - [7 ♠]
+2 - [6 ♠]	3 - [6 ♦]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [6 ♣]
+1 - [7 ♠]
+2 - [6 ♠]
+3 - [6 ♦]
+4 - [A ♣]
+> 4
+---------------------------------
+Player 4 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [5 ♦]	1 - [2 ♦]
+2 - [J ♦]	3 - [2 ♣]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Added to hand: [10 ♣]
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [5 ♦]
+1 - [2 ♦]
+2 - [J ♦]
+3 - [2 ♣]
+4 - [10 ♣]
+> 4
+---------------------------------
+Player 1 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [8 ♥]	1 - [4 ♣]
+2 - [4 ♥]	3 - [8 ♣]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [8 ♥]
+1 - [4 ♣]
+2 - [4 ♥]
+3 - [8 ♣]
+4 - [10 ♣]
+> 4
+---------------------------------
+Player 2 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [9 ♥]	1 - [K ♥]
+2 - [9 ♠]	3 - [9 ♣]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [9 ♥]
+1 - [K ♥]
+2 - [9 ♠]
+3 - [9 ♣]
+4 - [10 ♣]
+> 4
+---------------------------------
+Player 3 your turn is over.
+When Player 4 is ready, enter your number (4).
+> 4
+Player 4 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [6 ♣]	1 - [7 ♠]
+2 - [6 ♠]	3 - [6 ♦]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [6 ♣]
+1 - [7 ♠]
+2 - [6 ♠]
+3 - [6 ♦]
+4 - [10 ♣]
+> 4
+---------------------------------
+Player 4 your turn is over.
+When Player 1 is ready, enter your number (1).
+> 1
+Player 1 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [5 ♦]	1 - [2 ♦]
+2 - [J ♦]	3 - [2 ♣]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Added to hand: [9 ♦]
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [5 ♦]
+1 - [2 ♦]
+2 - [J ♦]
+3 - [2 ♣]
+4 - [9 ♦]
+> 4
+---------------------------------
+Player 1 your turn is over.
+When Player 2 is ready, enter your number (2).
+> 2
+Player 2 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [8 ♥]	1 - [4 ♣]
+2 - [4 ♥]	3 - [8 ♣]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [8 ♥]
+1 - [4 ♣]
+2 - [4 ♥]
+3 - [8 ♣]
+4 - [9 ♦]
+> 4
+---------------------------------
+Player 2 your turn is over.
+When Player 3 is ready, enter your number (3).
+> 3
+Player 3 Turn
+---------------------------------
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Your Hand (index - card)
+0 - [9 ♥]	1 - [K ♥]
+2 - [9 ♠]	3 - [9 ♣]
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+Enter the index of the card you would like to pass.
+Index - Card
+0 - [9 ♥]
+1 - [K ♥]
+2 - [9 ♠]
+3 - [9 ♣]
+4 - [9 ♦]
+> 1
+=================================
+*********************************
+   Player 3 has won the game!
+*********************************
+=================================
+
+Process finished with exit code 0
