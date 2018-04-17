@@ -1,6 +1,6 @@
 # CSC 495 Programming Languages - Group Project (Step 2)
 
-#### [Link to project directory](https://github.com/jannelouisea/CSC495_PrgmLang/tree/master/GameProj/proj3)
+#### [link to project (step 2) repo](https://github.com/jannelouisea/CSC495_PrgmLang/tree/master/GameProj/proj3)
 
 ## Team Members
 
