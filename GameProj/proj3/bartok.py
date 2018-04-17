@@ -38,7 +38,7 @@ BARTOK = {
     GAME_RULES: BARTOK_RULES,
     SETUP: bartok_setup,
     PRE_PLAYER_TURN: bartok_pre_player_turn,
-    WINNING_COND: empty_hand_win_cond
+    WIN_COND: empty_hand_win_cond
 }
 
 CardGame(BARTOK).play()

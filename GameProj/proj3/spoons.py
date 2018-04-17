@@ -28,7 +28,7 @@ SPOONS = {
     START_HAND_SIZE: 4,
     DIRECTION: CLOCKWISE,
     GAME_RULES: SPOONS_RULES,
-    WINNING_COND: spoons_win_cond
+    WIN_COND: spoons_win_cond
 }
 
 CardGame(SPOONS).play()

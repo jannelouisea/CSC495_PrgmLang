@@ -9,7 +9,7 @@ GAME_RULES = 'game_rules'
 SETUP = 'setup'
 PRE_PLAYER_TURN = 'pre_player_turn'
 POST_PLAYER_TURN = 'post_player_turn'
-WINNING_COND = 'winning_cond'
+WIN_COND = 'win_cond'
 
 # Field to notify to split cards equally between players
 EQUAL_NUM_CARDS = -100
