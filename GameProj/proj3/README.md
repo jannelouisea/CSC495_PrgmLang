@@ -1,5 +1,7 @@
 # CSC 495 Programming Languages - Group Project (Step 2)
 
+#### [Link to project directory](https://github.com/jannelouisea/CSC495_PrgmLang/tree/master/GameProj/proj3)
+
 ## Team Members
 
 Andrews, Kaylee
@@ -14,12 +16,11 @@ Awasthi, Apeksha
 
 ## Games Included
 
- - Bartok
- - Spoons
- - Sevens
+ - [Bartok](https://github.com/jannelouisea/CSC495_PrgmLang/blob/master/GameProj/proj3/bartok.py)
+ - [Spoons](https://github.com/jannelouisea/CSC495_PrgmLang/blob/master/GameProj/proj3/spoons.py)
+ - [Sevens](https://github.com/jannelouisea/CSC495_PrgmLang/blob/master/GameProj/proj3/sevens.py)
 
 ## How to Play Each Game
-
 Simply run `python` on which ever game you want to play.
 
 For **Bartok** run `python bartok.py`
