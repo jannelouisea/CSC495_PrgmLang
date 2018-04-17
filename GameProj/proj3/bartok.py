@@ -3,6 +3,7 @@ from bartokrules import BARTOK_RULES
 from cardgame import CardGame
 from env import Env
 from pile import Pile
+from sys import stderr
 
 
 class BartokEnv(Env):
@@ -14,6 +15,9 @@ class BartokEnv(Env):
 
 
 def bartok_setup(env):
+    if env.deck.is_empty():
+        print('ERROR: Deck is empty. Cannot place card in center pile.', file=stderr)
+        exit()  # TODO Throw exception instead of exiting
     env.center.put(env.deck.take_top())
 
 
@@ -28,7 +32,7 @@ BARTOK = {
     ENV: BartokEnv,
     DECK_SIZE: 1,
     DECK_W_JOKERS: False,
-    NUM_PLAYERS: 4,
+    NUM_PLAYERS: 3,
     START_HAND_SIZE: 5,
     DIRECTION: CLOCKWISE,
     GAME_RULES: BARTOK_RULES,

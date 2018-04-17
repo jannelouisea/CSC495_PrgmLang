@@ -37,14 +37,14 @@ def prompt_input(prompt, input_cond, error_msg, success_msg=None, error_func=Non
     user_input = None
 
     while not satisfied:
-        input_valid = False
+        input_type_valid = False
         try:
             user_input = int(input(prompt))
-            input_valid = True
+            input_type_valid = True
         except ValueError:
             print(f"{error_color}ERROR: Invalid input type. Input must be an integer.{end_color}")
 
-        if input_valid:
+        if input_type_valid:
             if input_cond(user_input):
                 satisfied = True
                 if success_msg:

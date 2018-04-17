@@ -26,10 +26,11 @@ class CardGame(Thing):
         direction = game_params.get(DIRECTION, 1)
         if not self.valid_env_params(deck_size, deck_w_jokers, num_players, start_hand_size, direction):
             self.warn_invalid_params('ERROR: Env params are invalid.')
+            exit(500)
         self.env = game_params.get(ENV, Env)(deck_size, deck_w_jokers, num_players, start_hand_size, direction)
 
         # Setting the rules
-        game_rules = {i: rule(self.env) for i, rule in enumerate(game_params.get(GAME_RULES, None))}
+        game_rules = {i: rule(self.env) for i, rule in enumerate(game_params.get(GAME_RULES, []))}
         self.establish_rules(game_rules)
 
         # setting the game play
@@ -44,21 +45,37 @@ class CardGame(Thing):
 
     def warn_invalid_params(self, msg):
         print(msg, file=stderr)
-        exit()
 
-    @staticmethod
-    def valid_env_params(deck_size, deck_w_jokers, num_players, start_hand_size, direction):
-        if not type(deck_size) == int or deck_size < 1:
-            return False
+    def valid_env_params(self, deck_size, deck_w_jokers, num_players, start_hand_size, direction):
+        valid_params = True
+
+        if not (type(deck_size) == int and (1 <= deck_size <= 10)):
+            self.warn_invalid_params('ERROR: DECK_SIZE must be a positive integer between 1 and 10.')
+            valid_params = False
+
         if not type(deck_w_jokers) == bool:
-            return False
-        if not type(num_players) == int or num_players < 1:
-            return False
-        if not start_hand_size == EQUAL_NUM_CARDS and (not type(start_hand_size) == int or start_hand_size < 1):
-            return False
+            valid_params = False
+            self.warn_invalid_params('ERROR: DECK_W_JOKERS must be True or False.')
+
+        if not (type(num_players) == int and (1 <= num_players <= 10)):
+            self.warn_invalid_params('ERROR: NUM_PLAYERS must be a positive integer between 1 and 10.')
+            valid_params = False
+
+        if start_hand_size != EQUAL_NUM_CARDS and (not type(start_hand_size) == int or start_hand_size < 1):
+            self.warn_invalid_params('ERROR: START_HAND_SIZE must be a positive integer greater than 0 or EQUAL_NUM_CARDS.')
+            valid_params = False
+        else:
+            if start_hand_size != EQUAL_NUM_CARDS:
+                num_cards_in_deck = deck_size * 52 if not deck_w_jokers else deck_size * 54
+                if (num_players * start_hand_size) > num_cards_in_deck:
+                    self.warn_invalid_params('ERROR: START_HAND_SIZE is too big for the DECK_SIZE and NUM_PLAYERS provided.')
+                    valid_params = False
+
         if not (direction == CLOCKWISE or direction == COUNTER_CLOCKWISE):
-            return False
-        return True
+            self.warn_invalid_params('ERROR: DIRECTION must be either CLOCKWISE (1) or COUNTER_CLOCKWISE (-1).')
+            valid_params = False
+
+        return valid_params
 
     def establish_rules(self, game_rules):
         for player in self.env.players:
