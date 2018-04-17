@@ -5,6 +5,7 @@ from env import Env
 from pile import Pile
 from spoonsrules import SPOONS_RULES
 
+
 class SpoonsEnv(Env):
     def __init__(self, deck_size, deck_w_jokers, num_players, start_hand_size, direction):
         super(SpoonsEnv, self).__init__(deck_size, deck_w_jokers, num_players, start_hand_size, direction)
