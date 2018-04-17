@@ -16,7 +16,7 @@ class BartokEnv(Env):
 
 def bartok_setup(env):
     if env.deck.is_empty():
-        print('ERROR: Deck is empty. Cannot place card in center pile.', file=stderr)
+        print('ERROR: Deck is empty. Cannot place card in center pile.')
         exit()  # TODO Throw exception instead of exiting
     env.center.put(env.deck.take_top())
 
