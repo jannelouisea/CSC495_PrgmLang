@@ -5,7 +5,7 @@ from pile import Pile
 
 class Deck(Pile):
 
-    def __init__(self, deck_size=1, deck_w_jokers=False):
+    def __init__(self, deck_size=1, deck_w_jokers=False, deck_wo_queens=False):
         super(Deck, self).__init__()
 
         # Initialize list of cards
@@ -26,3 +26,9 @@ class Deck(Pile):
 
         for i in range(deck_size - 1):
             self.cards.insert(self.cards)
+
+        if deck_wo_queens:
+            #fix this!!!
+            self.cards.remove(Card(FaceCard.QUEEN.value, Suit.SPADES, 12))
+            self.cards.remove(Card(FaceCard.QUEEN.value, Suit.HEARTS, 12))
+            self.cards.remove(Card(FaceCard.QUEEN.value, Suit.DIAMONDS, 12))
