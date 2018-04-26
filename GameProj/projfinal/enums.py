@@ -46,3 +46,8 @@ class SpoonsRuleEnum(Enum):
     DEALER = 'Draw card from deck'
     PASS = 'Discard card to next player'
     END = 'Discard card to trash pile'
+
+class OldmaidRuleEnum(Enum):
+    BEGIN = 'Start the game'
+    DEALER = 'Dealer plays'
+    PASS = 'Player to the left picks a card'

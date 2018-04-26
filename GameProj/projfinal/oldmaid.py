@@ -3,15 +3,14 @@ from cardgame import CardGame
 from cardpatterns import any_four_of_a_kind
 from env import Env
 from pile import Pile
-from spoonsrules import SPOONS_RULES
+from oldmaidrules import OLDMAID_RULES
 
 
-class SpoonsEnv(Env):
+class OldmaidEnv(Env):
     def __init__(self, deck_size, deck_w_jokers, deck_wo_queens, num_players, start_hand_size, direction):
-        super(SpoonsEnv, self).__init__(deck_size, deck_w_jokers, deck_wo_queens, num_players, start_hand_size, direction)
+        super(OldmaidEnv, self).__init__(deck_size, deck_w_jokers, deck_wo_queens, num_players, start_hand_size, direction)
         self.trash = Pile()
         self.pass_pile = Pile()
-        self.end_player = num_players - 1
 
 
 def spoons_win_cond(env):
@@ -21,16 +20,16 @@ def spoons_win_cond(env):
     return False
 
 
-SPOONS = {
-    ENV: SpoonsEnv,
+OLDMAID = {
+    ENV: OldmaidEnv,
     DECK_SIZE: 1,
     DECK_W_JOKERS: False,
-    DECK_WO_QUEENS: False,
-    NUM_PLAYERS: 5,
-    START_HAND_SIZE: 4,
+    DECK_WO_QUEENS: True,
+    NUM_PLAYERS: 2,
+    START_HAND_SIZE: 24,
     DIRECTION: CLOCKWISE,
-    GAME_RULES: SPOONS_RULES,
-    WIN_COND: spoons_win_cond
+    GAME_RULES: OLDMAID_RULES,
+    WIN_COND: empty_hand_win_cond
 }
 
-CardGame(SPOONS).play()
+CardGame(OLDMAID).play()

@@ -2,6 +2,7 @@
 ENV = 'env'
 DECK_SIZE = 'deck_size'
 DECK_W_JOKERS = 'deck_w_jokers'
+DECK_WO_QUEENS = 'deck_wo_queens'
 NUM_PLAYERS = 'num_players'
 START_HAND_SIZE = 'start_hand_size'
 DIRECTION = 'direction'

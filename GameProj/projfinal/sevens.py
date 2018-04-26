@@ -7,8 +7,8 @@ from enums import Suit
 
 
 class SevensEnv(Env):
-    def __init__(self, deck_size, deck_w_jokers, num_players, start_hand_size, direction):
-        super(SevensEnv, self).__init__(deck_size, deck_w_jokers, num_players, start_hand_size, direction)
+    def __init__(self, deck_size, deck_w_jokers, deck_wo_queens, num_players, start_hand_size, direction):
+        super(SevensEnv, self).__init__(deck_size, deck_w_jokers, deck_wo_queens, num_players, start_hand_size, direction)
         self.spades_layout = Pile()
         self.diamonds_layout = Pile()
         self.clubs_layout = Pile()
@@ -53,6 +53,7 @@ SEVENS = {
     ENV: SevensEnv,
     DECK_SIZE: 1,
     DECK_W_JOKERS: False,
+    DECK_WO_QUEENS: False,
     NUM_PLAYERS: 3,
     START_HAND_SIZE: EQUAL_NUM_CARDS,
     DIRECTION: CLOCKWISE,

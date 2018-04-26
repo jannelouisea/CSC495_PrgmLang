@@ -38,6 +38,12 @@ class Rule(Thing):
         choose_card_err = "ERROR: Invalid index."
         return int(prompt_input(choose_card_prompt, valid_card, choose_card_err))
 
+    def oldmaid_choose_card(player, cards_available, card_type=None):
+
+        choose_card_prompt = f"Enter a number between 0 and {cards_available} to pick as your card."
+        choose_card_err = "ERROR: Invalid index."
+        return int(prompt_input(choose_card_prompt, cards_available, choose_card_err))
+
     def can_act(self, player):
         pass
 

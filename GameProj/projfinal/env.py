@@ -11,9 +11,9 @@ class Env(Thing):
     __shared_state = {}
     __saved_state = {}
 
-    def __init__(self, deck_size, deck_w_jokers, num_players, start_hand_size, direction):
+    def __init__(self, deck_size, deck_w_jokers, deck_wo_queens, num_players, start_hand_size, direction):
         self.__dict__ = self.__shared_state
-        self.deck = Deck(deck_size, deck_w_jokers)
+        self.deck = Deck(deck_size, deck_w_jokers, deck_wo_queens)
         self.deck.shuffle()
         self.num_players = num_players
         self.players = self.init_players(num_players, start_hand_size)
@@ -21,6 +21,7 @@ class Env(Thing):
         self.rec_player_pos = 0
         self.direction = direction
         self.winner_pos = -1
+        self.flag = False
 
     def init_players(self, num_players, start_hand_size):
         players = [Player(i, self) for i in range(num_players)]

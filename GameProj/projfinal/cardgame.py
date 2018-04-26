@@ -22,12 +22,13 @@ class CardGame(Thing):
         # Setting up the environment
         deck_size = game_params.get(DECK_SIZE, 1)
         deck_w_jokers = game_params.get(DECK_W_JOKERS, False)
+        deck_wo_queens = game_params.get(DECK_WO_QUEENS, False)
         num_players = game_params.get(NUM_PLAYERS, 1)
         start_hand_size = game_params.get(START_HAND_SIZE, 0)
         direction = game_params.get(DIRECTION, 1)
-        if not self.is_env_params_valid(deck_size, deck_w_jokers, num_players, start_hand_size, direction):
+        if not self.is_env_params_valid(deck_size, deck_w_jokers, deck_wo_queens, num_players, start_hand_size, direction):
             self.end_game_err()
-        self.env = game_params.get(ENV, Env)(deck_size, deck_w_jokers, num_players, start_hand_size, direction)
+        self.env = game_params.get(ENV, Env)(deck_size, deck_w_jokers, deck_wo_queens, num_players, start_hand_size, direction)
 
         # Setting the rules
         game_rules = game_params.get(GAME_RULES, None)
@@ -56,7 +57,7 @@ class CardGame(Thing):
         self.warn_invalid_params('ERROR: Invalid Game Parameters')
         exit()
 
-    def is_env_params_valid(self, deck_size, deck_w_jokers, num_players, start_hand_size, direction):
+    def is_env_params_valid(self, deck_size, deck_w_jokers, deck_wo_queens, num_players, start_hand_size, direction):
         params_valid = True
 
         if not (type(deck_size) == int and (1 <= deck_size <= 10)):
@@ -76,7 +77,7 @@ class CardGame(Thing):
             params_valid = False
         else:
             if start_hand_size != EQUAL_NUM_CARDS:
-                num_cards_in_deck = deck_size * 52 if not deck_w_jokers else deck_size * 54
+                num_cards_in_deck = deck_size * 52 if not deck_w_jokers else deck_size * 54 if not deck_wo_queens else deck_size * 51
                 if (num_players * start_hand_size) > num_cards_in_deck:
                     self.warn_invalid_params('ERROR: START_HAND_SIZE is too big for the DECK_SIZE and NUM_PLAYERS provided.')
                     params_valid = False

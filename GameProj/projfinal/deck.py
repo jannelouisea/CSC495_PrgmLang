@@ -29,6 +29,6 @@ class Deck(Pile):
 
         if deck_wo_queens:
             #fix this!!!
-            self.cards.remove(Card(FaceCard.QUEEN.value, Suit.SPADES, 12))
-            self.cards.remove(Card(FaceCard.QUEEN.value, Suit.HEARTS, 12))
-            self.cards.remove(Card(FaceCard.QUEEN.value, Suit.DIAMONDS, 12))
+            del(self.cards[11])
+            del(self.cards[23])
+            del(self.cards[35])
