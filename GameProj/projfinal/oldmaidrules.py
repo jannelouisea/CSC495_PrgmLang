@@ -29,12 +29,45 @@ class OldmaidRule(Rule):
         player.add_to_hand(pass_pile.take())
 
     def matching_card_cond(self, player):
-        for card in player.hand:
-            for card2 in player.hand:
-                if card.matches_rank(card2.rank):
-                    player.hand.card.remove(card.value)
-                    player.hand.card.remove(card2.value)
-                    print(player.hand)
+        restart = True
+        while restart:
+            restart = False
+            for index in range(0, len(player.hand)):
+                print("index {}".format(index))
+                for index2 in range(index + 1, len(player.hand)):
+                    print("index2 {} ".format(index2))
+                    if player.hand[index].matches_rank(player.hand[index2].rank):
+                        print("before")
+                        print(player.hand)
+                        del(player.hand[index2])
+                        del(player.hand[index])
+                        restart = True
+                        print("after")
+                        print(player.hand)
+                        break
+                else:
+                    continue
+                break
+
+
+
+
+
+
+      #  for index, card in enumerate(player.hand):
+       #     length = len(player.hand)
+        #    for index2, card2 in enumerate(player.hand):
+         #       if index2 <= length:
+          #          print("card rank {}".format(card.rank))
+           #         print("card2 rank {}".format(card2.rank))
+            #        if card.matches_rank(card2.rank):
+             #           print("before")
+              #          print(player.hand)
+               #         del(player.hand[index2])
+                #        del(player.hand[index])
+                 #       print("after")
+                  #      print(player.hand)
+                   #     break
 
 # ------------------------------------------------------------------------------------------------- #
 # The dealer                                                                                        #
