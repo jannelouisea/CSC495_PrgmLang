@@ -28,7 +28,6 @@ class Deck(Pile):
             self.cards.insert(self.cards)
 
         if deck_wo_queens:
-            #fix this!!!
             del(self.cards[11])
             del(self.cards[23])
             del(self.cards[35])

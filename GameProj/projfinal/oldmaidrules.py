@@ -50,25 +50,6 @@ class OldmaidRule(Rule):
                 break
 
 
-
-
-
-
-      #  for index, card in enumerate(player.hand):
-       #     length = len(player.hand)
-        #    for index2, card2 in enumerate(player.hand):
-         #       if index2 <= length:
-          #          print("card rank {}".format(card.rank))
-           #         print("card2 rank {}".format(card2.rank))
-            #        if card.matches_rank(card2.rank):
-             #           print("before")
-              #          print(player.hand)
-               #         del(player.hand[index2])
-                #        del(player.hand[index])
-                 #       print("after")
-                  #      print(player.hand)
-                   #     break
-
 # ------------------------------------------------------------------------------------------------- #
 # The dealer                                                                                        #
 # ------------------------------------------------------------------------------------------------- #
@@ -135,11 +116,11 @@ class PassRule(OldmaidRule):
     #                                                                                                   #
     # ------------------------------------------------------------------------------------------------- #
     def act(self, player):
-        cards_available = len(player[0].hand)
+        cards_available = len(self.env.players[0].hand)
         discard = self.oldmaid_choose_card(player, cards_available)
         # remove from other dealer's hand
         # add to other player's hand
-        self.player.hand.put(player[0].rmv_from_hand(discard))
+        self.player.hand.put(self.env.players[0].rmv_from_hand(discard))
         # check for matching cards
         self.matching_card_cond(self.player.hand)
 
