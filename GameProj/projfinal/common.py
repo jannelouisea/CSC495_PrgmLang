@@ -24,8 +24,9 @@ COUNTER_CLOCKWISE = -1
 # Note so far the only win condition is having an empty hand. When more
 # win conditions arise then a new file can be made to hold common win conditions
 def empty_hand_win_cond(env):
-    for player in env.players:
+    for i, player in enumerate(env.players):
         if player.hand_size() == 0:
+            env.winner_pos = i
             return True
     return False
 

@@ -15,8 +15,9 @@ class SpoonsEnv(Env):
 
 
 def spoons_win_cond(env):
-    for player in env.players:
+    for i, player in enumerate(env.players):
         if any_four_of_a_kind(player.hand):
+            env.winner_pos = i
             return True
     return False
 
