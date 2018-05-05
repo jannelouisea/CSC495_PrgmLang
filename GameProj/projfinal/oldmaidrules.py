@@ -73,7 +73,7 @@ class DealerRule(OldmaidRule):
     def act(self, player):
         # cards to pick from
         cards_available = len(self.env.players[1].hand)
-        cards = player.cards_meet_cond()
+        cards = self.env.players[1].cards_meet_cond()
         discard = self.oldmaid_choose_card(cards, cards_available)
         #remove from other player's hand
         #add to dealer's hand
@@ -102,9 +102,9 @@ class PassRule(OldmaidRule):
     # ------------------------------------------------------------------------------------------------- #
     def act(self, player):
         cards_available = len(self.env.players[0].hand)
-        cards = player.cards_meet_cond()
+        cards = self.env.players[0].cards_meet_cond()
         discard = self.oldmaid_choose_card(cards, cards_available)
-        # remove from other dealer's hand
+        # remove from dealer's hand
         # add to other player's hand
         print("You chose card: {}".format(self.env.players[0].hand[discard]))
         player.hand.append(self.env.players[0].rmv_from_hand(discard))
